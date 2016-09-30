@@ -1,0 +1,5 @@
+dde-qt-dbus-factory
+===================
+
+dde-qt-dbus-factory is a repository stores auto-generated Qt5 dbus code. It can ease the pain that every dde developer have to re-generate code for the same dbus interface or have to copy code from other dde projects doing there new projects.
+
