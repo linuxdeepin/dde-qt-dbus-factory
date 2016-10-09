@@ -3,9 +3,9 @@ TARGET = dframeworkdbus
 VERSION = 1.0
 CONFIG += c++11 create_pc create_prl no_install_prl
 
-HEADERS += src/dbus_notifications.h
+HEADERS += src/org_freedesktop_notifications.h
 
-SOURCES += src/dbus_notifications.cpp
+SOURCES += src/org_freedesktop_notifications.cpp
 
 
 isEmpty(LIB_INSTALL_DIR) {
