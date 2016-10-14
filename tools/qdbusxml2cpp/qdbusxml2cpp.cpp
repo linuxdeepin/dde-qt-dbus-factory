@@ -46,9 +46,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PROGRAMNAME     "qdbusxml2cpp"
+#define PROGRAMNAME     "qdbusxml2cpp-fix"
 #define PROGRAMVERSION  "0.8"
-#define PROGRAMCOPYRIGHT "Copyright (C) 2016 The Qt Company Ltd."
+#define PROGRAMCOPYRIGHT "Copyright (C) 2016 Deepin Technology Co., Ltd."
 
 #define ANNOTATION_NO_WAIT      "org.freedesktop.DBus.Method.NoReply"
 
