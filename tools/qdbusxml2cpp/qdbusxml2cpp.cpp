@@ -622,11 +622,12 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
            << "            return;" << endl
            << "        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());" << endl
            << "        foreach(const QString &prop, changedProps.keys()) {" << endl
-           << "        const QMetaObject* self = metaObject();" << endl
+           << "            const QMetaObject* self = metaObject();" << endl
            << "            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {" << endl
            << "                QMetaProperty p = self->property(i);" << endl
+           << "                QGenericArgument value(QMetaType::typeName(p.type()), const_cast<void*>(changedProps[prop].constData()));" << endl
            << "                if (p.name() == prop) {" << endl
-           << "                    emit p.notifySignal().invoke(this);" << endl
+           << "                    emit p.notifySignal().invoke(this, value);" << endl
            << "                }" <<  endl
            << "            }" << endl
            << "        }" << endl
@@ -814,12 +815,11 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
         hs << "// begin property changed signals" << endl;
         foreach (const QDBusIntrospection::Property &property, interface->properties) {
             QByteArray type = qtTypeName(property.type, property.annotations);
-            QString templateType = templateArg(type);
             QString constRefType = constRefArg(type);
             QString notifier = propertyNotifier(property);
 
             //notifier
-               hs << "void " << notifier << "();" << endl;
+            hs << "void " << notifier << "(" << constRefType << " value" << ");" << endl;
         }
 
         // close the class:

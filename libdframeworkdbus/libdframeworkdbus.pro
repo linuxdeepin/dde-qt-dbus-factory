@@ -3,10 +3,11 @@ TARGET = dframeworkdbus
 VERSION = 1.0
 CONFIG += c++11 create_pc create_prl no_install_prl
 
-HEADERS += $$PWD/org_freedesktop_notifications.h
+HEADERS += $$PWD/org_freedesktop_notifications.h \
+           $$PWD/com_deepin_daemon_grub2.h
 
-SOURCES += $$PWD/org_freedesktop_notifications.cpp
-
+SOURCES += $$PWD/org_freedesktop_notifications.cpp \
+           $$PWD/com_deepin_daemon_grub2.cpp
 
 isEmpty(LIB_INSTALL_DIR) {
     target.path = /usr/lib
