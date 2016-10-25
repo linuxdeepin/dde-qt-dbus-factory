@@ -3,6 +3,8 @@ TARGET = dframeworkdbus
 VERSION = 1.0
 CONFIG += c++11 create_pc create_prl no_install_prl
 
+include(qtdbusextended/qtdbusextended.pri)
+
 HEADERS += $$PWD/org_freedesktop_notifications.h \
            $$PWD/com_deepin_daemon_grub2.h
 

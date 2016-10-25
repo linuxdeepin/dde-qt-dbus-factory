@@ -94,7 +94,9 @@ static const char includeList[] =
     "#include <QtCore/QMap>\n"
     "#include <QtCore/QString>\n"
     "#include <QtCore/QStringList>\n"
-    "#include <QtCore/QVariant>\n";
+    "#include <QtCore/QVariant>\n"
+    "\n"
+    "#include <DBusExtendedAbstractInterface>\n";
 
 static const char forwardDeclarations[] =
     "QT_BEGIN_NAMESPACE\n"
@@ -607,31 +609,32 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
            << endl;
 
         // class header:
-        hs << "class " << className << ": public QDBusAbstractInterface" << endl
+        hs << "class " << className << ": public DBusExtendedAbstractInterface" << endl
            << "{" << endl
            << "    Q_OBJECT" << endl;
+        hs << endl;
 
-        hs << endl
-           << "    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)" << endl
-           << "    {" << endl
-           << "        QList<QVariant> arguments = msg.arguments();" << endl
-           << "        if (3 != arguments.count())" << endl
-           << "            return;" << endl
-           << "        QString interfaceName = msg.arguments().at(0).toString();" << endl
-           << "        if (interfaceName != \"" << interface->name  << "\")"  << endl
-           << "            return;" << endl
-           << "        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());" << endl
-           << "        foreach(const QString &prop, changedProps.keys()) {" << endl
-           << "            const QMetaObject* self = metaObject();" << endl
-           << "            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {" << endl
-           << "                QMetaProperty p = self->property(i);" << endl
-           << "                QGenericArgument value(QMetaType::typeName(p.type()), const_cast<void*>(changedProps[prop].constData()));" << endl
-           << "                if (p.name() == prop) {" << endl
-           << "                    emit p.notifySignal().invoke(this, value);" << endl
-           << "                }" <<  endl
-           << "            }" << endl
-           << "        }" << endl
-           << "   }" << endl;
+//        hs << endl
+//           << "    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)" << endl
+//           << "    {" << endl
+//           << "        QList<QVariant> arguments = msg.arguments();" << endl
+//           << "        if (3 != arguments.count())" << endl
+//           << "            return;" << endl
+//           << "        QString interfaceName = msg.arguments().at(0).toString();" << endl
+//           << "        if (interfaceName != \"" << interface->name  << "\")"  << endl
+//           << "            return;" << endl
+//           << "        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());" << endl
+//           << "        foreach(const QString &prop, changedProps.keys()) {" << endl
+//           << "            const QMetaObject* self = metaObject();" << endl
+//           << "            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {" << endl
+//           << "                QMetaProperty p = self->property(i);" << endl
+//           << "                QGenericArgument value(QMetaType::typeName(p.type()), const_cast<void*>(changedProps[prop].constData()));" << endl
+//           << "                if (p.name() == prop) {" << endl
+//           << "                    emit p.notifySignal().invoke(this, value);" << endl
+//           << "                }" <<  endl
+//           << "            }" << endl
+//           << "        }" << endl
+//           << "   }" << endl;
 
         // the interface name
         hs << "public:" << endl
@@ -646,24 +649,47 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
            << "    ~" << className << "();" << endl
            << endl;
         cs << className << "::" << className << "(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)" << endl
-           << "    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)" << endl
+           << "    : DBusExtendedAbstractInterface(service, path, staticInterfaceName(), connection, parent)" << endl
            << "{" << endl
-           << "    QDBusConnection::sessionBus().connect(this->service(), this->path(), \"org.freedesktop.DBus.Properties\",  \"PropertiesChanged\","
-           << "\"sa{sv}as\", this, SLOT(__propertyChanged__(QDBusMessage)));" << endl
+           << "    connect(this, &" << className << "::propertyChanged, this, &" << className << "::onPropertyChanged);" << endl
+//           << "    QDBusConnection::sessionBus().connect(this->service(), this->path(), \"org.freedesktop.DBus.Properties\",  \"PropertiesChanged\","
+//           << "\"sa{sv}as\", this, SLOT(__propertyChanged__(QDBusMessage)));" << endl
            << "}" << endl
            << endl
            << className << "::~" << className << "()" << endl
            << "{" << endl
-           << "    QDBusConnection::sessionBus().disconnect(service(), path(), \"org.freedesktop.DBus.Properties\",  \"PropertiesChanged\","
-           << "  \"sa{sv}as\", this, SLOT(propertyChanged(QDBusMessage)));" << endl
+//           << "    QDBusConnection::sessionBus().disconnect(service(), path(), \"org.freedesktop.DBus.Properties\",  \"PropertiesChanged\","
+//           << "  \"sa{sv}as\", this, SLOT(propertyChanged(QDBusMessage)));" << endl
            << "}" << endl
            << endl;
+
+        // onPropertyChanged
+        cs << "void " << className << "::onPropertyChanged(const QString &propName, const QVariant &value)" << endl;
+        cs << "{" << endl;
+        for (const auto property : interface->properties)
+        {
+            QByteArray type = qtTypeName(property.type, property.annotations);
+
+            cs << "    if (propName == QStringLiteral(\"" << property.name << "\"))" << endl;
+            cs << "    {" << endl;
+            cs << "        " << type << ' ' << property.name << " = qvariant_cast<" << type << ">(value);" << endl;
+            cs << "        " << "if (m_" << property.name << " != " << property.name << ")" << endl;
+            cs << "        {" << endl;
+            cs << "            m_" << property.name << " = " << property.name << ';' << endl;
+            cs << "            emit " << property.name << "Changed(" << property.name << ");" << endl;
+            cs << "            return;" << endl;
+            cs << "        }" << endl;
+            cs << "    }" << endl;
+            cs << endl;
+        }
+        cs << "    Q_UNREACHABLE();" << endl;
+        cs << "}" << endl;
 
         // properties:
         foreach (const QDBusIntrospection::Property &property, interface->properties) {
             QByteArray type = qtTypeName(property.type, property.annotations);
-            QString templateType = templateArg(type);
-            QString constRefType = constRefArg(type);
+//            QString templateType = templateArg(type);
+//            QString constRefType = constRefArg(type);
             QString getter = propertyGetter(property);
             QString setter = propertySetter(property);
             QString notifier = propertyNotifier(property);
@@ -687,16 +713,16 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
 
             // getter:
             if (property.access != QDBusIntrospection::Property::Write) {
-                hs << "    inline " << type << " " << getter << "() const" << endl
-                    << "    { return qvariant_cast< " << type << " >(property(\""
-                    << property.name << "\")); }" << endl;
+                hs << "    inline " << type << " " << getter << "()" << endl
+                    << "    { return qvariant_cast< " << type << " >(internalPropGet(\""
+                    << property.name << "\", &m_" << property.name << ")); }" << endl;
             }
 
             // setter:
             if (property.access != QDBusIntrospection::Property::Read) {
                 hs << "    inline void " << setter << "(" << constRefArg(type) << "value)" << endl
-                   << "    { setProperty(\"" << property.name
-                   << "\", QVariant::fromValue(value)); }" << endl;
+                   << "    { internalPropSet(\"" << property.name
+                   << "\", QVariant::fromValue(value), &m_" << property.name << "); }" << endl;
             }
 
             hs << endl;
@@ -814,12 +840,29 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
         //propery changed signals
         hs << "// begin property changed signals" << endl;
         foreach (const QDBusIntrospection::Property &property, interface->properties) {
+            hs << "    ";
             QByteArray type = qtTypeName(property.type, property.annotations);
             QString constRefType = constRefArg(type);
             QString notifier = propertyNotifier(property);
 
             //notifier
             hs << "void " << notifier << "(" << constRefType << " value" << ");" << endl;
+        }
+
+        // private slots
+        hs << endl;
+        hs << "// begin private slots" << endl;
+        hs << "private Q_SLOTS:" << endl;
+        hs << "    void onPropertyChanged(const QString &propName, const QVariant &value);" << endl;
+
+        // private member variables
+        hs << endl;
+        hs << "// begin private member vaiables" << endl;
+        hs << "private:" << endl;
+        for (const auto property : interface->properties)
+        {
+            QByteArray type = qtTypeName(property.type, property.annotations);
+            hs << "    " << type << " m_" << property.name << ';' << endl;
         }
 
         // close the class:
@@ -1027,8 +1070,8 @@ static void writeAdaptor(const QString &filename, const QDBusIntrospection::Inte
 
             // setter
             if (property.access != QDBusIntrospection::Property::Read) {
-                hs << "    void " << setter << "(" << constRefType << "value);" << endl;
-                cs << "void " << className << "::" << setter << "(" << constRefType << "value)" << endl
+                hs << "    void " << setter << "(" << type << "value);" << endl;
+                cs << "void " << className << "::" << setter << "(" << type << "value)" << endl
                    << "{" << endl
                    << "    // set the value of property " << property.name << endl
                    << "    parent()->setProperty(\"" << property.name << "\", QVariant::fromValue(value";
