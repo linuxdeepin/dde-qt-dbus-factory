@@ -61,7 +61,7 @@ void DBusExtendedAbstractInterface::setSync(bool sync)
 {
     m_sync = sync;
 
-    // start service process
+    // init all properties
     if (!m_sync && !isValid())
         startServiceProcess();
 }

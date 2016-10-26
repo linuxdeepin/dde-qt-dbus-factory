@@ -149,9 +149,9 @@ Q_SIGNALS: // SIGNALS
     void UserAdded(const QString &in0);
     void UserDeleted(const QString &in0);
 // begin property changed signals
-    void AllowGuestChanged(bool  value);
-    void GuestIconChanged(const QString & value);
-    void UserListChanged(const QStringList & value);
+    void AllowGuestChanged(bool  value) const;
+    void GuestIconChanged(const QString & value) const;
+    void UserListChanged(const QStringList & value) const;
 
 // begin private slots
 private Q_SLOTS:

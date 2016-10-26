@@ -672,17 +672,18 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
 
             cs << "    if (propName == QStringLiteral(\"" << property.name << "\"))" << endl;
             cs << "    {" << endl;
-            cs << "        " << type << ' ' << property.name << " = qvariant_cast<" << type << ">(value);" << endl;
+            cs << "        const " << type << ' ' << property.name << " = qvariant_cast<" << type << ">(value);" << endl;
             cs << "        " << "if (m_" << property.name << " != " << property.name << ")" << endl;
             cs << "        {" << endl;
             cs << "            m_" << property.name << " = " << property.name << ';' << endl;
-            cs << "            emit " << property.name << "Changed(" << property.name << ");" << endl;
-            cs << "            return;" << endl;
+            cs << "            emit " << property.name << "Changed(m_" << property.name << ");" << endl;
             cs << "        }" << endl;
+            cs << "        return;" << endl;
             cs << "    }" << endl;
             cs << endl;
         }
-        cs << "    Q_UNREACHABLE();" << endl;
+        cs << "    qWarning() << \"property not handle: \" << propName;" << endl;
+        cs << "    return;" << endl;
         cs << "}" << endl;
 
         // properties:
@@ -846,7 +847,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             QString notifier = propertyNotifier(property);
 
             //notifier
-            hs << "void " << notifier << "(" << constRefType << " value" << ");" << endl;
+            hs << "void " << notifier << "(" << constRefType << " value" << ") const;" << endl;
         }
 
         // private slots

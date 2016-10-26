@@ -29,36 +29,37 @@ void Accounts::onPropertyChanged(const QString &propName, const QVariant &value)
 {
     if (propName == QStringLiteral("AllowGuest"))
     {
-        bool AllowGuest = qvariant_cast<bool>(value);
+        const bool AllowGuest = qvariant_cast<bool>(value);
         if (m_AllowGuest != AllowGuest)
         {
             m_AllowGuest = AllowGuest;
-            emit AllowGuestChanged(AllowGuest);
-            return;
+            emit AllowGuestChanged(m_AllowGuest);
         }
+        return;
     }
 
     if (propName == QStringLiteral("GuestIcon"))
     {
-        QString GuestIcon = qvariant_cast<QString>(value);
+        const QString GuestIcon = qvariant_cast<QString>(value);
         if (m_GuestIcon != GuestIcon)
         {
             m_GuestIcon = GuestIcon;
-            emit GuestIconChanged(GuestIcon);
-            return;
+            emit GuestIconChanged(m_GuestIcon);
         }
+        return;
     }
 
     if (propName == QStringLiteral("UserList"))
     {
-        QStringList UserList = qvariant_cast<QStringList>(value);
+        const QStringList UserList = qvariant_cast<QStringList>(value);
         if (m_UserList != UserList)
         {
             m_UserList = UserList;
-            emit UserListChanged(UserList);
-            return;
+            emit UserListChanged(m_UserList);
         }
+        return;
     }
 
-    Q_UNREACHABLE();
+    qWarning() << "property not handle: " << propName;
+    return;
 }

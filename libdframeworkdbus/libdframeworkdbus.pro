@@ -5,11 +5,15 @@ CONFIG += c++11 create_pc create_prl no_install_prl
 
 include(qtdbusextended/qtdbusextended.pri)
 
-HEADERS += $$PWD/org_freedesktop_notifications.h \
-           $$PWD/com_deepin_daemon_grub2.h
+HEADERS += \
+    org_freedesktop_notifications.h \
+    com_deepin_daemon_grub2.h \
+    com_deepin_daemon_accounts.h
 
-SOURCES += $$PWD/org_freedesktop_notifications.cpp \
-           $$PWD/com_deepin_daemon_grub2.cpp
+SOURCES += \
+    org_freedesktop_notifications.cpp \
+    com_deepin_daemon_grub2.cpp \
+    com_deepin_daemon_accounts.cpp
 
 isEmpty(LIB_INSTALL_DIR) {
     target.path = /usr/lib
