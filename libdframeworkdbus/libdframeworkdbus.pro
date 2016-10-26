@@ -5,15 +5,12 @@ CONFIG += c++11 create_pc create_prl no_install_prl
 
 include(qtdbusextended/qtdbusextended.pri)
 
-HEADERS += \
-    org_freedesktop_notifications.h \
-    com_deepin_daemon_grub2.h \
-    com_deepin_daemon_accounts.h
+HEADERS +=
 
-SOURCES += \
-    org_freedesktop_notifications.cpp \
-    com_deepin_daemon_grub2.cpp \
-    com_deepin_daemon_accounts.cpp
+SOURCES += 
+
+system(python2 generate_code.py)
+include(generated/generated.pri)
 
 isEmpty(LIB_INSTALL_DIR) {
     target.path = /usr/lib
