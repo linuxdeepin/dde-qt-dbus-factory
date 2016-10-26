@@ -39,6 +39,7 @@
 #include <qstringlist.h>
 #include <qtextstream.h>
 #include <qset.h>
+#include <qmap.h>
 
 #include <qdbusmetatype.h>
 #include <private/qdbusintrospection_p.h>
@@ -596,6 +597,26 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             cs << "#include \"" << headerName << "\"" << endl << endl;
     }
 
+    QSet<QString> annotations;
+    for (const QDBusIntrospection::Interface *interface : interfaces)
+    {
+        for (const auto method : interface->methods)
+        {
+            for (int i(0); i != method.outputArgs.size(); ++i)
+            {
+                const QDBusIntrospection::Argument &arg = method.outputArgs[i];
+                if (QDBusMetaType::signatureToType(arg.type.toLatin1()) != QVariant::Invalid)
+                    continue;
+
+                annotations << qtTypeName(arg.type, method.annotations, i, "Out");
+            }
+        }
+    }
+
+    for (const QString &anootation : annotations)
+        hs << "#include \"types/" << anootation.toLower() << ".h\"" << endl;
+    hs << endl;
+
     foreach (const QDBusIntrospection::Interface *interface, interfaces) {
         QString className = classNameForInterface(interface->name, Proxy);
 
@@ -650,11 +671,19 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
            << endl;
         cs << className << "::" << className << "(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)" << endl
            << "    : DBusExtendedAbstractInterface(service, path, staticInterfaceName(), connection, parent)" << endl
-           << "{" << endl
-           << "    connect(this, &" << className << "::propertyChanged, this, &" << className << "::onPropertyChanged);" << endl
+           << "{" << endl;
+        if (!interface->properties.isEmpty())
+            cs   << "    connect(this, &" << className << "::propertyChanged, this, &" << className << "::onPropertyChanged);" << endl << endl;
 //           << "    QDBusConnection::sessionBus().connect(this->service(), this->path(), \"org.freedesktop.DBus.Properties\",  \"PropertiesChanged\","
 //           << "\"sa{sv}as\", this, SLOT(__propertyChanged__(QDBusMessage)));" << endl
-           << "}" << endl
+
+        for (const QString &annotation : annotations)
+        {
+            cs << "    qRegisterMetaType<" << annotation << ">();" << endl;
+            cs << "    qDBusRegisterMetaType<" << annotation << ">();" << endl;
+        }
+
+        cs << "}" << endl
            << endl
            << className << "::~" << className << "()" << endl
            << "{" << endl
@@ -663,28 +692,31 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
            << "}" << endl
            << endl;
 
-        // onPropertyChanged
-        cs << "void " << className << "::onPropertyChanged(const QString &propName, const QVariant &value)" << endl;
-        cs << "{" << endl;
-        for (const auto property : interface->properties)
+        if (!interface->properties.isEmpty())
         {
-            QByteArray type = qtTypeName(property.type, property.annotations);
+            // onPropertyChanged
+            cs << "void " << className << "::onPropertyChanged(const QString &propName, const QVariant &value)" << endl;
+            cs << "{" << endl;
+            for (const auto property : interface->properties)
+            {
+                QByteArray type = qtTypeName(property.type, property.annotations);
 
-            cs << "    if (propName == QStringLiteral(\"" << property.name << "\"))" << endl;
-            cs << "    {" << endl;
-            cs << "        const " << type << ' ' << property.name << " = qvariant_cast<" << type << ">(value);" << endl;
-            cs << "        " << "if (m_" << property.name << " != " << property.name << ")" << endl;
-            cs << "        {" << endl;
-            cs << "            m_" << property.name << " = " << property.name << ';' << endl;
-            cs << "            emit " << property.name << "Changed(m_" << property.name << ");" << endl;
-            cs << "        }" << endl;
-            cs << "        return;" << endl;
-            cs << "    }" << endl;
-            cs << endl;
+                cs << "    if (propName == QStringLiteral(\"" << property.name << "\"))" << endl;
+                cs << "    {" << endl;
+                cs << "        const " << type << ' ' << property.name << " = qvariant_cast<" << type << ">(value);" << endl;
+                cs << "        " << "if (m_" << property.name << " != " << property.name << ")" << endl;
+                cs << "        {" << endl;
+                cs << "            m_" << property.name << " = " << property.name << ';' << endl;
+                cs << "            emit " << property.name << "Changed(m_" << property.name << ");" << endl;
+                cs << "        }" << endl;
+                cs << "        return;" << endl;
+                cs << "    }" << endl;
+                cs << endl;
+            }
+            cs << "    qWarning() << \"property not handle: \" << propName;" << endl;
+            cs << "    return;" << endl;
+            cs << "}" << endl;
         }
-        cs << "    qWarning() << \"property not handle: \" << propName;" << endl;
-        cs << "    return;" << endl;
-        cs << "}" << endl;
 
         // properties:
         foreach (const QDBusIntrospection::Property &property, interface->properties) {

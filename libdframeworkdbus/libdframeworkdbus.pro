@@ -5,9 +5,11 @@ CONFIG += c++11 create_pc create_prl no_install_prl
 
 include(qtdbusextended/qtdbusextended.pri)
 
-HEADERS +=
+HEADERS += \
+    types/zoneinfo.h
 
-SOURCES += 
+SOURCES += \ 
+    types/zoneinfo.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
