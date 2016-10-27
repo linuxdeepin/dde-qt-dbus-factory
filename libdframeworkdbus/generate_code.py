@@ -21,8 +21,7 @@ def xml_to_class_name(xml_file):
     return xml_name.replace(".xml", "").split(".")[-1]
 
 def generate_one(xml_file, dest_dir):
-    binary_path = os.path.join(project_root, "tools",
-        "qdbusxml2cpp", "qdbusxml2cpp-fix")
+    binary_path = os.path.join(project_root, "bin", "qdbusxml2cpp-fix")
     generated_name = xml_to_generated_name(xml_file)
     class_name = xml_to_class_name(xml_file)
     file_name = os.path.join(dest_dir, generated_name)
@@ -47,9 +46,9 @@ def main():
             generate_one(xml, generated_dir)
 
         print "generating the pri file..."
-        pwd = lambda x: "$$PWD/%s" % x
-        sources = map(pwd, glob.glob1(generated_dir, "*.cpp"))
-        headers = map(pwd, glob.glob1(generated_dir, "*.h"))
+        pwdfy = lambda x: "$$PWD/%s" % x
+        sources = map(pwdfy, glob.glob1(generated_dir, "*.cpp"))
+        headers = map(pwdfy, glob.glob1(generated_dir, "*.h"))
         pri.write("HEADERS += %s\n" % " ".join(headers))
         pri.write("SOURCES += %s" % " ".join(sources))
         print "done."

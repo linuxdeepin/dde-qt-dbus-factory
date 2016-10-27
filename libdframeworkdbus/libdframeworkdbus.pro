@@ -9,7 +9,7 @@ HEADERS +=
 
 SOURCES += 
 
-system(python2 generate_code.py)
+system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
 
 isEmpty(LIB_INSTALL_DIR) {

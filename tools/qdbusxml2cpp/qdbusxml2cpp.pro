@@ -5,5 +5,4 @@ QT += core dbus-private
 
 SOURCES += qdbusxml2cpp.cpp
 
-target.path = /usr/bin/
-INSTALLS += target
+DESTDIR = $$PWD/../../bin/
