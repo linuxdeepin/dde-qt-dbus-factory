@@ -20,8 +20,22 @@ isEmpty(LIB_INSTALL_DIR) {
     target.path = $$LIB_INSTALL_DIR
 }
 
-includes.files += $$HEADERS
+includes.files =
 includes.path = /usr/include/libdframeworkdbus-$$VERSION
+
+type_headers.files =
+type_headers.path = $$includes.path/types
+
+for(header, HEADERS) {
+    TMP = $${dirname(header)}
+    DIRNAME = $${basename(TMP)}
+
+    equals(DIRNAME, types) {
+        eval(type_headers.files += $$header)
+    } else {
+        eval(includes.files += $$header)
+    }
+}
 
 QMAKE_PKGCONFIG_NAME = libdframeworkdbus
 QMAKE_PKGCONFIG_VERSION = $$VERSION
@@ -30,4 +44,4 @@ QMAKE_PKGCONFIG_INCDIR = $$includes.path
 QMAKE_PKGCONFIG_LIBDIR = $$target.path
 QMAKE_PKGCONFIG_DESTDIR = pkgconfig
 
-INSTALLS += includes target
+INSTALLS += includes type_headers target
