@@ -6,7 +6,9 @@ CONFIG += c++11 create_pc create_prl no_install_prl
 include(qtdbusextended/qtdbusextended.pri)
 
 HEADERS += \
-    types/zoneinfo.h
+    types/zoneinfo.h \
+    types/audioport.h \
+    types/audioportlist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp
