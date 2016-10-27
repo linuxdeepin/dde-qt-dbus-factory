@@ -882,11 +882,14 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             hs << "void " << notifier << "(" << constRefType << " value" << ") const;" << endl;
         }
 
-        // private slots
-        hs << endl;
-        hs << "// begin private slots" << endl;
-        hs << "private Q_SLOTS:" << endl;
-        hs << "    void onPropertyChanged(const QString &propName, const QVariant &value);" << endl;
+        if (!interface->properties.isEmpty())
+        {
+            // private slots
+            hs << endl;
+            hs << "// begin private slots" << endl;
+            hs << "private Q_SLOTS:" << endl;
+            hs << "    void onPropertyChanged(const QString &propName, const QVariant &value);" << endl;
+        }
 
         // private member variables
         hs << endl;
