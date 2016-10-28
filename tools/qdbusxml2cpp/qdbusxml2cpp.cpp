@@ -626,7 +626,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
     hs << endl;
 
     foreach (const QDBusIntrospection::Interface *interface, interfaces) {
-        QString className = classNameForInterface(interface->name, Proxy);
+        QString className = "__" + classNameForInterface(interface->name, Proxy);
 
         // comment:
         hs << "/*" << endl
@@ -638,7 +638,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
            << endl;
 
         // class header:
-        hs << "class " << className << ": public DBusExtendedAbstractInterface" << endl
+        hs << "class " << className << " : public DBusExtendedAbstractInterface" << endl
            << "{" << endl
            << "    Q_OBJECT" << endl;
         hs << endl;
@@ -937,12 +937,12 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
 
             // open current.arguments().count() - i namespaces
             for (int j = i; j < current.count(); ++j)
-                hs << QString(j * 2, QLatin1Char(' ')) << "namespace " << current.at(j) << " {" << endl;
+                hs << QString(j * 2, QLatin1Char(' ')) << "namespace " << current.at(j).toLower() << " {" << endl;
 
             // add this class:
             if (!name.isEmpty()) {
                 hs << QString(current.count() * 2, QLatin1Char(' '))
-                   << "typedef ::" << classNameForInterface(it->constData()->name, Proxy)
+                   << "typedef ::__" << classNameForInterface(it->constData()->name, Proxy)
                    << " " << name << ";" << endl;
             }
 

@@ -28,7 +28,7 @@ def generate_one(xml_file, dest_dir):
 
     print binary_path, "-c", class_name, "-p", file_name, xml_file
 
-    subprocess.call([binary_path, "-N", "-c", class_name, "-p", file_name, xml_file])
+    subprocess.call([binary_path, "-c", class_name, "-p", file_name, xml_file])
 
 def main():
     xml_files = get_xml_files()
