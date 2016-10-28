@@ -253,7 +253,10 @@ void DBusExtendedAbstractInterface::internalPropSet(const char *propname, const 
             return;
         }
 
-        asyncSetProperty(propname, QVariant(metaProperty.type(), propertyPtr));
+        QVariant variant = QVariant(metaProperty.type(), propertyPtr);
+        variant = value;
+
+        asyncSetProperty(propname, variant);
     }
 }
 
@@ -272,11 +275,12 @@ QVariant DBusExtendedAbstractInterface::asyncProperty(const QString &propertyNam
 void DBusExtendedAbstractInterface::asyncSetProperty(const QString &propertyName, const QVariant &value)
 {
     QDBusMessage msg = QDBusMessage::createMethodCall(service(), path(), *dBusPropertiesInterface(), QStringLiteral("Set"));
-    msg << interface() << propertyName << value;
-    QDBusPendingReply<QVariant> async = connection().asyncCall(msg);
+
+    msg << interface() << propertyName << QVariant::fromValue(QDBusVariant(value));
+    QDBusPendingReply<> async = connection().asyncCall(msg);
     DBusExtendedPendingCallWatcher *watcher = new DBusExtendedPendingCallWatcher(async, propertyName, value, this);
 
-    connect(watcher, SIGNAL(finished(DBusExtendedPendingCallWatcher*)), this, SLOT(onAsyncSetPropertyFinished(DBusExtendedPendingCallWatcher*)));
+    connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(onAsyncSetPropertyFinished(QDBusPendingCallWatcher*)));
 }
 
 void DBusExtendedAbstractInterface::startServiceProcess()
@@ -299,7 +303,6 @@ void DBusExtendedAbstractInterface::onStartServiceProcessFinished(QDBusPendingCa
     if (w->isError())
     {
         m_lastExtendedError = w->error();
-        qDebug() << Q_FUNC_INFO << w->error();
     } else {
         m_lastExtendedError = QDBusError();
         getAllProperties();
@@ -335,12 +338,12 @@ void DBusExtendedAbstractInterface::onAsyncPropertyFinished(QDBusPendingCallWatc
     watcher->deleteLater();
 }
 
-void DBusExtendedAbstractInterface::onAsyncSetPropertyFinished(DBusExtendedPendingCallWatcher *w)
+void DBusExtendedAbstractInterface::onAsyncSetPropertyFinished(QDBusPendingCallWatcher *w)
 {
     DBusExtendedPendingCallWatcher *watcher = qobject_cast<DBusExtendedPendingCallWatcher *>(w);
     Q_ASSERT(watcher);
 
-    QDBusPendingReply<QVariant> reply = *watcher;
+    QDBusPendingReply<> reply = *watcher;
 
     if (reply.isError()) {
         m_lastExtendedError = reply.error();

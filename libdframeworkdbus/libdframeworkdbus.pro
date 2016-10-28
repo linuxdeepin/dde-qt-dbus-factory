@@ -8,7 +8,10 @@ include(qtdbusextended/qtdbusextended.pri)
 HEADERS += \
     types/zoneinfo.h \
     types/audioport.h \
-    types/audioportlist.h
+    types/audioportlist.h \
+    types/batterypercentageinfo.h \
+    types/batterypresentinfo.h \
+    types/batterystateinfo.h
 
 SOURCES += \ 
     types/zoneinfo.cpp

@@ -11,8 +11,14 @@
           <property name="LidClosedAction" type="s" access="readwrite"></property>
           <property name="LidIsPresent" type="b" access="read"></property>
           <property name="OnBattery" type="b" access="read"></property>
-          <property name="BatteryIsPresent" type="a{sb}" access="read"></property>
-          <property name="BatteryPercentage" type="a{sd}" access="read"></property>
-          <property name="BatteryState" type="a{su}" access="read"></property>
+          <property name="BatteryIsPresent" type="a{sb}" access="read">
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryPresentInfo"/>
+          </property>
+          <property name="BatteryPercentage" type="a{sd}" access="read">
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryPercentageInfo"/>
+          </property>
+          <property name="BatteryState" type="a{su}" access="read">
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryStateInfo"/>
+          </property>
           <property name="WarnLevel" type="u" access="read"></property>
      </interface>

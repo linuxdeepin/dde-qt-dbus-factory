@@ -76,7 +76,7 @@ private Q_SLOTS:
                              const QVariantMap& changedProperties,
                              const QStringList& invalidatedProperties);
     void onAsyncPropertyFinished(QDBusPendingCallWatcher *w);
-    void onAsyncSetPropertyFinished(DBusExtendedPendingCallWatcher *w);
+    void onAsyncSetPropertyFinished(QDBusPendingCallWatcher *w);
     void onAsyncGetAllPropertiesFinished(QDBusPendingCallWatcher *watcher);
     void onStartServiceProcessFinished(QDBusPendingCallWatcher *w);
 
