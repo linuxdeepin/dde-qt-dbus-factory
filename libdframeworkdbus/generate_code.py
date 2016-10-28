@@ -35,7 +35,11 @@ def main():
 
     # generate generated code dir
     generated_dir = "generated"
-    if not os.path.exists(generated_dir): os.mkdir(generated_dir)
+    if not os.path.exists(generated_dir):
+        os.mkdir(generated_dir)
+    else:
+        for file in glob.glob1(generated_dir, "*"):
+            os.remove(os.path.join(generated_dir, file))
 
     # generate generated.pri
     generated_pri = os.path.join(os.path.abspath(generated_dir),
