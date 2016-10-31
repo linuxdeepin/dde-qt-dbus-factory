@@ -52,6 +52,9 @@ public:
     void getAllProperties();
     inline QDBusError lastExtendedError() const { return m_lastExtendedError; }
 
+public slots:
+    void startServiceProcess();
+
 protected:
     DBusExtendedAbstractInterface(const QString &service,
                                   const QString &path,
@@ -65,6 +68,7 @@ protected:
     void internalPropSet(const char *propname, const QVariant &value, void *propertyPtr);
 
 Q_SIGNALS:
+    void serviceStartFinished(const QDBusError &error) const;
     void propertyChanged(const QString &propertyName, const QVariant &value);
     void propertyInvalidated(const QString &propertyName);
     void asyncPropertyFinished(const QString &propertyName);
@@ -83,7 +87,6 @@ private Q_SLOTS:
 private:
     QVariant asyncProperty(const QString &propertyName);
     void asyncSetProperty(const QString &propertyName, const QVariant &value);
-    void startServiceProcess();
     static QVariant demarshall(const QString &interface, const QMetaProperty &metaProperty, const QVariant &value, QDBusError *error);
 
     bool m_sync;

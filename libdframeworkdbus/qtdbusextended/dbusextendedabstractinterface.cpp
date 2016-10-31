@@ -305,8 +305,9 @@ void DBusExtendedAbstractInterface::onStartServiceProcessFinished(QDBusPendingCa
         m_lastExtendedError = w->error();
     } else {
         m_lastExtendedError = QDBusError();
-        getAllProperties();
     }
+
+    emit serviceStartFinished(m_lastExtendedError);
 
     w->deleteLater();
 }
