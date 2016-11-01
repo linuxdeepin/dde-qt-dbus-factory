@@ -51,6 +51,7 @@ DBusExtendedAbstractInterface::DBusExtendedAbstractInterface(const QString &serv
     , m_getAllPendingCallWatcher(0)
     , m_propertiesChangedConnected(false)
 {
+    QDBusConnection::sessionBus().connect(QString("org.freedesktop.DBus"), QString("/org/freedesktop/DBus"), QString("org.freedesktop.DBus"), QString("NameOwnerChanged"), this, SLOT(onDBusNameOwnerChanged(QString,QString,QString)));
 }
 
 DBusExtendedAbstractInterface::~DBusExtendedAbstractInterface()
@@ -287,11 +288,11 @@ void DBusExtendedAbstractInterface::startServiceProcess()
 {
     Q_ASSERT(!isValid());
 
-    if (!m_useCache)
-        qWarning() << QStringLiteral("Maybe your dbus service is not permanent process, you need to open cache with setUseCache(true)");
+//    if (!m_useCache)
+//        qWarning() << QStringLiteral("Maybe your dbus service is not permanent process, you need to open cache with setUseCache(true)");
 
     QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.DBus", "/", *dBusInterface(), QStringLiteral("StartServiceByName"));
-    msg << interface() << quint32(0);
+    msg << service() << quint32(0);
     QDBusPendingReply<quint32> async = connection().asyncCall(msg);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
@@ -307,7 +308,9 @@ void DBusExtendedAbstractInterface::onStartServiceProcessFinished(QDBusPendingCa
         m_lastExtendedError = QDBusError();
     }
 
-    emit serviceStartFinished(m_lastExtendedError);
+    QDBusPendingReply<quint32> reply = *w;
+
+    emit serviceStartFinished(reply.value());
 
     w->deleteLater();
 }
@@ -421,6 +424,15 @@ void DBusExtendedAbstractInterface::onPropertiesChanged(const QString& interface
             ++j;
         }
     }
+}
+
+void DBusExtendedAbstractInterface::onDBusNameOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner)
+{
+    Q_UNUSED(oldOwner);
+    Q_UNUSED(newOwner);
+
+    if (name == service())
+        emit serviceValidChanged(isValid());
 }
 
 QVariant DBusExtendedAbstractInterface::demarshall(const QString &interface, const QMetaProperty &metaProperty, const QVariant &value, QDBusError *error)

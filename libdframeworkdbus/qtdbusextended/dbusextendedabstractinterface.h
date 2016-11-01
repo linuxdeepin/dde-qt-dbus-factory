@@ -68,7 +68,8 @@ protected:
     void internalPropSet(const char *propname, const QVariant &value, void *propertyPtr);
 
 Q_SIGNALS:
-    void serviceStartFinished(const QDBusError &error) const;
+    void serviceValidChanged(const bool valid) const;
+    void serviceStartFinished(const quint32 ret) const;
     void propertyChanged(const QString &propertyName, const QVariant &value);
     void propertyInvalidated(const QString &propertyName);
     void asyncPropertyFinished(const QString &propertyName);
@@ -79,6 +80,7 @@ private Q_SLOTS:
     void onPropertiesChanged(const QString& interfaceName,
                              const QVariantMap& changedProperties,
                              const QStringList& invalidatedProperties);
+    void onDBusNameOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
     void onAsyncPropertyFinished(QDBusPendingCallWatcher *w);
     void onAsyncSetPropertyFinished(QDBusPendingCallWatcher *w);
     void onAsyncGetAllPropertiesFinished(QDBusPendingCallWatcher *watcher);
