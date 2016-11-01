@@ -687,7 +687,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
 
         for (const QString &annotation : annotations)
         {
-            cs << "    qRegisterMetaType<" << annotation << ">();" << endl;
+            cs << "    qRegisterMetaType<" << annotation << ">(\"" << annotation <<  "\");" << endl;
             cs << "    qDBusRegisterMetaType<" << annotation << ">();" << endl;
         }
 

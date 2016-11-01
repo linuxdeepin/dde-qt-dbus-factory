@@ -11,10 +11,13 @@ HEADERS += \
     types/audioportlist.h \
     types/batterypercentageinfo.h \
     types/batterypresentinfo.h \
-    types/batterystateinfo.h
+    types/batterystateinfo.h \
+    types/brightnessmap.h \
+    types/screenrect.h
 
 SOURCES += \ 
-    types/zoneinfo.cpp
+    types/zoneinfo.cpp \
+    types/screenrect.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
