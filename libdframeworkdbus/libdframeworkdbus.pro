@@ -13,11 +13,14 @@ HEADERS += \
     types/batterypresentinfo.h \
     types/batterystateinfo.h \
     types/brightnessmap.h \
-    types/screenrect.h
+    types/screenrect.h \
+    types/inputdevicelist.h \
+    types/keyboardlayoutlist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
-    types/screenrect.cpp
+    types/screenrect.cpp \
+    types/inputdevicelist.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
