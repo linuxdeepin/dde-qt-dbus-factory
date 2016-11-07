@@ -15,12 +15,14 @@ HEADERS += \
     types/brightnessmap.h \
     types/screenrect.h \
     types/inputdevicelist.h \
-    types/keyboardlayoutlist.h
+    types/keyboardlayoutlist.h \
+    types/localelist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
     types/screenrect.cpp \
-    types/inputdevicelist.cpp
+    types/inputdevicelist.cpp \
+    types/localelist.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
