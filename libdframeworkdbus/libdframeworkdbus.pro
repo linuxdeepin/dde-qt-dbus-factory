@@ -16,7 +16,9 @@ HEADERS += \
     types/screenrect.h \
     types/inputdevicelist.h \
     types/keyboardlayoutlist.h \
-    types/localelist.h
+    types/localelist.h \
+    types/arealist.h \
+    types/qvariantlist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \

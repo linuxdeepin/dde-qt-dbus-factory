@@ -610,6 +610,15 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
 
                 annotations << qtTypeName(arg.type, method.annotations, i, "Out");
             }
+
+            for (int i(0); i != method.inputArgs.size(); ++i)
+            {
+                const QDBusIntrospection::Argument &arg = method.inputArgs[i];
+                if (QDBusMetaType::signatureToType(arg.type.toLatin1()) != QVariant::Invalid)
+                    continue;
+
+                annotations << qtTypeName(arg.type, method.annotations, i, "In");
+            }
         }
 
         for (const auto property : interface->properties)
