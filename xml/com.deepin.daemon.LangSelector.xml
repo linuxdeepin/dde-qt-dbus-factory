@@ -2,7 +2,7 @@
   <method name="Destroy"></method>
   <method name="GetLocaleList">
        	<arg type="a(ss)" direction="out"></arg>
-	<annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="KeyboardLayoutList"/>
+	<annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="LocaleList"/>
   </method>
   <method name="SetLocale">
        <arg type="s" direction="in"></arg>
