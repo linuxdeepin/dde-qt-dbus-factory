@@ -5,6 +5,7 @@
 #include <QtCore/QList>
 #include <QtCore/QString>
 #include <QtDBus/QtDBus>
+#include <QDBusMetaType>
 
 struct InputDevice {
     QString interface;
@@ -21,5 +22,6 @@ Q_DECLARE_METATYPE(InputDeviceList)
 QDBusArgument &operator<<(QDBusArgument &argument, const InputDevice &device);
 const QDBusArgument &operator>>(const QDBusArgument &argument, InputDevice &device);
 
+void registerInputDeviceListMetaType();
 
 #endif // INPUTDEVICELIST_H

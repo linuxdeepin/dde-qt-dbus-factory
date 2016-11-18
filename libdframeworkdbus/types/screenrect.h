@@ -4,6 +4,7 @@
 #include <QRect>
 #include <QDBusArgument>
 #include <QDebug>
+#include <QDBusMetaType>
 
 struct ScreenRect
 {
@@ -22,7 +23,8 @@ private:
     quint16 h;
 };
 
-
 Q_DECLARE_METATYPE(ScreenRect)
+
+void registerScreenRectMetaType();
 
 #endif // SCREENRECT_H

@@ -10,8 +10,10 @@
 #ifndef AUDIOPORT_H
 #define AUDIOPORT_H
 
+#include <QDBusMetaType>
 #include <QString>
 #include <QDBusArgument>
+#include <QDebug>
 
 class AudioPort
 {
@@ -52,5 +54,7 @@ public:
 };
 
 Q_DECLARE_METATYPE(AudioPort)
+
+void registerAudioPortMetaType();
 
 #endif // AUDIOPORT_H

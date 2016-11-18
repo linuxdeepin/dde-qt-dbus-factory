@@ -24,7 +24,16 @@ SOURCES += \
     types/zoneinfo.cpp \
     types/screenrect.cpp \
     types/inputdevicelist.cpp \
-    types/localelist.cpp
+    types/localelist.cpp \
+    types/audioport.cpp \
+    types/audioportlist.cpp \
+    types/keyboardlayoutlist.cpp \
+    types/arealist.cpp \
+    types/qvariantlist.cpp \
+    types/brightnessmap.cpp \
+    types/batterypresentinfo.cpp \
+    types/batterystateinfo.cpp \
+    types/batterypercentageinfo.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)

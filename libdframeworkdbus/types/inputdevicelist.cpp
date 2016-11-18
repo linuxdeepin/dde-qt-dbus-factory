@@ -20,3 +20,9 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, InputDevice &devi
     argument.endStructure();
     return argument;
 }
+
+void registerInputDeviceListMetaType()
+{
+    qRegisterMetaType<InputDeviceList>("InputDeviceList");
+    qDBusRegisterMetaType<InputDeviceList>();
+}

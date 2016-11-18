@@ -10,11 +10,15 @@
 #ifndef AUDIOPORTLIST_H
 #define AUDIOPORTLIST_H
 
+#include <QDBusMetaType>
 #include <QList>
+
 #include "audioport.h"
 
 typedef QList<AudioPort> AudioPortList;
 
 Q_DECLARE_METATYPE(AudioPortList)
+
+void registerAudioPortListMetaType();
 
 #endif // AUDIOPORTLIST_H

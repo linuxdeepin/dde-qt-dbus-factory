@@ -6,6 +6,7 @@
 #include <QtCore/QMap>
 #include <QtCore/QString>
 #include <QDBusArgument>
+#include <QDBusMetaType>
 
 struct LocaleInfo {
     QString id;
@@ -24,5 +25,7 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, LocaleInfo &info);
 
 QDataStream &operator<<(QDataStream &ds, const LocaleInfo &info);
 const QDataStream &operator>>(QDataStream &ds, LocaleInfo &info);
+
+void registerLocaleListMetaType();
 
 #endif // LOCALELIST_H

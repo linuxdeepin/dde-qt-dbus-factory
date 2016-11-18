@@ -41,3 +41,9 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, ScreenRect &rect)
 
     return arg;
 }
+
+void registerScreenRectMetaType()
+{
+    qRegisterMetaType<ScreenRect>("ScreenRect");
+    qDBusRegisterMetaType<ScreenRect>();
+}

@@ -5,6 +5,7 @@
 #include <QDataStream>
 #include <QString>
 #include <QDBusArgument>
+#include <QDBusMetaType>
 
 class ZoneInfo
 {
@@ -34,5 +35,7 @@ private:
 };
 
 Q_DECLARE_METATYPE(ZoneInfo)
+
+void registerZoneInfoMetaType();
 
 #endif // ZONEINFO_H

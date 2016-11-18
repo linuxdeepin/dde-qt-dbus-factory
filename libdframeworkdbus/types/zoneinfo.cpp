@@ -59,3 +59,9 @@ const QDataStream &operator>>(QDataStream & argument, ZoneInfo & info)
 
     return argument;
 }
+
+void registerZoneInfoMetaType()
+{
+    qRegisterMetaType<ZoneInfo>("ZoneInfo");
+    qDBusRegisterMetaType<ZoneInfo>();
+}

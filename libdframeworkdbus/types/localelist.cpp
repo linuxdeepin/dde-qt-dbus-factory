@@ -32,3 +32,12 @@ bool LocaleInfo::operator ==(const LocaleInfo &info)
 {
     return id==info.id && name==info.name;
 }
+
+void registerLocaleListMetaType()
+{
+    qRegisterMetaType<LocaleInfo>("LocaleInfo");
+    qDBusRegisterMetaType<LocaleInfo>();
+
+    qRegisterMetaType<LocaleList>("LocaleList");
+    qDBusRegisterMetaType<LocaleList>();
+}

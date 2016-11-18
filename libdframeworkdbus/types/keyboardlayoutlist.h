@@ -4,9 +4,10 @@
 #include <QMap>
 #include <QString>
 #include <QObject>
+#include <QDBusMetaType>
 
 typedef QMap<QString, QString> KeyboardLayoutList;
 
-Q_DECLARE_METATYPE(KeyboardLayoutList)
+void registerKeyboardLayoutListMetaType();
 
 #endif // KEYBOARDLAYOUTLIST_H
