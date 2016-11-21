@@ -18,7 +18,8 @@ HEADERS += \
     types/keyboardlayoutlist.h \
     types/localelist.h \
     types/arealist.h \
-    types/qvariantlist.h
+    types/qvariantlist.h \
+    types/wacomdevicelist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
@@ -33,7 +34,8 @@ SOURCES += \
     types/brightnessmap.cpp \
     types/batterypresentinfo.cpp \
     types/batterystateinfo.cpp \
-    types/batterypercentageinfo.cpp
+    types/batterypercentageinfo.cpp \
+    types/wacomdevicelist.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
