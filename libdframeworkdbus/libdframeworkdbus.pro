@@ -20,7 +20,11 @@ HEADERS += \
     types/arealist.h \
     types/qvariantlist.h \
     types/wacomdevicelist.h \
-    types/searchmap.h
+    types/searchmap.h \
+    types/resolutionlist.h \
+    types/resolution.h \
+    types/rotationlist.h \
+    types/reflectlist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
@@ -37,7 +41,11 @@ SOURCES += \
     types/batterystateinfo.cpp \
     types/batterypercentageinfo.cpp \
     types/wacomdevicelist.cpp \
-    types/searchmap.cpp
+    types/searchmap.cpp \
+    types/resolutionlist.cpp \
+    types/resolution.cpp \
+    types/rotationlist.cpp \
+    types/reflectlist.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
