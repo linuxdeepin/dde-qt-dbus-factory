@@ -7,7 +7,7 @@
  * (at your option) any later version.
  **/
 
-#include "appupdateinfo.h"
+#include "appupdateinfolist.h"
 
 AppUpdateInfo::AppUpdateInfo()
 {
@@ -51,7 +51,7 @@ QDebug operator<<(QDebug argument, const AppUpdateInfo &info)
     return argument;
 }
 
-void registerAppUpdateInfoMetaType()
+void registerAppUpdateInfoListMetaType()
 {
     qRegisterMetaType<AppUpdateInfo>();
     qDBusRegisterMetaType<AppUpdateInfo>();

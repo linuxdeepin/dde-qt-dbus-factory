@@ -1,4 +1,4 @@
-<interface name="org.deepin.lastore.Job">
+<interface name="com.deepin.lastore.Job">
   <signal name="Notify">
        <arg type="i"></arg>
   </signal>

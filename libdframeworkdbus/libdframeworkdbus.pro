@@ -25,8 +25,8 @@ HEADERS += \
     types/resolution.h \
     types/rotationlist.h \
     types/reflectlist.h \
-    types/appupdateinfo.h \
-    types/mirrorinfo.h
+    types/appupdateinfolist.h \
+    types/mirrorinfolist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
@@ -48,8 +48,8 @@ SOURCES += \
     types/resolution.cpp \
     types/rotationlist.cpp \
     types/reflectlist.cpp \
-    types/appupdateinfo.cpp \
-    types/mirrorinfo.cpp
+    types/appupdateinfolist.cpp \
+    types/mirrorinfolist.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)

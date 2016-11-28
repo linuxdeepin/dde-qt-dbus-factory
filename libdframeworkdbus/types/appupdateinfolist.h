@@ -37,6 +37,6 @@ typedef QList<AppUpdateInfo> AppUpdateInfoList;
 Q_DECLARE_METATYPE(AppUpdateInfo)
 Q_DECLARE_METATYPE(AppUpdateInfoList)
 
-void registerAppUpdateInfoMetaType();
+void registerAppUpdateInfoListMetaType();
 
 #endif // APPUPDATEINFO_H

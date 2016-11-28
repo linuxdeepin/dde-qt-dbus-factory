@@ -7,7 +7,7 @@
  * (at your option) any later version.
  **/
 
-#include "mirrorinfo.h"
+#include "mirrorinfolist.h"
 
 
 MirrorInfo::MirrorInfo()
@@ -46,7 +46,7 @@ QDebug operator<<(QDebug argument, const MirrorInfo &info)
     return argument;
 }
 
-void registerMirrorInfoMetaType()
+void registerMirrorInfoListMetaType()
 {
     qRegisterMetaType<MirrorInfo>();
     qDBusRegisterMetaType<MirrorInfo>();

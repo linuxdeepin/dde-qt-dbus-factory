@@ -1,13 +1,13 @@
-<interface name="org.deepin.lastore.Updater">
-  <method name="ApplicationUpdateInfos1">
+<interface name="com.deepin.lastore.Updater">
+  <method name="ApplicationUpdateInfos">
        <arg type="s" direction="in"></arg>
        <arg type="a(sssss)" direction="out"></arg>
-       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="AppUpdateInfo"/>
+       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="AppUpdateInfoList"/>
   </method>
   <method name="ListMirrorSources">
        <arg type="s" direction="in"></arg>
        <arg type="a(sss)" direction="out"></arg>
-       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="MirrorInfo"/>
+       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="MirrorInfoList"/>
   </method>
   <method name="SetAutoCheckUpdates">
        <arg type="b" direction="in"></arg>
@@ -17,7 +17,7 @@
   </method>
   <property name="AutoCheckUpdates" type="b" access="read"></property>
   <property name="MirrorSource" type="s" access="read"></property>
-  <property name="OfficialSource" type="s" access="read"></property>
-  <property name="UpdatableApps1" type="as" access="read"></property>
-  <property name="UpdatablePackages1" type="as" access="read"></property>
+  <property name="UpdatableApps" type="as" access="read"></property>
+  <property name="UpdatablePackages" type="as" access="read"></property>
 </interface>
+

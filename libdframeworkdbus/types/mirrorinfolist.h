@@ -34,6 +34,6 @@ typedef QList<MirrorInfo> MirrorInfoList;
 Q_DECLARE_METATYPE(MirrorInfo)
 Q_DECLARE_METATYPE(MirrorInfoList)
 
-void registerMirrorInfoMetaType();
+void registerMirrorInfoListMetaType();
 
 #endif // MIRRORINFO_H
