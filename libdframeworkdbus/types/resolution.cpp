@@ -13,9 +13,14 @@ Resolution::Resolution()
 
 }
 
-bool Resolution::operator!=(const Resolution &other)
+bool Resolution::operator!=(const Resolution &other) const
 {
     return m_id != other.m_id;
+}
+
+bool Resolution::operator==(const Resolution &other) const
+{
+    return !(other != *this);
 }
 
 QDBusArgument &operator<<(QDBusArgument &arg, const Resolution &value)

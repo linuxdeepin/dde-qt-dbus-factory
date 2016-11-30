@@ -11,7 +11,8 @@ public:
 
     explicit Resolution();
 
-    bool operator!=(const Resolution &other);
+    bool operator!=(const Resolution &other) const;
+    bool operator==(const Resolution &other) const;
 
     int id() const { return m_id; }
     int width() const { return m_width; }
