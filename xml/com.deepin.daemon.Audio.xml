@@ -24,6 +24,8 @@
         <property access="read" name="DefaultSink" type="s"/>
         <property access="read" name="DefaultSource" type="s"/>
         <property access="read" name="MaxUIVolume" type="d"/>
-        <property access="read" name="Cards" type="s" />
+        <property access="read" name="Cards" type="s"/>
+        <property access="read" name="ActiveSinkPort" type="s"/>
+        <property access="read" name="ActiveSourcePort" type="s"/>
     </interface>
 </node>
