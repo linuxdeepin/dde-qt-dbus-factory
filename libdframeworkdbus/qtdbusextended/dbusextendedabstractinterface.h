@@ -95,6 +95,7 @@ private:
     bool m_useCache;
     QDBusPendingCallWatcher *m_getAllPendingCallWatcher;
     QDBusError m_lastExtendedError;
+    QString m_dbusOwner;
     bool m_propertiesChangedConnected;
 };
 

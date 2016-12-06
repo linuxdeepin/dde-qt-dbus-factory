@@ -428,11 +428,16 @@ void DBusExtendedAbstractInterface::onPropertiesChanged(const QString& interface
 
 void DBusExtendedAbstractInterface::onDBusNameOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner)
 {
-    Q_UNUSED(oldOwner);
-    Q_UNUSED(newOwner);
-
-    if (name == service())
-        emit serviceValidChanged(isValid());
+    if (name == service() && oldOwner.isEmpty())
+    {
+        m_dbusOwner = newOwner;
+        emit serviceValidChanged(true);
+    }
+    else if (name == m_dbusOwner && newOwner.isEmpty())
+    {
+        m_dbusOwner.clear();
+        emit serviceValidChanged(false);
+    }
 }
 
 QVariant DBusExtendedAbstractInterface::demarshall(const QString &interface, const QMetaProperty &metaProperty, const QVariant &value, QDBusError *error)
