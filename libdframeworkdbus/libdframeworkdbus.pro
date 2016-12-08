@@ -26,7 +26,8 @@ HEADERS += \
     types/rotationlist.h \
     types/reflectlist.h \
     types/appupdateinfolist.h \
-    types/mirrorinfolist.h
+    types/mirrorinfolist.h \
+    types/windowlist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
@@ -49,7 +50,8 @@ SOURCES += \
     types/rotationlist.cpp \
     types/reflectlist.cpp \
     types/appupdateinfolist.cpp \
-    types/mirrorinfolist.cpp
+    types/mirrorinfolist.cpp \
+    types/windowlist.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
