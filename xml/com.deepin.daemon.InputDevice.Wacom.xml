@@ -5,10 +5,13 @@
     <property name="KeyUpAction" type="s" access="readwrite"/>
     <property name="KeyDownAction" type="s" access="readwrite"/>
     <property name="MapOutput" type="s" access="readwrite"/>
-    <property name="DoubleDelta" type="u" access="readwrite"/>
-    <property name="PressureSensitive" type="u" access="readwrite"/>
-    <property name="RawSample" type="u" access="readwrite"/>
-    <property name="Threshold" type="u" access="readwrite"/>
+    <property name="Suppress" type="u" access="readwrite"/>
+    <property name="StylusPressureSensitive" type="u" access="readwrite"/>
+    <property name="EraserPressureSensitive" type="u" access="readwrite"/>
+    <property name="StylusRawSample" type="u" access="readwrite"/>
+    <property name="EraserRawSample" type="u" access="readwrite"/>
+    <property name="StylusThreshold" type="u" access="readwrite"/>
+    <property name="EraserThreshold" type="u" access="readwrite"/>
     <property name="DeviceList" type="s" access="read"/>
     <property name="ActionInfos" type="a(ss)" access="read">
         <annotation name="org.qtproject.QtDBus.QtTypeName" value="WacomDeviceList"/>
