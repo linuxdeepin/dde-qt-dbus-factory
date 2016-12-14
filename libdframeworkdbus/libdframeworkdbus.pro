@@ -27,7 +27,10 @@ HEADERS += \
     types/reflectlist.h \
     types/appupdateinfolist.h \
     types/mirrorinfolist.h \
-    types/windowlist.h
+    types/windowlist.h \
+    types/networkerrors.h \
+    types/networkconnectiondata.h \
+    types/networkavailablekeys.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
@@ -51,7 +54,10 @@ SOURCES += \
     types/reflectlist.cpp \
     types/appupdateinfolist.cpp \
     types/mirrorinfolist.cpp \
-    types/windowlist.cpp
+    types/windowlist.cpp \
+    types/networkerrors.cpp \
+    types/networkconnectiondata.cpp \
+    types/networkavailablekeys.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
