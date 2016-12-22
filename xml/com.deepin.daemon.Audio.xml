@@ -1,25 +1,19 @@
-<node>
-    <interface name="com.deepin.daemon.Audio">
-        <method name="Reset"/>
-        <method name="SetDefaultSink">
-            <arg direction="in" type="s"/>
-        </method>
-        <method name="SetDefaultSource">
-            <arg direction="in" type="s"/>
-        </method>
-        <method name="SetPort">
-            <arg direction="in" type="u"/>
-            <arg direction="in" type="s"/>
-            <arg direction="in" type="i"/>
-        </method>
-        <property access="read" name="Sinks" type="ao"/>
-        <property access="read" name="Sources" type="ao"/>
-        <property access="read" name="SinkInputs" type="ao"/>
-        <property access="read" name="DefaultSink" type="o"/>
-        <property access="read" name="DefaultSource" type="o"/>
-        <property access="read" name="MaxUIVolume" type="d"/>
-        <property access="read" name="Cards" type="s"/>
-        <property access="read" name="ActiveSinkPort" type="s"/>
-        <property access="read" name="ActiveSourcePort" type="s"/>
-    </interface>
-</node>
+  <interface name="com.deepin.daemon.Audio">
+    <method name="Reset"/>
+    <method name="SetDefaultSink">
+      <arg type="s" direction="in"/>
+    </method>
+    <method name="SetDefaultSource">
+      <arg type="s" direction="in"/>
+    </method>
+    <method name="SetPort">
+      <arg type="u" direction="in"/>
+      <arg type="s" direction="in"/>
+      <arg type="i" direction="in"/>
+    </method>
+    <property name="SinkInputs" type="ao" access="read"/>
+    <property name="Cards" type="s" access="read"/>
+    <property name="DefaultSink" type="o" access="read"/>
+    <property name="DefaultSource" type="o" access="read"/>
+    <property name="MaxUIVolume" type="d" access="read"/>
+  </interface>
