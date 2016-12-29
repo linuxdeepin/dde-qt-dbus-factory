@@ -31,5 +31,5 @@
         <property name="Background" type="s" access="readwrite"></property>
         <property name="StandardFont" type="s" access="readwrite"></property>
         <property name="MonospaceFont" type="s" access="readwrite"></property>
-        <property name="FontSize" type="y" access="readwrite"></property>
+        <property name="FontSize" type="d" access="readwrite"></property>
     </interface>
