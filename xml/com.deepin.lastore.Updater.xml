@@ -1,23 +1,26 @@
 <interface name="com.deepin.lastore.Updater">
-  <method name="ApplicationUpdateInfos">
-       <arg type="s" direction="in"></arg>
-       <arg type="a(sssss)" direction="out"></arg>
-       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="AppUpdateInfoList"/>
-  </method>
-  <method name="ListMirrorSources">
-       <arg type="s" direction="in"></arg>
-       <arg type="a(sss)" direction="out"></arg>
-       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="MirrorInfoList"/>
-  </method>
-  <method name="SetAutoCheckUpdates">
-       <arg type="b" direction="in"></arg>
-  </method>
-  <method name="SetMirrorSource">
-       <arg type="s" direction="in"></arg>
-  </method>
-  <property name="AutoCheckUpdates" type="b" access="read"></property>
-  <property name="MirrorSource" type="s" access="read"></property>
-  <property name="UpdatableApps" type="as" access="read"></property>
-  <property name="UpdatablePackages" type="as" access="read"></property>
+    <method name="ApplicationUpdateInfos">
+        <arg direction="in" type="s"/>
+        <arg direction="out" type="a(sssss)"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="AppUpdateInfoList"/>
+    </method>
+    <method name="ListMirrorSources">
+        <arg direction="in" type="s"/>
+        <arg direction="out" type="a(sss)"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="MirrorInfoList"/>
+    </method>
+    <method name="SetAutoCheckUpdates">
+        <arg direction="in" type="b"/>
+    </method>
+    <method name="SetAutoDownloadUpdates">
+        <arg direction="in" type="b"/>
+    </method>
+    <method name="SetMirrorSource">
+        <arg direction="in" type="s"/>
+    </method>
+    <property access="read" name="AutoCheckUpdates" type="b"/>
+    <property access="read" name="MirrorSource" type="s"/>
+    <property access="read" name="UpdatableApps" type="as"/>
+    <property access="read" name="AutoDownloadUpdates" type="b"/>
+    <property access="read" name="UpdatablePackages" type="as"/>
 </interface>
-
