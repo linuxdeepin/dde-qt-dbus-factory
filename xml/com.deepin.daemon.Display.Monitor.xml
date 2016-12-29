@@ -5,6 +5,10 @@
           <method name="SetMode">
                <arg type="u" direction="in"></arg>
           </method>
+          <method name="SetModeBySize">
+               <arg type="q" direction="in"></arg>
+               <arg type="q" direction="in"></arg>
+          </method>
           <method name="SetPosition">
                <arg type="n" direction="in"></arg>
                <arg type="n" direction="in"></arg>
@@ -41,3 +45,4 @@
             <annotation name="org.qtproject.QtDBus.QtTypeName" value="ResolutionList"/>
           </property>
      </interface>
+
