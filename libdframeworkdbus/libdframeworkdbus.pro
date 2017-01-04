@@ -30,7 +30,8 @@ HEADERS += \
     types/windowlist.h \
     types/networkerrors.h \
     types/networkconnectiondata.h \
-    types/networkavailablekeys.h
+    types/networkavailablekeys.h \
+    types/propertylist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
@@ -57,7 +58,8 @@ SOURCES += \
     types/windowlist.cpp \
     types/networkerrors.cpp \
     types/networkconnectiondata.cpp \
-    types/networkavailablekeys.cpp
+    types/networkavailablekeys.cpp \
+    types/propertylist.cpp
 
 system(python2 $$PWD/generate_code.py)
 include(generated/generated.pri)
