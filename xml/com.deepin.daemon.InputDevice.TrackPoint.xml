@@ -10,5 +10,6 @@
         <property name="MotionThreshold" type="d" access="readwrite"></property>
         <property name="MotionScaling" type="d" access="readwrite"></property>
         <property name="DeviceList" type="s" access="read"></property>
+        <property name="LeftHanded" type="b" access="readwrite"/>
         <property name="Exist" type="b" access="read"></property>
     </interface>
