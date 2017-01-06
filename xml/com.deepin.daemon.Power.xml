@@ -8,7 +8,7 @@
     <property access="readwrite" name="ScreenBlackLock" type="b"/>
     <property access="readwrite" name="SleepLock" type="b"/>
     <property access="readwrite" name="PowerButtonAction" type="s"/>
-    <property access="readwrite" name="LidCloseSleep" type="b"/>
+    <property access="readwrite" name="LidClosedSleep" type="b"/>
     <property access="read" name="LidIsPresent" type="b"/>
     <property access="read" name="OnBattery" type="b"/>
     <property access="read" name="BatteryIsPresent" type="a{sb}">
