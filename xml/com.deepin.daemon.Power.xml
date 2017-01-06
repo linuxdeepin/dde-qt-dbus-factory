@@ -1,24 +1,24 @@
-     <interface name="com.deepin.daemon.Power">
-          <method name="Reset"></method>
-          <method name="StartupNotify"></method>
-          <property name="LinePowerScreenBlackDelay" type="i" access="readwrite"></property>
-          <property name="LinePowerSleepDelay" type="i" access="readwrite"></property>
-          <property name="BatteryScreenBlackDelay" type="i" access="readwrite"></property>
-          <property name="BatterySleepDelay" type="i" access="readwrite"></property>
-          <property name="ScreenBlackLock" type="b" access="readwrite"></property>
-          <property name="SleepLock" type="b" access="readwrite"></property>
-          <property name="PowerButtonAction" type="s" access="readwrite"></property>
-          <property name="LidClosedAction" type="s" access="readwrite"></property>
-          <property name="LidIsPresent" type="b" access="read"></property>
-          <property name="OnBattery" type="b" access="read"></property>
-          <property name="BatteryIsPresent" type="a{sb}" access="read">
-            <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryPresentInfo"/>
-          </property>
-          <property name="BatteryPercentage" type="a{sd}" access="read">
-            <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryPercentageInfo"/>
-          </property>
-          <property name="BatteryState" type="a{su}" access="read">
-            <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryStateInfo"/>
-          </property>
-          <property name="WarnLevel" type="u" access="read"></property>
-     </interface>
+<interface name="com.deepin.daemon.Power">
+    <method name="Reset"/>
+    <method name="StartupNotify"/>
+    <property access="readwrite" name="LinePowerScreenBlackDelay" type="i"/>
+    <property access="readwrite" name="LinePowerSleepDelay" type="i"/>
+    <property access="readwrite" name="BatteryScreenBlackDelay" type="i"/>
+    <property access="readwrite" name="BatterySleepDelay" type="i"/>
+    <property access="readwrite" name="ScreenBlackLock" type="b"/>
+    <property access="readwrite" name="SleepLock" type="b"/>
+    <property access="readwrite" name="PowerButtonAction" type="s"/>
+    <property access="readwrite" name="LidCloseSleep" type="b"/>
+    <property access="read" name="LidIsPresent" type="b"/>
+    <property access="read" name="OnBattery" type="b"/>
+    <property access="read" name="BatteryIsPresent" type="a{sb}">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryPresentInfo"/>
+    </property>
+    <property access="read" name="BatteryPercentage" type="a{sd}">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryPercentageInfo"/>
+    </property>
+    <property access="read" name="BatteryState" type="a{su}">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryStateInfo"/>
+    </property>
+    <property access="read" name="WarnLevel" type="u"/>
+</interface>
