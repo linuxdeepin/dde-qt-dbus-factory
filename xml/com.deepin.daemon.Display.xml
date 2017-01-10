@@ -24,6 +24,7 @@
                <arg type="s" direction="in"></arg>
           </method>
           <property name="HasChanged" type="b" access="read"></property>
+          <property name="HasCustomConfig" type="b" access="read"></property>
           <property name="DisplayMode" type="y" access="read"></property>
           <property name="ScreenWidth" type="q" access="read"></property>
           <property name="ScreenHeight" type="q" access="read"></property>
