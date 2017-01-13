@@ -61,7 +61,7 @@ SOURCES += \
     types/networkavailablekeys.cpp \
     types/propertylist.cpp
 
-system(python2 $$PWD/generate_code.py)
+!system(python2 $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)
 
 isEmpty(LIB_INSTALL_DIR) {
