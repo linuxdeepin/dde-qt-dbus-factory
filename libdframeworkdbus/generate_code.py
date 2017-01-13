@@ -1,5 +1,6 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
+from __future__ import print_function
 import os
 import glob
 import subprocess
@@ -26,7 +27,7 @@ def generate_one(xml_file, dest_dir):
     class_name = xml_to_class_name(xml_file)
     file_name = os.path.join(dest_dir, generated_name)
 
-    print binary_path, "-c", class_name, "-p", file_name, xml_file
+    print(binary_path, "-c", class_name, "-p", file_name, xml_file)
 
     subprocess.call([binary_path, "-c", class_name, "-p", file_name, xml_file])
 
@@ -45,17 +46,17 @@ def main():
     generated_pri = os.path.join(os.path.abspath(generated_dir),
                                 "generated.pri")
     with open(generated_pri, 'w') as pri:
-        print "generating the source code..."
+        print("generating the source code...")
         for xml in xml_files:
             generate_one(xml, generated_dir)
 
-        print "generating the pri file..."
+        print("generating the pri file...")
         pwdfy = lambda x: "$$PWD/%s" % x
         sources = map(pwdfy, glob.glob1(generated_dir, "*.cpp"))
         headers = map(pwdfy, glob.glob1(generated_dir, "*.h"))
         pri.write("HEADERS += %s\n" % " ".join(headers))
         pri.write("SOURCES += %s" % " ".join(sources))
-        print "done."
+        print("done.")
 
 if __name__ == '__main__':
     main()
