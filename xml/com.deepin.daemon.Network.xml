@@ -110,9 +110,6 @@
           </method>
           <signal name="NeedSecrets">
                <arg type="s"></arg>
-               <arg type="s"></arg>
-               <arg type="s"></arg>
-               <arg type="b"></arg>
           </signal>
           <signal name="NeedSecretsFinished">
                <arg type="s"></arg>
