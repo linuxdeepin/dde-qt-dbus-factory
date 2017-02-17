@@ -14,6 +14,6 @@ Description: dde-qt-dbus-factory is a repository stores auto-generated Qt5 dbus 
 
 Package: libdframeworkdbus-dev
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libdframeworkdbus
+Depends: ${shlibs:Depends}, ${misc:Depends}, libdframeworkdbus( =${binary:Version})
 Description: dde-qt-dbus-factory is a repository stores auto-generated Qt5 dbus code.
  It can ease the pain that every dde developer have to re-generate code for the same dbus interface or have to copy code from other dde projects doing there new projects.
