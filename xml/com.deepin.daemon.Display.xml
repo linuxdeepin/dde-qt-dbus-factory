@@ -1,9 +1,22 @@
      <interface name="com.deepin.daemon.Display">
           <method name="ApplyChanges"></method>
-          <method name="DeleteCustomConfig"></method>
+          <method name="AssociateTouch">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+          </method>
+          <method name="ChangeBrightness">
+               <arg type="b" direction="in"></arg>
+          </method>
+          <method name="DeleteCustomMode">
+               <arg type="s" direction="in"></arg>
+          </method>
           <method name="ListOutputNames">
                <arg type="as" direction="out"></arg>
           </method>
+          <!--method name="ListOutputsCommonModes">
+               <arg type="a(uqqd)" direction="out"></arg>
+          </method-->
+          <method name="RefreshBrightness"></method>
           <method name="Reset"></method>
           <method name="ResetChanges"></method>
           <method name="Save"></method>
@@ -15,20 +28,17 @@
           <method name="SetPrimary">
                <arg type="s" direction="in"></arg>
           </method>
-          <method name="SupportedBacklight">
-               <arg type="s" direction="in"></arg>
-               <arg type="b" direction="out"></arg>
-          </method>
           <method name="SwitchMode">
                <arg type="y" direction="in"></arg>
                <arg type="s" direction="in"></arg>
           </method>
           <property name="HasChanged" type="b" access="read"></property>
-          <property name="HasCustomConfig" type="b" access="read"></property>
           <property name="DisplayMode" type="y" access="read"></property>
           <property name="ScreenWidth" type="q" access="read"></property>
           <property name="ScreenHeight" type="q" access="read"></property>
           <property name="Primary" type="s" access="read"></property>
+          <property name="CurrentCustomId" type="s" access="read"></property>
+          <property name="CustomIdList" type="as" access="read"></property>
           <property name="PrimaryRect" type="(nnqq)" access="read">
               <annotation name="org.qtproject.QtDBus.QtTypeName" value="ScreenRect"/>
           </property>
@@ -36,4 +46,5 @@
           <property name="Brightness" type="a{sd}" access="read">
               <annotation name="org.qtproject.QtDBus.QtTypeName" value="BrightnessMap"/>
           </property>
+          <!--property name="TouchMap" type="a{ss}" access="read"></property-->
      </interface>
