@@ -38,7 +38,7 @@
     <arg type="u"/>
     <arg type="s"/>
   </signal>
-    <signal name="NotificationAdded"> 
+    <signal name="RecordAdded"> 
     <arg type="s"/>
   </signal>
 </interface>
