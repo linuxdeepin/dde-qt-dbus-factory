@@ -31,7 +31,10 @@ HEADERS += \
     types/networkerrors.h \
     types/networkconnectiondata.h \
     types/networkavailablekeys.h \
-    types/propertylist.h
+    types/propertylist.h \
+    types/dbusobjectpathlist.h \
+    types/linkinfolist.h \
+    types/peerinfolist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
@@ -59,7 +62,10 @@ SOURCES += \
     types/networkerrors.cpp \
     types/networkconnectiondata.cpp \
     types/networkavailablekeys.cpp \
-    types/propertylist.cpp
+    types/propertylist.cpp \
+    types/dbusobjectpathlist.cpp \
+    types/linkinfolist.cpp \
+    types/peerinfolist.cpp
 
 !system(python $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)
