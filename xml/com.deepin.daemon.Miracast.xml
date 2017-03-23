@@ -36,6 +36,7 @@
           </signal>
           <signal name="Removed">
                <arg type="o"></arg>
+               <arg type="s"></arg>
           </signal>
           <signal name="Event">
                <arg type="y"></arg>
