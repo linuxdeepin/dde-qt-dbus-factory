@@ -25,6 +25,9 @@
             <arg type="s"></arg>
             <arg type="s"></arg>
         </signal>
+        <signal name="Refreshed">
+             <arg type="s"></arg>
+        </signal>
         <property name="GtkTheme" type="s" access="readwrite"></property>
         <property name="IconTheme" type="s" access="readwrite"></property>
         <property name="CursorTheme" type="s" access="readwrite"></property>
