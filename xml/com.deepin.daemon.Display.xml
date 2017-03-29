@@ -16,6 +16,10 @@
           <!--method name="ListOutputsCommonModes">
                <arg type="a(uqqd)" direction="out"></arg>
           </method-->
+          <method name="ModifyConfigName">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+          </method>
           <method name="RefreshBrightness"></method>
           <method name="Reset"></method>
           <method name="ResetChanges"></method>
