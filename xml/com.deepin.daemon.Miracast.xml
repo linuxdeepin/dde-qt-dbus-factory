@@ -2,10 +2,10 @@
      <interface name="com.deepin.daemon.Miracast">
           <method name="Connect">
                <arg type="o" direction="in"></arg>
-               <arg type="q" direction="in"></arg>
-               <arg type="q" direction="in"></arg>
-               <arg type="q" direction="in"></arg>
-               <arg type="q" direction="in"></arg>
+               <arg type="u" direction="in"></arg>
+               <arg type="u" direction="in"></arg>
+               <arg type="u" direction="in"></arg>
+               <arg type="u" direction="in"></arg>
           </method>
           <method name="Disconnect">
                <arg type="o" direction="in"></arg>
