@@ -1,4 +1,3 @@
-
      <interface name="com.deepin.daemon.Miracast">
           <method name="Connect">
                <arg type="o" direction="in"></arg>
@@ -16,15 +15,11 @@
           </method>
           <method name="ListLinks">
 	       <arg type="a(sssbbo)" direction="out"></arg>
-               <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="LinkInfoList"/>
-          </method>
-          <method name="ListPeers">
-               <arg type="a(sssboo)" direction="out"></arg>
-               <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="PeerInfoList"/>
+	       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="LinkInfoList"/>
           </method>
           <method name="ListSinks">
-               <arg type="a(o)" direction="out"></arg>
-               <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="DBusObjectPathList"/>
+	       <arg type="a(sssboo)" direction="out"></arg>
+	       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="SinkInfoList"/>
           </method>
           <method name="Scanning">
                <arg type="o" direction="in"></arg>

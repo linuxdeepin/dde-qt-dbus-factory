@@ -34,7 +34,7 @@ HEADERS += \
     types/propertylist.h \
     types/dbusobjectpathlist.h \
     types/linkinfolist.h \
-    types/peerinfolist.h
+    types/sinkinfolist.h
 
 SOURCES += \ 
     types/zoneinfo.cpp \
@@ -65,7 +65,7 @@ SOURCES += \
     types/propertylist.cpp \
     types/dbusobjectpathlist.cpp \
     types/linkinfolist.cpp \
-    types/peerinfolist.cpp
+    types/sinkinfolist.cpp
 
 !system(python $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)
