@@ -36,7 +36,7 @@ HEADERS += \
     types/linkinfolist.h \
     types/sinkinfolist.h
 
-SOURCES += \ 
+SOURCES += \
     types/zoneinfo.cpp \
     types/screenrect.cpp \
     types/inputdevicelist.cpp \
@@ -71,13 +71,13 @@ SOURCES += \
 include(generated/generated.pri)
 
 isEmpty(LIB_INSTALL_DIR) {
-    target.path = /usr/lib
+    target.path = $$INSTALL_ROOT/usr/lib
 } else {
     target.path = $$LIB_INSTALL_DIR
 }
 
 includes.files =
-includes.path = /usr/include/libdframeworkdbus-$$VERSION
+includes.path = $$INSTALL_ROOT/usr/include/libdframeworkdbus-$$VERSION
 
 type_headers.files =
 type_headers.path = $$includes.path/types
