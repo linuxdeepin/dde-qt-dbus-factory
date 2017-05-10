@@ -15,6 +15,9 @@
     <method name="GetCurrentWorkspaceBackground">
         <arg direction="out" name="result" type="s"/>
     </method>
+    <method name="SetTransientBackground">
+        <arg direction="in" name="uri" type="s"/>
+    </method>
     <signal name="WorkspaceRemoved">
         <arg name="index" type="i"/>
     </signal>
