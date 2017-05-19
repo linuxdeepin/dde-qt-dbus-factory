@@ -63,4 +63,5 @@
     <arg type="s"/>
   </signal>
   <property name="NumLockState" type="i" access="read"/>
+  <property name="ShortcutSwitchLayout" type="u" access="readwrite"/>
 </interface>
