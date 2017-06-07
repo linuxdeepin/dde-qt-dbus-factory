@@ -13,9 +13,10 @@
           <method name="ListOutputNames">
                <arg type="as" direction="out"></arg>
           </method>
-          <!--method name="ListOutputsCommonModes">
+          <method name="ListOutputsCommonModes">
                <arg type="a(uqqd)" direction="out"></arg>
-          </method-->
+               <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="ResolutionList"/>
+          </method>
           <method name="ModifyConfigName">
                <arg type="s" direction="in"></arg>
                <arg type="s" direction="in"></arg>
@@ -24,12 +25,11 @@
           <method name="Reset"></method>
           <method name="ResetChanges"></method>
           <method name="Save"></method>
-          <method name="SaveBrightness"></method>
-          <method name="SetBrightness">
+          <method name="SetAndSaveBrightness">
                <arg type="s" direction="in"></arg>
                <arg type="d" direction="in"></arg>
           </method>
-          <method name="SetAndSaveBrightness">
+          <method name="SetBrightness">
                <arg type="s" direction="in"></arg>
                <arg type="d" direction="in"></arg>
           </method>
@@ -56,3 +56,4 @@
           </property>
           <!--property name="TouchMap" type="a{ss}" access="read"></property-->
      </interface>
+
