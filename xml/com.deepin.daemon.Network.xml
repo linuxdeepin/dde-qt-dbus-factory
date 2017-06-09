@@ -1,3 +1,4 @@
+
      <interface name="com.deepin.daemon.Network">
           <method name="ActivateAccessPoint">
                <arg type="s" direction="in"></arg>
@@ -86,10 +87,16 @@
                <arg type="o" direction="in"></arg>
                <arg type="b" direction="out"></arg>
           </method>
+          <method name="IsPasswordValid">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+               <arg type="b" direction="out"></arg>
+          </method>
           <method name="IsWirelessHotspotModeEnabled">
                <arg type="o" direction="in"></arg>
                <arg type="b" direction="out"></arg>
           </method>
+          <method name="RegisterSecretReceiver"></method>
           <method name="SetAutoProxy">
                <arg type="s" direction="in"></arg>
           </method>
@@ -138,4 +145,3 @@
           <property name="Connections" type="s" access="read"></property>
           <property name="ActiveConnections" type="s" access="read"></property>
      </interface>
-
