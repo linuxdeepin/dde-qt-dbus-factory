@@ -49,6 +49,10 @@
           <method name="EnableWirelessHotspotMode">
                <arg type="o" direction="in"></arg>
           </method>
+          <method name="ListDeviceConnections">
+               <arg type="ao" direction="out"></arg>
+               <arg type="o" direction="in"></arg>
+          </method>
           <method name="FeedSecret">
                <arg type="s" direction="in"></arg>
                <arg type="s" direction="in"></arg>
