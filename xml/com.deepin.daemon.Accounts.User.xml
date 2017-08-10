@@ -48,7 +48,11 @@
           <method name="SetUserName">
                <arg type="s" direction="in"></arg>
           </method>
+          <method name="SetFullName">
+               <arg type="s" direction="in"></arg>
+          </method>
           <property name="UserName" type="s" access="read"></property>
+          <property name="FullName" type="s" access="read"></property>
           <property name="Uid" type="s" access="read"></property>
           <property name="Gid" type="s" access="read"></property>
           <property name="HomeDir" type="s" access="read"></property>
