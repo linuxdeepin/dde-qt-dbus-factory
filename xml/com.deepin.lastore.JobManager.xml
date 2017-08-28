@@ -1,4 +1,7 @@
 <interface name="com.deepin.lastore.Manager">
+  <method name="CleanArchives">
+      <arg type="o" direction="out"/>
+  </method>
   <method name="CleanJob">
        <arg type="s" direction="in"></arg>
   </method>
@@ -40,6 +43,9 @@
        <arg type="s" direction="in"></arg>
        <arg type="o" direction="out"></arg>
   </method>
+  <method name="SetAutoClean">
+      <arg type="b" direction="in"/>
+  </method>
   <method name="SetLogger">
        <arg type="s" direction="in"></arg>
        <arg type="s" direction="in"></arg>
@@ -63,5 +69,6 @@
   <property name="SystemArchitectures" type="as" access="read"></property>
   <property name="UpgradableApps" type="as" access="read"></property>
   <property name="SystemOnChanging" type="b" access="read"></property>
+  <property name="AutoClean" type="b" access="read"/>
 </interface>
 
