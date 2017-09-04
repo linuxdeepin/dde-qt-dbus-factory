@@ -11,5 +11,4 @@
     <property name="Port" type="u" access="read"/>
     <property name="User" type="s" access="read"/>
     <property name="Password" type="s" access="read"/>
-    <property name="Enable" type="b" access="read"/>
   </interface>
