@@ -6,21 +6,59 @@
     <arg type="s" direction="out"/>
     <arg type="b" direction="out"/>
   </method>
+  <method name="AddCustomShortcut">
+    <arg type="s" direction="in"/>
+    <arg type="s" direction="in"/>
+    <arg type="s" direction="in"/>
+  </method>
+  <method name="AddShortcutKeystroke">
+    <arg type="s" direction="in"/>
+    <arg type="i" direction="in"/>
+    <arg type="s" direction="in"/>
+  </method>
   <method name="CheckAvaliable">
     <arg type="s" direction="in"/>
     <arg type="b" direction="out"/>
     <arg type="s" direction="out"/>
   </method>
+  <method name="ClearShortcutKeystrokes">
+    <arg type="s" direction="in"/>
+    <arg type="i" direction="in"/>
+  </method>
   <method name="Delete">
     <arg type="s" direction="in"/>
     <arg type="i" direction="in"/>
+  </method>
+  <method name="DeleteCustomShortcut">
+    <arg type="s" direction="in"/>
+  </method>
+  <method name="DeleteShortcutKeystroke">
+    <arg type="s" direction="in"/>
+    <arg type="i" direction="in"/>
+    <arg type="s" direction="in"/>
   </method>
   <method name="Disable">
     <arg type="s" direction="in"/>
     <arg type="i" direction="in"/>
   </method>
+  <method name="GetShortcut">
+    <arg type="s" direction="in"/>
+    <arg type="i" direction="in"/>
+    <arg type="s" direction="out"/>
+  </method>
   <method name="GrabScreen"/>
   <method name="List">
+    <arg type="s" direction="out"/>
+  </method>
+  <method name="ListAllShortcuts">
+    <arg type="s" direction="out"/>
+  </method>
+  <method name="ListShortcutsByType">
+    <arg type="i" direction="in"/>
+    <arg type="s" direction="out"/>
+  </method>
+  <method name="LookupConflictingShortcut">
+    <arg type="s" direction="in"/>
     <arg type="s" direction="out"/>
   </method>
   <method name="ModifiedAccel">
@@ -43,6 +81,7 @@
     <arg type="s" direction="out"/>
   </method>
   <method name="Reset"/>
+  <method name="SelectKeystroke"/>
   <method name="SetNumLockState">
     <arg type="i" direction="in"/>
   </method>
