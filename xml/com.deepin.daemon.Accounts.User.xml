@@ -2,6 +2,9 @@
           <method name="DeleteIconFile">
                <arg type="s" direction="in"></arg>
           </method>
+          <method name="EnableNoPasswdLogin">
+               <arg type="b" direction="in"/>
+          </method>
           <method name="GetLargeIcon">
                <arg type="s" direction="out"></arg>
           </method>
@@ -64,6 +67,7 @@
           <property name="GreeterBackground" type="s" access="read"></property>
           <property name="Locked" type="b" access="read"></property>
           <property name="AutomaticLogin" type="b" access="read"></property>
+          <property name="NoPasswdLogin" type="b" access="read"/>
           <property name="AccountType" type="i" access="read"></property>
           <property name="LoginTime" type="t" access="read"></property>
           <property name="IconList" type="as" access="read"></property>
