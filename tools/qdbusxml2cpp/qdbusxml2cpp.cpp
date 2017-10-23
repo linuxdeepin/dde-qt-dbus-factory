@@ -718,6 +718,11 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             cs << "{" << endl;
             for (const auto property : interface->properties)
             {
+
+                char first = property.name[0].toLatin1();
+                QString name = property.name;
+                name[0] = std::islower(first) ? first &~ 0x20 : first;
+
                 QByteArray type = qtTypeName(property.type, property.annotations);
 
                 cs << "    if (propName == QStringLiteral(\"" << property.name << "\"))" << endl;
@@ -726,7 +731,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
                 cs << "        " << "if (m_" << property.name << " != " << property.name << ")" << endl;
                 cs << "        {" << endl;
                 cs << "            m_" << property.name << " = " << property.name << ';' << endl;
-                cs << "            emit " << property.name << "Changed(m_" << property.name << ");" << endl;
+                cs << "            emit " << name << "Changed(m_" << property.name << ");" << endl;
                 cs << "        }" << endl;
                 cs << "        return;" << endl;
                 cs << "    }" << endl;
