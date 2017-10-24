@@ -1,0 +1,8 @@
+<interface name="com.deepin.daemon.Fprintd">
+  <method name="GetDefaultDevice">
+    <arg type="o" direction="out"/>
+  </method>
+  <method name="GetDevices">
+    <arg type="ao" direction="out"/>
+  </method>
+</interface>
