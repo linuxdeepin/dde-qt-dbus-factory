@@ -1,4 +1,14 @@
 <a name=""></a>
+##  0.4.0 (2017-11-03)
+
+
+#### Features
+
+* **grub:**  update grub theme xml ([fe24b0f1](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/fe24b0f19eaaca52fffd050366dacb1146d3033e))
+
+
+
+<a name=""></a>
 ##  (2017-10-25)
 
 
