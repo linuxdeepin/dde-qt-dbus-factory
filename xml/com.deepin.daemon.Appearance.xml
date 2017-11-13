@@ -12,9 +12,9 @@
             <arg type="s" direction="in"></arg>
         </method>
         <method name="Show">
-            <arg type="s" direction="in"></arg>
-            <arg type="s" direction="in"></arg>
-            <arg type="s" direction="out"></arg>
+            <arg type="s" direction="in"/>
+            <arg type="as" direction="in"/>
+            <arg type="s" direction="out"/>
         </method>
         <method name="Thumbnail">
             <arg type="s" direction="in"></arg>
