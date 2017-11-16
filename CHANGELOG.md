@@ -1,3 +1,13 @@
+<a name="0.4.2"></a>
+### 0.4.2 (2017-11-16)
+
+
+#### Features
+
+* **appearance:**  update interface ([e9f67210](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/e9f672105b00f94c781a7ade3d5ad950f4908ede))
+
+
+
 <a name="0.4.1"></a>
 ### 0.4.1 (2017-11-09)
 
