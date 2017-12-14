@@ -1,8 +1,8 @@
 Source: dde-qt-dbus-factory
-Section: devel
+Section: libdevel
 Priority: optional
 Maintainer: Deepin Packages Builder <packages@deepin.com>
-Build-Depends: debhelper (>=9), pkg-config, qt5-qmake, qt5-default, qtbase5-private-dev, python
+Build-Depends: debhelper (>=9), pkg-config, qt5-qmake, qtbase5-private-dev, python
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
 
@@ -10,10 +10,12 @@ Package: libdframeworkdbus
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: dde-qt-dbus-factory is a repository stores auto-generated Qt5 dbus code.
- It can ease the pain that every dde developer have to re-generate code for the same dbus interface or have to copy code from other dde projects doing there new projects.
+ It can ease the pain that every dde developer have to re-generate code for the same dbus interface
+ or have to copy code from other dde projects doing there new projects.
 
 Package: libdframeworkdbus-dev
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libdframeworkdbus( =${binary:Version})
 Description: dde-qt-dbus-factory is a repository stores auto-generated Qt5 dbus code.
- It can ease the pain that every dde developer have to re-generate code for the same dbus interface or have to copy code from other dde projects doing there new projects.
+ It can ease the pain that every dde developer have to re-generate code for the same dbus interface
+ or have to copy code from other dde projects doing there new projects.
