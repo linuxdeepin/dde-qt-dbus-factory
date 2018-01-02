@@ -19,7 +19,7 @@
     <arg direction="in" type="s"/>
     <arg direction="in" type="as"/>
     <arg direction="in" type="a{sv}"/>
-    <annotation name="org.qtproject.QtDBus.QtTypeName.In6" value="QVariantList"/>
+    <annotation name="org.qtproject.QtDBus.QtTypeName.In6" value="QVariantMap"/>
     <arg direction="in" type="i"/>
     <arg direction="out" type="u"/>
   </method>
