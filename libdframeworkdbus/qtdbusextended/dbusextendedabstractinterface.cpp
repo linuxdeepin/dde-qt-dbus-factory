@@ -58,12 +58,14 @@ DBusExtendedAbstractInterface::~DBusExtendedAbstractInterface()
 {
 }
 
-void DBusExtendedAbstractInterface::setSync(bool sync)
+void DBusExtendedAbstractInterface::setSync(bool sync) { setSync(sync, true); }
+
+void DBusExtendedAbstractInterface::setSync(bool sync, bool autoStart)
 {
     m_sync = sync;
 
     // init all properties
-    if (!m_sync && !isValid())
+    if (autoStart && !m_sync && !isValid())
         startServiceProcess();
 }
 
@@ -286,13 +288,16 @@ void DBusExtendedAbstractInterface::asyncSetProperty(const QString &propertyName
 
 void DBusExtendedAbstractInterface::startServiceProcess()
 {
-    Q_ASSERT(!isValid());
+    const QString &servName = service();
 
-//    if (!m_useCache)
-//        qWarning() << QStringLiteral("Maybe your dbus service is not permanent process, you need to open cache with setUseCache(true)");
+    if (isValid())
+    {
+        qWarning() << "Service" << servName << "is already started.";
+        return;
+    }
 
     QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.DBus", "/", *dBusInterface(), QStringLiteral("StartServiceByName"));
-    msg << service() << quint32(0);
+    msg << servName << quint32(0);
     QDBusPendingReply<quint32> async = connection().asyncCall(msg);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 

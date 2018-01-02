@@ -44,6 +44,7 @@ public:
     Q_PROPERTY(bool sync READ sync WRITE setSync)
     inline bool sync() const { return m_sync; }
     void setSync(bool sync);
+    void setSync(bool sync, bool autoStart);
 
     Q_PROPERTY(bool useCache READ useCache WRITE setUseCache)
     inline bool useCache() const { return m_useCache; }
