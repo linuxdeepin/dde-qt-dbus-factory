@@ -1,0 +1,9 @@
+<interface name="com.deepin.WMSwitcher">
+  <method name="CurrentWM">
+    <arg type="s" direction="out"/>
+  </method>
+  <method name="RequestSwitchWM"/>
+  <signal name="WMChanged">
+    <arg type="s"/>
+  </signal>
+</interface>
