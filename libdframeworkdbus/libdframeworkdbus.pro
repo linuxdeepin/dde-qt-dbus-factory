@@ -36,6 +36,7 @@ HEADERS += \
     types/linkinfolist.h \
     types/sinkinfolist.h \
     types/qvariantmap.h \
+    types/appscgroupinfo.h \
     types/appscgroupinfolist.h
 
 SOURCES += \

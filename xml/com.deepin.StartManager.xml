@@ -8,7 +8,7 @@
           </method>
           <method name="GetApps">
                <arg type="a{us}" direction="out"></arg>
-               <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="AppsCGroupInfoList"/>
+               <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="AppsCGroupInfo"/>
           </method>
           <method name="IsAutostart">
                <arg type="s" direction="in"></arg>
