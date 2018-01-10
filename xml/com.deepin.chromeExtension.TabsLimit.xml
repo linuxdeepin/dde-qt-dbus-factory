@@ -1,0 +1,14 @@
+     <interface name="com.deepin.chromeExtension.TabsLimit">
+          <method name="CloseTab">
+               <arg type="i" direction="in"></arg>
+          </method>
+          <method name="GetTabInfoList">
+               <arg type="a(ist)" direction="out"></arg>
+               <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="ChromeTabList">
+          </method>
+          <method name="OpenUrl">
+               <arg type="s" direction="in"></arg>
+          </method>
+     </interface>
+
+
