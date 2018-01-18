@@ -2,9 +2,8 @@
           <method name="CloseTab">
                <arg type="i" direction="in"></arg>
           </method>
-          <method name="GetTabInfoList">
-               <arg type="a(ist)" direction="out"></arg>
-               <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="ChromeTabList">
+          <method name="GetProcessInfo">
+               <arg type="s" direction="out"></arg>
           </method>
           <method name="OpenUrl">
                <arg type="s" direction="in"></arg>
