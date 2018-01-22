@@ -1,8 +1,8 @@
   <interface name="org.ayatana.bamf.matcher">
-    <method name="XidsForApplication">
+    <!--method name="XidsForApplication">
       <arg type="s" name="desktop_file" direction="in"/>
       <arg type="au" name="xids" direction="out"/>
-    </method>
+    </method-->
     <method name="TabPaths">
       <arg type="as" name="paths" direction="out"/>
     </method>
