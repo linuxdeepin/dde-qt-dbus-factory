@@ -1,21 +1,46 @@
 Source: dde-qt-dbus-factory
-Section: libdevel
+Section: devel
 Priority: optional
 Maintainer: Deepin Packages Builder <packages@deepin.com>
-Build-Depends: debhelper (>=9), pkg-config, qt5-qmake, qtbase5-private-dev, python
-Standards-Version: 3.9.8
-Homepage: http://www.deepin.org
+Build-Depends:
+ debhelper (>= 9),
+ pkg-config,
+ python,
+ qtbase5-dev,
+ pkg-kde-tools,
+ qtbase5-private-dev,
+Standards-Version: 4.1.1
+Homepage: https://github.com/linuxdeepin/dde-qt-dbus-factory
 
-Package: libdframeworkdbus
+Package: libdframeworkdbus1
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: dde-qt-dbus-factory is a repository stores auto-generated Qt5 dbus code.
- It can ease the pain that every dde developer have to re-generate code for the same dbus interface
- or have to copy code from other dde projects doing there new projects.
+Section: libs
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Multi-Arch: same
+Conflicts: libdframeworkdbus
+Replaces: libdframeworkdbus
+Description: Qt DBus interface library for Deepin software (shared library)
+ Libdframeworkdbus provides Qt DBus interface for various Deepin software.
+ It centralizes DBus-related code into single library for Deepin software
+ written in Qt and get itself generated from handwritten XML DBus interface
+ descriptions.
+ .
+ This package is part of DDE (Deepin Desktop Environment).
 
 Package: libdframeworkdbus-dev
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libdframeworkdbus( =${binary:Version})
-Description: dde-qt-dbus-factory is a repository stores auto-generated Qt5 dbus code.
- It can ease the pain that every dde developer have to re-generate code for the same dbus interface
- or have to copy code from other dde projects doing there new projects.
+Section: libdevel
+Depends:
+ libdframeworkdbus1( =${binary:Version}),
+ ${misc:Depends},
+Description: Qt DBus interface library for Deepin software (development files)
+ Libdframeworkdbus provides Qt DBus interface for various Deepin software.
+ It centralizes DBus-related code into single library for Deepin software
+ written in Qt and get itself generated from handwritten XML DBus interface
+ descriptions.
+ .
+ This package is part of DDE (Deepin Desktop Environment).
+ .
+ This package provides development header files for libdframeworkdbus.
