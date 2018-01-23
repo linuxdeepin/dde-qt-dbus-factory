@@ -35,6 +35,7 @@ Section: libdevel
 Depends:
  libdframeworkdbus1( =${binary:Version}),
  ${misc:Depends},
+Conflicts: libdframeworkdbus
 Description: Qt DBus interface library for Deepin software (development files)
  Libdframeworkdbus provides Qt DBus interface for various Deepin software.
  It centralizes DBus-related code into single library for Deepin software
