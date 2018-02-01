@@ -836,12 +836,38 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             // close the function:
             hs << "    }" << endl;
 
+            hs << endl;
+            // queued version for void return type functions
+            if (method.outputArgs.count() == 0)
+            {
+                hs << "    inline void " << method.name << "Queued(";
+                writeArgList(hs, argNames, method.annotations, method.inputArgs, method.outputArgs);
+                hs << ")" << endl
+                   << "    {" << endl
+                   << "        QList<QVariant> argumentList;" << endl;
+
+                int argPos = 0;
+                if (!method.inputArgs.isEmpty()) {
+                    hs << "        argumentList";
+                    for (argPos = 0; argPos < method.inputArgs.count(); ++argPos)
+                        hs << " << QVariant::fromValue(" << argNames.at(argPos) << ')';
+                    hs << ";" << endl;
+                }
+
+                hs << endl
+                   << "        CallQueued(" << "QStringLiteral(\"" << method.name << "\"), argumentList);" << endl
+                   << "    }" << endl;
+            }
+
+            hs << endl;
             if (method.outputArgs.count() > 1) {
+                const auto templateArgument = templateArg(qtTypeName(method.outputArgs.first().type, method.annotations, 0, "Out"));
+
                 // generate the old-form QDBusReply methods with multiple incoming parameters
                 hs << "    inline "
                    << (isDeprecated ? "Q_DECL_DEPRECATED " : "")
                    << "QDBusReply<"
-                   << templateArg(qtTypeName(method.outputArgs.first().type, method.annotations, 0, "Out")) << "> ";
+                   << templateArgument << "> ";
                 hs << method.name << "(";
 
                 QStringList argNames = makeArgNames(method.inputArgs, method.outputArgs);
@@ -924,6 +950,48 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             QByteArray type = qtTypeName(property.type, property.annotations);
             hs << "    " << type << " m_" << property.name << ';' << endl;
         }
+
+        // queued stuffs
+        hs << "public:" << endl
+           << "    inline void CallQueued(const QString &callName, const QList<QVariant> &args)" << endl
+           << "    {" << endl
+           << "        if (m_waittingCalls.contains(callName))" << endl
+           << "        {" << endl
+           << "            m_waittingCalls[callName] = args;" << endl
+           << "            return;" << endl
+           << "        }" << endl
+           << "        if (m_processingCalls.contains(callName))" << endl
+           << "        {" << endl
+           << "            m_waittingCalls.insert(callName, args);" << endl
+           << "        } else {" << endl
+           << "            QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(asyncCallWithArgumentList(callName, args));" << endl
+           << "            connect(watcher, &QDBusPendingCallWatcher::finished, this, &" << className << "::onPendingCallFinished);" << endl
+           << "            m_processingCalls.insert(callName, watcher);" << endl
+           << "        }" << endl
+           << "    }"
+
+           << "private Q_SLOTS:" << endl
+           << "        void onPendingCallFinished(QDBusPendingCallWatcher *w)" << endl
+           << "        {" << endl
+           << "            w->deleteLater();" << endl
+
+           << "            const auto callName = m_processingCalls.key(w);" << endl
+           << "            Q_ASSERT(!callName.isEmpty());" << endl
+           << "            if (callName.isEmpty())" << endl
+           << "                return;" << endl
+
+           << "            m_processingCalls.remove(callName);" << endl
+
+           << "            if (!m_waittingCalls.contains(callName))" << endl
+           << "                return;" << endl
+
+           << "            const auto args = m_waittingCalls.take(callName);" << endl
+           << "            CallQueued(callName, args);" << endl
+           << "        }" << endl;
+
+        hs << "private:" << endl
+           << "    QMap<QString, QDBusPendingCallWatcher *> m_processingCalls;" << endl
+           << "    QMap<QString, QList<QVariant>> m_waittingCalls;" << endl;
 
         // close the class:
         hs << "};" << endl
