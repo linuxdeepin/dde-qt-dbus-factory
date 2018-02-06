@@ -646,33 +646,39 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
            << " */" << endl
            << endl;
 
+        // private class declare
+        hs << "class " << className << "Private;" << endl;
         // class header:
         hs << "class " << className << " : public DBusExtendedAbstractInterface" << endl
            << "{" << endl
            << "    Q_OBJECT" << endl;
         hs << endl;
 
-//        hs << endl
-//           << "    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)" << endl
-//           << "    {" << endl
-//           << "        QList<QVariant> arguments = msg.arguments();" << endl
-//           << "        if (3 != arguments.count())" << endl
-//           << "            return;" << endl
-//           << "        QString interfaceName = msg.arguments().at(0).toString();" << endl
-//           << "        if (interfaceName != \"" << interface->name  << "\")"  << endl
-//           << "            return;" << endl
-//           << "        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());" << endl
-//           << "        foreach(const QString &prop, changedProps.keys()) {" << endl
-//           << "            const QMetaObject* self = metaObject();" << endl
-//           << "            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {" << endl
-//           << "                QMetaProperty p = self->property(i);" << endl
-//           << "                QGenericArgument value(QMetaType::typeName(p.type()), const_cast<void*>(changedProps[prop].constData()));" << endl
-//           << "                if (p.name() == prop) {" << endl
-//           << "                    emit p.notifySignal().invoke(this, value);" << endl
-//           << "                }" <<  endl
-//           << "            }" << endl
-//           << "        }" << endl
-//           << "   }" << endl;
+        // private class defines
+        cs << "class " << className << "Private" << endl
+           << "{" << endl
+           << "public:" << endl
+           << "   " << className << "Private() = default;" << endl
+           << endl;
+
+        // private class member
+        cs << "    // begin member vaiables" << endl;
+        for (const auto property : interface->properties)
+        {
+            QByteArray type = qtTypeName(property.type, property.annotations);
+            cs << "    " << type << " " << property.name << ';' << endl;
+        }
+
+        cs << endl;
+
+        // stuffs member
+        cs << "public:" << endl
+           << "    QMap<QString, QDBusPendingCallWatcher *> m_processingCalls;" << endl
+           << "    QMap<QString, QList<QVariant>> m_waittingCalls;" << endl;
+
+        cs << "};" << endl
+           << endl;
+        // end of private class defines
 
         // the interface name
         hs << "public:" << endl
@@ -688,26 +694,23 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
            << endl;
         cs << className << "::" << className << "(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)" << endl
            << "    : DBusExtendedAbstractInterface(service, path, staticInterfaceName(), connection, parent)" << endl
+           << "    , d_ptr(new " << className << "Private)" << endl
            << "{" << endl;
         if (!interface->properties.isEmpty())
             cs   << "    connect(this, &" << className << "::propertyChanged, this, &" << className << "::onPropertyChanged);" << endl << endl;
-//           << "    QDBusConnection::sessionBus().connect(this->service(), this->path(), \"org.freedesktop.DBus.Properties\",  \"PropertiesChanged\","
-//           << "\"sa{sv}as\", this, SLOT(__propertyChanged__(QDBusMessage)));" << endl
 
         for (const QString &annotation : annotations)
         {
             cs << "    if (QMetaType::type(\"" << annotation << "\") == QMetaType::UnknownType)" << endl;
             cs << "        register" << annotation << "MetaType();" << endl;
-//            cs << "    qRegisterMetaType<" << annotation << ">(\"" << annotation <<  "\");" << endl;
-//            cs << "    qDBusRegisterMetaType<" << annotation << ">();" << endl;
         }
 
         cs << "}" << endl
            << endl
            << className << "::~" << className << "()" << endl
            << "{" << endl
-//           << "    QDBusConnection::sessionBus().disconnect(service(), path(), \"org.freedesktop.DBus.Properties\",  \"PropertiesChanged\","
-//           << "  \"sa{sv}as\", this, SLOT(propertyChanged(QDBusMessage)));" << endl
+           << "    qDeleteAll(d_ptr->m_processingCalls.values());" << endl
+           << "    delete d_ptr;" << endl
            << "}" << endl
            << endl;
 
@@ -716,22 +719,22 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             // onPropertyChanged
             cs << "void " << className << "::onPropertyChanged(const QString &propName, const QVariant &value)" << endl;
             cs << "{" << endl;
+
             for (const auto property : interface->properties)
             {
-
                 char first = property.name[0].toLatin1();
                 QString name = property.name;
-                name[0] = std::islower(first) ? first &~ 0x20 : first;
+                name[0] = first &~ 0x20;
 
                 QByteArray type = qtTypeName(property.type, property.annotations);
 
                 cs << "    if (propName == QStringLiteral(\"" << property.name << "\"))" << endl;
                 cs << "    {" << endl;
-                cs << "        const " << type << ' ' << property.name << " = qvariant_cast<" << type << ">(value);" << endl;
-                cs << "        " << "if (m_" << property.name << " != " << property.name << ")" << endl;
+                cs << "        const " << type << " &" << property.name << " = qvariant_cast<" << type << ">(value);" << endl;
+                cs << "        " << "if (d_ptr->" << property.name << " != " << property.name << ")" << endl;
                 cs << "        {" << endl;
-                cs << "            m_" << property.name << " = " << property.name << ';' << endl;
-                cs << "            emit " << name << "Changed(m_" << property.name << ");" << endl;
+                cs << "            d_ptr->" << property.name << " = " << property.name << ';' << endl;
+                cs << "            emit " << name << "Changed(d_ptr->" << property.name << ");" << endl;
                 cs << "        }" << endl;
                 cs << "        return;" << endl;
                 cs << "    }" << endl;
@@ -739,7 +742,8 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             }
             cs << "    qWarning() << \"property not handle: \" << propName;" << endl;
             cs << "    return;" << endl;
-            cs << "}" << endl;
+            cs << "}" << endl
+               << endl;
         }
 
         // properties:
@@ -770,16 +774,30 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
 
             // getter:
             if (property.access != QDBusIntrospection::Property::Write) {
-                hs << "    inline " << type << " " << getter << "()" << endl
-                    << "    { return qvariant_cast< " << type << " >(internalPropGet(\""
-                    << property.name << "\", &m_" << property.name << ")); }" << endl;
+                // getter declare
+                hs << "    " << type << " " << getter << "();" << endl;
+
+                // getter define
+                cs << type << " " << className << "::" << getter << "()" << endl
+                   << "{" << endl
+                   << endl
+                   << "    return d_ptr->" << property.name << ";" << endl
+                   << "}" << endl
+                   << endl;
             }
 
             // setter:
             if (property.access != QDBusIntrospection::Property::Read) {
-                hs << "    inline void " << setter << "(" << constRefArg(type) << "value)" << endl
-                   << "    { internalPropSet(\"" << property.name
-                   << "\", QVariant::fromValue(value), &m_" << property.name << "); }" << endl;
+                // setter declare
+                hs << "    void " << setter << "(" << constRefArg(type) << "value);" << endl;
+
+                // setter define
+                cs << "void " << className << "::" << setter << "(" << constRefArg(type) << "value)" << endl
+                   << "{" << endl
+                   << endl
+                   << "    d_ptr->" << property.name << " = value;" << endl
+                   << "}" << endl
+                   << endl;
             }
 
             hs << endl;
@@ -905,6 +923,8 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             hs << endl;
         }
 
+        hs << endl;
+
         hs << "Q_SIGNALS: // SIGNALS" << endl;
         foreach (const QDBusIntrospection::Signal &signal, interface->signals_) {
             hs << "    ";
@@ -921,7 +941,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
         }
 
         //propery changed signals
-        hs << "// begin property changed signals" << endl;
+        hs << "    // begin property changed signals" << endl;
         foreach (const QDBusIntrospection::Property &property, interface->properties) {
             hs << "    ";
             QByteArray type = qtTypeName(property.type, property.annotations);
@@ -932,66 +952,60 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             hs << "void " << notifier << "(" << constRefType << " value" << ") const;" << endl;
         }
 
-        if (!interface->properties.isEmpty())
-        {
-            // private slots
-            hs << endl;
-            hs << "// begin private slots" << endl;
-            hs << "private Q_SLOTS:" << endl;
-            hs << "    void onPropertyChanged(const QString &propName, const QVariant &value);" << endl;
-        }
-
-        // private member variables
         hs << endl;
-        hs << "// begin private member vaiables" << endl;
-        hs << "private:" << endl;
-        for (const auto property : interface->properties)
-        {
-            QByteArray type = qtTypeName(property.type, property.annotations);
-            hs << "    " << type << " m_" << property.name << ';' << endl;
-        }
 
         // queued stuffs
-        hs << "public:" << endl
-           << "    inline void CallQueued(const QString &callName, const QList<QVariant> &args)" << endl
+        hs << "public Q_SLOTS:" << endl
+           << "    void CallQueued(const QString &callName, const QList<QVariant> &args);" << endl
+           << endl;
+
+        cs << "void " << className << "::CallQueued(const QString &callName, const QList<QVariant> &args)" << endl
+           << "{" << endl
+           << "    if (d_ptr->m_waittingCalls.contains(callName))" << endl
            << "    {" << endl
-           << "        if (m_waittingCalls.contains(callName))" << endl
-           << "        {" << endl
-           << "            m_waittingCalls[callName] = args;" << endl
-           << "            return;" << endl
-           << "        }" << endl
-           << "        if (m_processingCalls.contains(callName))" << endl
-           << "        {" << endl
-           << "            m_waittingCalls.insert(callName, args);" << endl
-           << "        } else {" << endl
-           << "            QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(asyncCallWithArgumentList(callName, args));" << endl
-           << "            connect(watcher, &QDBusPendingCallWatcher::finished, this, &" << className << "::onPendingCallFinished);" << endl
-           << "            m_processingCalls.insert(callName, watcher);" << endl
-           << "        }" << endl
-           << "    }"
+           << "        d_ptr->m_waittingCalls[callName] = args;" << endl
+           << "        return;" << endl
+           << "    }" << endl
+           << "    if (d_ptr->m_processingCalls.contains(callName))" << endl
+           << "    {" << endl
+           << "        d_ptr->m_waittingCalls.insert(callName, args);" << endl
+           << "    } else {" << endl
+           << "        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(asyncCallWithArgumentList(callName, args));" << endl
+           << "        connect(watcher, &QDBusPendingCallWatcher::finished, this, &" << className << "::onPendingCallFinished);" << endl
+           << "        d_ptr->m_processingCalls.insert(callName, watcher);" << endl
+           << "    }" << endl
+           << "}" << endl
+           << endl;
 
-           << "private Q_SLOTS:" << endl
-           << "        void onPendingCallFinished(QDBusPendingCallWatcher *w)" << endl
-           << "        {" << endl
-           << "            w->deleteLater();" << endl
+        hs << "private Q_SLOTS:" << endl
+           << "    void onPendingCallFinished(QDBusPendingCallWatcher *w);" << endl;
 
-           << "            const auto callName = m_processingCalls.key(w);" << endl
-           << "            Q_ASSERT(!callName.isEmpty());" << endl
-           << "            if (callName.isEmpty())" << endl
-           << "                return;" << endl
+        if (!interface->properties.isEmpty())
+            hs << "    void onPropertyChanged(const QString &propName, const QVariant &value);" << endl;
 
-           << "            m_processingCalls.remove(callName);" << endl
+        hs << endl;
 
-           << "            if (!m_waittingCalls.contains(callName))" << endl
-           << "                return;" << endl
+        cs << "void " << className << "::onPendingCallFinished(QDBusPendingCallWatcher *w)" << endl
+           << "{" << endl
+           << "    w->deleteLater();" << endl
 
-           << "            const auto args = m_waittingCalls.take(callName);" << endl
-           << "            CallQueued(callName, args);" << endl
-           << "        }" << endl;
+           << "    const auto callName = d_ptr->m_processingCalls.key(w);" << endl
+           << "    Q_ASSERT(!callName.isEmpty());" << endl
+           << "    if (callName.isEmpty())" << endl
+           << "        return;" << endl
 
+           << "    d_ptr->m_processingCalls.remove(callName);" << endl
+
+           << "    if (!d_ptr->m_waittingCalls.contains(callName))" << endl
+           << "        return;" << endl
+
+           << "    const auto args = d_ptr->m_waittingCalls.take(callName);" << endl
+           << "    CallQueued(callName, args);" << endl
+           << "}" << endl;
+
+        // private member
         hs << "private:" << endl
-           << "    QMap<QString, QDBusPendingCallWatcher *> m_processingCalls;" << endl
-           << "    QMap<QString, QList<QVariant>> m_waittingCalls;" << endl;
+           << "    " << className << "Private *d_ptr;" << endl;
 
         // close the class:
         hs << "};" << endl
