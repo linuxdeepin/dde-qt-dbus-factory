@@ -12,15 +12,13 @@ Build-Depends:
 Standards-Version: 4.1.1
 Homepage: https://github.com/linuxdeepin/dde-qt-dbus-factory
 
-Package: libdframeworkdbus1
+Package: libdframeworkdbus2
 Architecture: any
 Section: libs
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Multi-Arch: same
-Conflicts: libdframeworkdbus
-Replaces: libdframeworkdbus
 Description: Qt DBus interface library for Deepin software (shared library)
  Libdframeworkdbus provides Qt DBus interface for various Deepin software.
  It centralizes DBus-related code into single library for Deepin software
@@ -33,7 +31,7 @@ Package: libdframeworkdbus-dev
 Architecture: any
 Section: libdevel
 Depends:
- libdframeworkdbus1( =${binary:Version}),
+ libdframeworkdbus2( =${binary:Version}),
  ${misc:Depends},
 Conflicts: libdframeworkdbus
 Description: Qt DBus interface library for Deepin software (development files)

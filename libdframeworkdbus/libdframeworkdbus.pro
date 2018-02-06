@@ -1,6 +1,6 @@
 TEMPLATE = lib
 TARGET = dframeworkdbus
-VERSION = 1.0
+VERSION = 2.0
 CONFIG += c++11 create_pc create_prl no_install_prl
 
 include(qtdbusextended/qtdbusextended.pri)
