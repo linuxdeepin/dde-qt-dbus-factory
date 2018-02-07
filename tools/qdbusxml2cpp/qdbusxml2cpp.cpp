@@ -780,8 +780,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
                 // getter define
                 cs << type << " " << className << "::" << getter << "()" << endl
                    << "{" << endl
-                   << endl
-                   << "    return d_ptr->" << property.name << ";" << endl
+                   << "    return qvariant_cast<" << type << ">(internalPropGet(\"" << property.name << "\", &d_ptr->" << property.name << "));" << endl
                    << "}" << endl
                    << endl;
             }
@@ -795,7 +794,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
                 cs << "void " << className << "::" << setter << "(" << constRefArg(type) << "value)" << endl
                    << "{" << endl
                    << endl
-                   << "    d_ptr->" << property.name << " = value;" << endl
+                   << "   internalPropSet(\"" << property.name << "\", QVariant::fromValue(value), &d_ptr->" << property.name << ");" << endl
                    << "}" << endl
                    << endl;
             }
