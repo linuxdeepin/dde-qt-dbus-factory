@@ -734,7 +734,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
                 cs << "        " << "if (d_ptr->" << property.name << " != " << property.name << ")" << endl;
                 cs << "        {" << endl;
                 cs << "            d_ptr->" << property.name << " = " << property.name << ';' << endl;
-                cs << "            emit " << name << "Changed(d_ptr->" << property.name << ");" << endl;
+                cs << "            Q_EMIT " << name << "Changed(d_ptr->" << property.name << ");" << endl;
                 cs << "        }" << endl;
                 cs << "        return;" << endl;
                 cs << "    }" << endl;

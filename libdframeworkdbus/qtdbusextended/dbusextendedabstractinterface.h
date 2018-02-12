@@ -53,7 +53,7 @@ public:
     void getAllProperties();
     inline QDBusError lastExtendedError() const { return m_lastExtendedError; }
 
-public slots:
+public Q_SLOTS:
     void startServiceProcess();
 
 protected:
