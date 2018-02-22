@@ -15,8 +15,8 @@ public:
     bool operator==(const WindowInfo &rhs) const;
 
 public:
-    bool m_actived;
-    QString m_windowTitle;
+    bool attention;
+    QString title;
 };
 Q_DECLARE_METATYPE(WindowInfo)
 
