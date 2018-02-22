@@ -39,7 +39,8 @@ HEADERS += \
     types/qvariantmap.h \
     types/appscgroupinfo.h \
     types/appscgroupinfolist.h \
-    types/chrometablist.h
+    types/chrometablist.h \
+    types/windowinfomap.h
 
 SOURCES += \
     types/zoneinfo.cpp \
@@ -73,7 +74,8 @@ SOURCES += \
     types/sinkinfolist.cpp \
     types/qvariantmap.cpp \
     types/appscgroupinfolist.cpp \
-    types/chrometablist.cpp
+    types/chrometablist.cpp \
+    types/windowinfomap.cpp
 
 !system(python $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)
