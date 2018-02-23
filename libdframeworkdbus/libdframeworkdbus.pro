@@ -89,6 +89,19 @@ isEmpty(LIB_INSTALL_DIR) {
 includes.files =
 includes.path = $$INSTALL_ROOT/usr/include/libdframeworkdbus-$$VERSION
 
+cmake.input      = $$PWD/DFrameworkdbusConfig.in
+cmake.output     = $$OUT_PWD/DFrameworkdbusConfig.cmake
+
+QMAKE_SUBSTITUTES += cmake
+
+isEmpty(LIB_INSTALL_DIR) {
+    cmake_config.path = $$INSTALL_ROOT/usr/lib/cmake/DFrameworkdbus/
+} else {
+    cmake_config.path = $$LIB_INSTALL_DIR/cmake/DFrameworkdbus/
+}
+
+cmake_config.files = $$OUT_PWD/DFrameworkdbusConfig.cmake
+
 type_headers.files =
 type_headers.path = $$includes.path/types
 
@@ -110,4 +123,4 @@ QMAKE_PKGCONFIG_INCDIR = $$includes.path
 QMAKE_PKGCONFIG_LIBDIR = $$target.path
 QMAKE_PKGCONFIG_DESTDIR = pkgconfig
 
-INSTALLS += includes type_headers target
+INSTALLS += includes type_headers target cmake_config
