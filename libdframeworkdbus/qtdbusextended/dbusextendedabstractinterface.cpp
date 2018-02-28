@@ -170,7 +170,11 @@ QVariant DBusExtendedAbstractInterface::internalPropGet(const char *propname, vo
     }
 
     if (m_sync) {
-        return property(propname);
+        QVariant ret = property(propname);
+
+        QMetaType::construct(ret.userType(), propertyPtr, ret.constData());
+
+        return ret;
     } else {
         if (!isValid()) {
             QString errorMessage = QStringLiteral("This Extended DBus interface is not valid yet.");
