@@ -1,0 +1,47 @@
+
+<interface name="com.deepin.system.Power">
+	<method name="GetBatteries">
+		<arg name="batteries" type="ao" direction="out"></arg>
+	</method>
+
+	<method name="Refresh">
+	</method>
+
+	<method name="RefreshBatteries">
+	</method>
+
+	<method name="RefreshMains">
+	</method>
+
+	<signal name="BatteryDisplayUpdate">
+		<arg name="timestamp" type="x"></arg>
+	</signal>
+
+	<signal name="BatteryAdded">
+		<arg name="objPath" type="s"></arg>
+	</signal>
+
+	<signal name="BatteryRemoved">
+		<arg name="objPath" type="s"></arg>
+	</signal>
+
+	<signal name="LidClosed">
+	</signal>
+
+	<signal name="LidOpened">
+	</signal>
+
+	<property name="BatteryStatus" type="u" access="read"></property>
+
+	<property name="BatteryTimeToEmpty" type="t" access="read"></property>
+
+	<property name="BatteryTimeToFull" type="t" access="read"></property>
+
+	<property name="OnBattery" type="b" access="read"></property>
+
+	<property name="HasLidSwitch" type="b" access="read"></property>
+
+	<property name="HasBattery" type="b" access="read"></property>
+
+	<property name="BatteryPercentage" type="d" access="read"></property>
+</interface>
