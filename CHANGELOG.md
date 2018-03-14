@@ -1,3 +1,13 @@
+<a name="1.0.1"></a>
+## 1.0.1 (2018-03-14)
+
+
+#### Bug Fixes
+
+*   restore compatibility interface with Accounts DBus ([5b30fc6e](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/5b30fc6e3f995df6f62fc8dc0fdb7e0e2b0487d2))
+
+
+
 <a name="1.0.0"></a>
 ## 1.0.0 (2018-03-08)
 
