@@ -45,6 +45,11 @@
                <arg type="s" direction="in"></arg>
                <arg type="s" direction="in"></arg>
           </method>
+          <method name="SetKeyFd">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+               <arg type="h" direction="out"></arg>
+          </method>
           <signal name="ConnectionDataChanged"></signal>
           <property name="ConnectionPath" type="o" access="read"></property>
           <property name="Uuid" type="s" access="read"></property>
