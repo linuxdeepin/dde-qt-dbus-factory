@@ -6,5 +6,8 @@
   <method name="SetSourceCheckEnabled">
     <arg type="b" direction="in"/>
   </method>
+  <method name="IsDiskSpaceSufficient">
+    <arg type="b" direction="out"></arg>
+  </method>
   <property name="SourceCheckEnabled" type="b" access="read"/>
 </interface>
