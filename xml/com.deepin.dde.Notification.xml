@@ -26,6 +26,15 @@
   <method name="GetAllRecords"> 
     <arg direction="out" type="s"/>
   </method> 
+  <method name="GetRecordById"> 
+    <arg direction="in" type="s"/>
+    <arg direction="out" type="s"/>
+  </method> 
+  <method name="GetRecordsFromId"> 
+    <arg direction="in" type="i"/>
+    <arg direction="in" type="s"/>
+    <arg direction="out" type="s"/>
+  </method> 
   <method name="RemoveRecord"> 
     <arg direction="in" type="s"/>
   </method> 
