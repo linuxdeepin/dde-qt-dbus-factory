@@ -1,3 +1,13 @@
+<a name="1.0.2"></a>
+## 1.0.2 (2018-05-14)
+
+
+#### Features
+
+* **bluetooth:**  add cancel signal ([59f3965a](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/59f3965afb832a2eec16abcd2bef89cc9ed7b8be))
+
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2018-03-14)
 
