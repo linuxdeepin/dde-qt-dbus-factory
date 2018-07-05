@@ -1,47 +1,28 @@
-
 <interface name="com.deepin.system.Power">
-	<method name="GetBatteries">
-		<arg name="batteries" type="ao" direction="out"></arg>
-	</method>
-
-	<method name="Refresh">
-	</method>
-
-	<method name="RefreshBatteries">
-	</method>
-
-	<method name="RefreshMains">
-	</method>
-
-	<signal name="BatteryDisplayUpdate">
-		<arg name="timestamp" type="x"></arg>
-	</signal>
-
-	<signal name="BatteryAdded">
-		<arg name="objPath" type="s"></arg>
-	</signal>
-
-	<signal name="BatteryRemoved">
-		<arg name="objPath" type="s"></arg>
-	</signal>
-
-	<signal name="LidClosed">
-	</signal>
-
-	<signal name="LidOpened">
-	</signal>
-
-	<property name="BatteryStatus" type="u" access="read"></property>
-
-	<property name="BatteryTimeToEmpty" type="t" access="read"></property>
-
-	<property name="BatteryTimeToFull" type="t" access="read"></property>
-
-	<property name="OnBattery" type="b" access="read"></property>
-
-	<property name="HasLidSwitch" type="b" access="read"></property>
-
-	<property name="HasBattery" type="b" access="read"></property>
-
-	<property name="BatteryPercentage" type="d" access="read"></property>
+  <method name="GetBatteries">
+    <arg name="batteries" type="ao" direction="out"/>
+  </method>
+  <method name="Refresh"/>
+  <method name="RefreshBatteries"/>
+  <method name="RefreshMains"/>
+  <signal name="BatteryDisplayUpdate">
+    <arg name="timestamp" type="x"/>
+  </signal>
+  <signal name="BatteryAdded">
+    <arg name="objpath" type="o"/>
+  </signal>
+  <signal name="BatteryRemoved">
+    <arg name="objpath" type="o"/>
+  </signal>
+  <signal name="LidClosed"/>
+  <signal name="LidOpened"/>
+  <property name="OnBattery" type="b" access="read"/>
+  <property name="BatteryTimeToEmpty" type="t" access="read"/>
+  <property name="BatteryTimeToFull" type="t" access="read"/>
+  <property name="PowerSavingModeEnabled" type="b" access="readwrite"/>
+  <property name="HasLidSwitch" type="b" access="read"/>
+  <property name="HasBattery" type="b" access="read"/>
+  <property name="BatteryPercentage" type="d" access="read"/>
+  <property name="BatteryStatus" type="u" access="read"/>
+  <property name="PowerSavingModeAuto" type="b" access="readwrite"/>
 </interface>
