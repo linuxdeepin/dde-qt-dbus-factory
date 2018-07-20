@@ -1,3 +1,13 @@
+<a name="1.0.3"></a>
+### 1.0.3 (2018-07-20)
+
+
+#### Features
+
+* **power:**  update com.deepin.system.SystemPower ([b10175cd](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/b10175cd951bec7c32b7d9af97c74bbdc647595d))
+
+
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2018-05-14)
 
