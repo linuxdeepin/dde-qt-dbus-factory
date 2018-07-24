@@ -4,6 +4,7 @@
         <property name="DisableTpad" type="b" access="readwrite"></property>
         <property name="NaturalScroll" type="b" access="readwrite"></property>
         <property name="MiddleButtonEmulation" type="b" access="readwrite"></property>
+        <property name="AdaptiveAccelProfile" type="b" access="readwrite"></property>
         <property name="MotionAcceleration" type="d" access="readwrite"></property>
         <property name="MotionThreshold" type="d" access="readwrite"></property>
         <property name="MotionScaling" type="d" access="readwrite"></property>
