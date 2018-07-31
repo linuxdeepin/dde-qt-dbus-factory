@@ -1,3 +1,13 @@
+<a name="1.0.4"></a>
+### 1.0.4 (2018-07-31)
+
+
+#### Features
+
+* **mouse:**  Mouse accel profile support ([dd33458d](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/dd33458d09eec753ff75bb4b4ab0119c8a71ad1c))
+
+
+
 <a name="1.0.3"></a>
 ### 1.0.3 (2018-07-20)
 
