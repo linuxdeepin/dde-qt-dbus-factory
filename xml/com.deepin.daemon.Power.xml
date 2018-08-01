@@ -1,6 +1,7 @@
 <interface name="com.deepin.daemon.Power">
     <method name="Reset"/>
     <method name="StartupNotify"/>
+    <property access="readwrite" name="AmbientLightAdjustBrightness" type="b"/>
     <property access="readwrite" name="LinePowerScreenBlackDelay" type="i"/>
     <property access="readwrite" name="LinePowerSleepDelay" type="i"/>
     <property access="readwrite" name="BatteryScreenBlackDelay" type="i"/>
@@ -9,6 +10,7 @@
     <property access="readwrite" name="SleepLock" type="b"/>
     <property access="readwrite" name="PowerButtonAction" type="s"/>
     <property access="readwrite" name="LidClosedSleep" type="b"/>
+    <property access="read" name="HasAmbientLightSensor" type="b"></property>
     <property access="read" name="LidIsPresent" type="b"/>
     <property access="read" name="OnBattery" type="b"/>
     <property access="read" name="BatteryIsPresent" type="a{sb}">
