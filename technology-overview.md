@@ -26,3 +26,9 @@
 3. 一个经过适当修改的 `DBusExtendedAbstractInterface`，在这里实现了对 Property 的异步访问与设置，也添加了对一些自启动服务的自动 launch 及监控功能。
 
 ## qdbusxml2cpp
+
+参考 `qdbusxml2cpp` 目录中的代码，除改变了输出格式，添加了一些 namespace 之类的之外，和原来的工作流程没有什么区别。
+
+## generate_code.py
+
+一个利用编译出来的 `qdbusxml2cpp`，将 xml 描述的 DBus 接口文件转换成 cpp 接口类。
