@@ -4,6 +4,10 @@
      </method>
      <method name="Check"></method>
      <method name="ForceQuit"></method>
+     <method name="GetAllowedCloseWindows">
+          <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="WindowList" />
+          <arg type="au" direction="out"></arg>
+     </method>
      <method name="HandleDragDrop">
           <arg type="u" direction="in"></arg>
           <arg type="as" direction="in"></arg>
