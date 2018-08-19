@@ -662,7 +662,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
            << endl;
 
         // private class member
-        cs << "    // begin member vaiables" << endl;
+        cs << "    // begin member variables" << endl;
         for (const auto property : interface->properties)
         {
             QByteArray type = qtTypeName(property.type, property.annotations);
