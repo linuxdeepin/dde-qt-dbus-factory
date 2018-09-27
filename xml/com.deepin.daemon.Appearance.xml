@@ -41,4 +41,5 @@
         <property name="StandardFont" type="s" access="readwrite"></property>
         <property name="MonospaceFont" type="s" access="readwrite"></property>
         <property name="FontSize" type="d" access="readwrite"></property>
+        <property name="Opacity" type="d" access="readwrite"/>
     </interface>
