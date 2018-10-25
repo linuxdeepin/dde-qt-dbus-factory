@@ -1,3 +1,16 @@
+<a name="1.0.5"></a>
+### 1.0.5 (2018-10-25)
+
+
+#### Features
+
+*   update com.deepin.dde.launcher xml file ([7f3b82d4](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/7f3b82d48b9a749e786f6d130d55c61afd97be85))
+*   update com.deepin.daemon.Grub2 ([a26ff4f2](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/a26ff4f27fa021abeb95dfa42d4cd4b59537d111))
+*   add Opacity property for appearance ([afe91324](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/afe913241594e4424cbc78f752f627599fba50bd))
+* **Logined:**  add LastLogoutUser interface ([e451ca83](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/e451ca83941a3e7d3b8ffc0dea56693c2abe699f))
+
+
+
 <a name="1.0.4"></a>
 ### 1.0.4 (2018-07-31)
 
