@@ -52,8 +52,8 @@ def main():
 
         print("generating the pri file...")
         pwdfy = lambda x: "$$PWD/%s" % x
-        sources = map(pwdfy, glob.glob1(generated_dir, "*.cpp"))
-        headers = map(pwdfy, glob.glob1(generated_dir, "*.h"))
+        sources = map(pwdfy, sorted(glob.glob1(generated_dir, "*.cpp")))
+        headers = map(pwdfy, sorted(glob.glob1(generated_dir, "*.h")))
         pri.write("HEADERS += %s\n" % " ".join(headers))
         pri.write("SOURCES += %s" % " ".join(sources))
         print("done.")
