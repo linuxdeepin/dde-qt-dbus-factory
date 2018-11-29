@@ -144,6 +144,7 @@
                <arg type="b"></arg>
           </signal>
           <property name="State" type="u" access="read"></property>
+          <property name="Connectivity" type="u" access="read"></property>
           <property name="NetworkingEnabled" type="b" access="readwrite"></property>
           <property name="VpnEnabled" type="b" access="readwrite"></property>
           <property name="Devices" type="s" access="read"></property>
