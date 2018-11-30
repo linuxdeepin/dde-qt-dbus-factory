@@ -1,3 +1,14 @@
+<a name="1.0.6"></a>
+### 1.0.6 (2018-11-30)
+
+
+#### Features
+
+*   add com.deepin.lastore.SMartmirror xml file ([97d4fc2f](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/97d4fc2fb6ddaf39571be6811a2aa6472c35b7b5))
+*   add com.deepin.appstore.metadata xml file ([dec117d7](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/dec117d7ad457bef412d60e611670147e21b1eec))
+
+
+
 <a name="1.0.5"></a>
 ### 1.0.5 (2018-10-25)
 
