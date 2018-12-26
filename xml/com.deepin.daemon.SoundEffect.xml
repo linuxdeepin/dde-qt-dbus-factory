@@ -1,6 +1,10 @@
- <interface name="com.deepin.daemon.SoundEffect">
-      <method name="PlaySystemSound">
-           <arg type="s" direction="in"></arg>
-      </method>
-      <property name="Enabled" type="b" access="readwrite"></property>
- </interface>
+<interface name="com.deepin.daemon.SoundEffect">
+  <method name="GetSystemSoundFile">
+    <arg name="event" type="s" direction="in"/>
+    <arg name="file" type="s" direction="out"/>
+  </method>
+  <method name="PlaySystemSound">
+    <arg name="event" type="s" direction="in"/>
+  </method>
+  <property name="Enabled" type="b" access="readwrite"/>
+</interface>
