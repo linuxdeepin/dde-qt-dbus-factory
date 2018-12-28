@@ -1,3 +1,14 @@
+<a name="1.0.7"></a>
+### 1.0.7 (2018-12-28)
+
+
+#### Features
+
+*   update com.deepin.daemon.SoundEffect ([d3c5535d](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/d3c5535df66cd2cfb64a69ce9d1f3f1643ce71a6))
+* **WMSwitcher:**  update xml ([7d60f502](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/7d60f502fd45b97c984b1655768d9338d41727bb))
+
+
+
 <a name="1.0.6"></a>
 ### 1.0.6 (2018-11-30)
 
