@@ -9,6 +9,9 @@
   <method name="GetEntryIDs">
     <arg type="as" direction="out"/>
   </method>
+  <method name="GetPluginSettings">
+    <arg type="s" direction="out"/>
+  </method>
   <method name="IsDocked">
     <arg type="s" direction="in"/>
     <arg type="b" direction="out"/>
@@ -55,6 +58,10 @@
     <arg type="u" direction="in"/>
     <arg type="u" direction="in"/>
   </method>
+  <method name="SetPluginSettings">
+    <arg type="x" direction="in"/>
+    <arg type="s" direction="in"/>
+  </method>
   <signal name="ServiceRestarted"/>
   <signal name="EntryAdded">
     <arg type="o"/>
@@ -62,6 +69,9 @@
   </signal>
   <signal name="EntryRemoved">
     <arg type="s"/>
+  </signal>
+  <signal name="PluginSettingsUpdated">
+    <arg name="ts" type="x"/>
   </signal>
   <property name="Entries" type="ao" access="read"/>
   <property name="HideMode" type="i" access="readwrite"/>
