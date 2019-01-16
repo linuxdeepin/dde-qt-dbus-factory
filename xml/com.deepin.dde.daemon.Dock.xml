@@ -85,4 +85,5 @@
   <property name="FrontendWindowRect" type="(iiuu)" access="read">
     <annotation name="org.qtproject.QtDBus.QtTypeName" value="DockRect"/>
   </property>
+  <property name="Opacity" type="d" access="readwrite"/>
 </interface>
