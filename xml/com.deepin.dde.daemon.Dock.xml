@@ -59,7 +59,9 @@
     <arg type="u" direction="in"/>
   </method>
   <method name="SetPluginSettings">
-    <arg type="x" direction="in"/>
+    <arg type="s" direction="in"/>
+  </method>
+  <method name="MergePluginSettings">
     <arg type="s" direction="in"/>
   </method>
   <signal name="ServiceRestarted"/>
@@ -70,9 +72,7 @@
   <signal name="EntryRemoved">
     <arg type="s"/>
   </signal>
-  <signal name="PluginSettingsUpdated">
-    <arg name="ts" type="x"/>
-  </signal>
+  <signal name="PluginSettingsSynced"/>
   <property name="Entries" type="ao" access="read"/>
   <property name="HideMode" type="i" access="readwrite"/>
   <property name="DisplayMode" type="i" access="readwrite"/>
