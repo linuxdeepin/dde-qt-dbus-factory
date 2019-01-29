@@ -4,6 +4,7 @@ VERSION = 2.0
 CONFIG += c++11 create_pc create_prl no_install_prl
 CONFIG += no_keywords
 
+load(deepin_qt)
 include(qtdbusextended/qtdbusextended.pri)
 
 HEADERS += \
@@ -116,6 +117,10 @@ for(header, HEADERS) {
     } else {
         eval(includes.files += $$header)
     }
+}
+
+host_sw_64 {
+    QMAKE_CXXFLAGS += -mieee
 }
 
 QMAKE_PKGCONFIG_NAME = libdframeworkdbus
