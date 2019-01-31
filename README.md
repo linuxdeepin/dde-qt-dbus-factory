@@ -17,4 +17,4 @@ qdbusxml2cpp -c Notifications -p org_freedesktop_notifications xml/org.freedeskt
 ```
 生成相应的代码即可。
 
-**注：** 生成过程中遇到的复杂类型需要自定义类型的，统一放在相应的生成文件内以自包容；
+**注：** 生成过程中遇到的复杂类型需要自定义类型的，统一放在相应的生成文件内以自包容。
