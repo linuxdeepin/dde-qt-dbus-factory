@@ -1,7 +1,5 @@
-dde-qt-dbus-factory
-===================
-
-dde-qt-dbus-factory是用来统一存放dde使用到的自动生成的Qt DBus代码的仓库，这样dde开发者就不用在自己的项目中重复创建同样的DBus代码，或者中其他项目中拷贝文件到自己的项目里面。
+# dde-qt-dbus-factory
+`dde-qt-dbus-factory` 是用来统一存放 `dde` 使用到的自动生成的 `Qt DBus` 代码的仓库，这样 `dde` 开发者就不用在自己的项目中重复创建同样的 `DBus` 代码，或者中其他项目中拷贝文件到自己的项目里面。
 
 生成代码的时候请使用qdbusxml2cpp-fix这个工具而不是Qt官方提供的qdbusxml2cpp，这个工具的源码包含在本项目的tools目录下，之后也会提供相关包直接安装。
 
