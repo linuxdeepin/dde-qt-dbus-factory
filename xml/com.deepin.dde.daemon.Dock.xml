@@ -43,6 +43,10 @@
     <arg type="u" direction="in"/>
     <arg type="s" direction="out"/>
   </method>
+  <method name="RemovePluginSettings">
+    <arg type="s" direction="in"/>
+    <arg type="as" direction="in"/>
+  </method>
   <method name="RequestDock">
     <arg type="s" direction="in"/>
     <arg type="i" direction="in"/>
