@@ -42,6 +42,8 @@ HEADERS += \
     types/appscgroupinfolist.h \
     types/chrometablist.h \
     types/windowinfomap.h \
+    types/dbusimagelist.h \
+    types/dbustooltip.h \
     types/dockrect.h
 
 SOURCES += \
@@ -78,6 +80,8 @@ SOURCES += \
     types/appscgroupinfolist.cpp \
     types/chrometablist.cpp \
     types/windowinfomap.cpp \
+    types/dbusimagelist.cpp \
+    types/dbustooltip.cpp \
     types/dockrect.cpp
 
 !system(python $$PWD/generate_code.py): error("Failed to generate code")
