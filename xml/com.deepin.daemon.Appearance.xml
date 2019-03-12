@@ -27,6 +27,14 @@
         <method name="SetScaleFactor">
             <arg type="d" direction="in"/>
         </method>
+        <method name="GetScreenScaleFactors">
+            <arg name="scaleFactors" type="a{sd}" direction="out"/>
+	    <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QMap&lt;QString,double&gt;"/>
+        </method>
+        <method name="SetScreenScaleFactors">
+            <arg name="scaleFactors" type="a{sd}" direction="in"/>
+	    <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QMap&lt;QString,double&gt;"/>
+        </method>
         <signal name="Changed">
             <arg type="s"></arg>
             <arg type="s"></arg>
