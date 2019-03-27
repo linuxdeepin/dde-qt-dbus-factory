@@ -1,3 +1,13 @@
+<a name="1.1.1"></a>
+## 1.1.1 (2019-03-26)
+
+
+#### Features
+
+*   new methods for handling per-screen scale factors ([036f7da3](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/036f7da3fdf760fc2fa56906abcae59255c05f1a))
+
+
+
 <a name=""></a>
 ##  1.1.0 (2019-02-25)
 
