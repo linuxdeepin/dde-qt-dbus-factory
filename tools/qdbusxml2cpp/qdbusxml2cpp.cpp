@@ -630,8 +630,11 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
         }
     }
 
-    for (const QString &anootation : annotations)
-        hs << "#include \"types/" << anootation.toLower() << ".h\"" << endl;
+    for (const QString &annotation : annotations) {
+        if (annotation.indexOf('<')==-1) {
+            hs << "#include \"types/" << annotation.toLower() << ".h\"" << endl;
+        }
+    }
     hs << endl;
 
     foreach (const QDBusIntrospection::Interface *interface, interfaces) {
@@ -699,10 +702,17 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
         if (!interface->properties.isEmpty())
             cs   << "    connect(this, &" << className << "::propertyChanged, this, &" << className << "::onPropertyChanged);" << endl << endl;
 
-        for (const QString &annotation : annotations)
-        {
-            cs << "    if (QMetaType::type(\"" << annotation << "\") == QMetaType::UnknownType)" << endl;
-            cs << "        register" << annotation << "MetaType();" << endl;
+        for (const QString &annotation : annotations) {
+            if(annotation.indexOf('<')!=-1) {
+                cs << "    if (QMetaType::type(\"" << annotation << "\") == QMetaType::UnknownType) {" << endl;
+                cs << "        qRegisterMetaType< " << annotation << " >(\"" << annotation << "\");" << endl;
+                cs << "        qDBusRegisterMetaType< " << annotation << " >();" << endl;
+                cs << "    }" << endl;
+            }
+            else {
+                cs << "    if (QMetaType::type(\"" << annotation << "\") == QMetaType::UnknownType)" << endl;
+                cs << "        register" << annotation << "MetaType();" << endl;
+            }
         }
 
         cs << "}" << endl

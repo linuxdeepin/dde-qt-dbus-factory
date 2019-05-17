@@ -1,3 +1,29 @@
+<a name="1.1.1"></a>
+## 1.1.1 (2019-03-26)
+
+
+#### Features
+
+*   new methods for handling per-screen scale factors ([036f7da3](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/036f7da3fdf760fc2fa56906abcae59255c05f1a))
+
+
+
+<a name=""></a>
+##  1.1.0 (2019-02-25)
+
+
+
+
+<a name="1.0.9"></a>
+### 1.0.9 (2019-02-11)
+
+
+#### Bug Fixes
+
+* **sw:**  add CXXFLAGS -mieee ([b4e755eb](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/b4e755eb90e774c34ea05a7f6011882181c78b75))
+
+
+
 <a name="1.0.8"></a>
 ## 1.0.8 (2019-01-24)
 
