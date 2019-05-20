@@ -9,11 +9,11 @@
   </method>
   <method name="SetToken">
     <arg type="a{sv}" direction="in"/>
-    <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QMap&lt;QString,QVariant&gt;"/>
+    <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QVariantMap"/>
   </method>
   <property name="HardwareID" type="s" access="read"/>
   <property name="MachineName" type="s" access="read"/>
   <property name="UserInfo" type="a{sv}" access="read">
-      <annotation name="org.qtproject.QtDBus.QtTypeName" value="QMap&lt;QString,QVariant&gt;"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName" value="QVariantMap"/>
   </property>
 </interface>

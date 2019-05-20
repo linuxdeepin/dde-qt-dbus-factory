@@ -4,7 +4,7 @@
   </method>
   <method name="OnMessage">
     <arg type="a{sv}" direction="in"/>
-    <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QMap&lt;QString,QVariant&gt;"/>
+    <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QVariantMap"/>
   </method>
   <method name="Register">
     <arg type="s" direction="in"/>
@@ -23,6 +23,6 @@
   </method>
   <property name="LastSyncTime" type="x" access="read"/>
   <property name="State" type="(is)" access="read">
-  <annotation name="org.qtproject.QtDBus.QtTypeName" value="QPair&lt;qint32,QString&gt;"/>
+  <annotation name="org.qtproject.QtDBus.QtTypeName" value="IntString"/>
   </property>
 </interface>

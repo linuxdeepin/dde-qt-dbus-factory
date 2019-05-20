@@ -44,7 +44,8 @@ HEADERS += \
     types/windowinfomap.h \
     types/dbusimagelist.h \
     types/dbustooltip.h \
-    types/dockrect.h
+    types/dockrect.h \
+    types/intstring.h
 
 SOURCES += \
     types/zoneinfo.cpp \
@@ -82,7 +83,8 @@ SOURCES += \
     types/windowinfomap.cpp \
     types/dbusimagelist.cpp \
     types/dbustooltip.cpp \
-    types/dockrect.cpp
+    types/dockrect.cpp \
+    types/intstring.cpp
 
 !system(python $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)
