@@ -1,3 +1,20 @@
+<a name="1.1.2"></a>
+### 1.1.2 (2019-05-23)
+
+
+#### Bug Fixes
+
+*   use libdtkcore-bin replace old deepin-qt5config ([f00f4e3b](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/f00f4e3bce183485cf39ab6efac6cfb4d33fd485))
+* **sync:**  use local type ([bf1ea07c](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/bf1ea07ce79a692694c064dd3cf723a00fa59a72))
+
+#### Features
+
+*   add com.deepin.deepinid xml file ([47c77ea5](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/47c77ea5a6923e3e27c80446e677417e332a0655))
+*   add com.deepin.sync.daemon xml file ([86a17b54](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/86a17b54804086b3083d338f91afb774cd0d3dfc))
+*   add com.deepin.anything xml file ([8c44b2c7](https://github.com/linuxdeepin/dde-qt-dbus-factory/commit/8c44b2c7c00d44ec134826229f9a81f1696eef00))
+
+
+
 <a name="1.1.1"></a>
 ## 1.1.1 (2019-03-26)
 
