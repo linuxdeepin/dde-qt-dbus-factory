@@ -21,8 +21,12 @@
     <arg type="s" direction="in"/>
     <arg type="b" direction="in"/>
   </method>
+  <signal name="SwitcherChange">
+    <arg name="switcher" type="s"/>
+    <arg name="enabled" type="b"/>
+  </signal>
   <property name="LastSyncTime" type="x" access="read"/>
   <property name="State" type="(is)" access="read">
-  <annotation name="org.qtproject.QtDBus.QtTypeName" value="IntString"/>
+    <annotation name="org.qtproject.QtDBus.QtTypeName" value="IntString"/>
   </property>
 </interface>
