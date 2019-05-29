@@ -9,7 +9,7 @@ DESTDIR = $$PWD/../../bin/
 
 CONFIG += c++11
 
-load(deepin_qt)
+load(dtk_qmake)
 
 host_sw_64 {
     QMAKE_CXXFLAGS += -mieee
