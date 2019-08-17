@@ -27,12 +27,6 @@
     <method name="SetScaleFactor">
         <arg type="d" direction="in"/>
     </method>
-    <method name="GetQtActiveColor">
-        <arg name="hexColor" type="s" direction="out"/>
-    </method>
-    <method name="SetQtActiveColor">
-        <arg name="hexColor" type="s" direction="in"/>
-    </method>
     <method name="GetScreenScaleFactors">
         <arg name="scaleFactors" type="a{sd}" direction="out"/>
         <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QMap&lt;QString,double&gt;"/>
@@ -57,4 +51,5 @@
     <property name="FontSize" type="d" access="readwrite"></property>
     <property name="Opacity" type="d" access="readwrite"/>
     <property name="WallpaperSlideShow" type="s" access="readwrite"/>
+    <property name="QtActiveColor" type="s" access="readwrite"/>
 </interface>
