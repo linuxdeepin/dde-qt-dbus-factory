@@ -25,4 +25,6 @@
     <property name="LidIsPresent" type="b" access="read"/>
     <property name="SleepLock" type="b" access="readwrite"/>
     <property name="LidClosedSleep" type="b" access="readwrite"/>
+    <property name="LinePowerLockDelay" type="i" access="readwrite"/>
+    <property name="BatteryLockDelay" type="i" access="readwrite"/>
 </interface>
