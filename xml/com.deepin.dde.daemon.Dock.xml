@@ -81,7 +81,7 @@
   <property name="HideMode" type="i" access="readwrite"/>
   <property name="DisplayMode" type="i" access="readwrite"/>
   <property name="Position" type="i" access="readwrite"/>
-  <property name="IconSize" type="u" access="readwrite"/>
+  <property name="DockWindowSize" type="u" access="readwrite"/>
   <property name="ShowTimeout" type="u" access="readwrite"/>
   <property name="HideTimeout" type="u" access="readwrite"/>
   <property name="DockedApps" type="as" access="read"/>
