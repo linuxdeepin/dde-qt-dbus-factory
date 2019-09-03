@@ -10,7 +10,7 @@ Build-Depends:
  pkg-kde-tools,
  qtbase5-private-dev,
  libdtkcore-dev,
- libdtkcore-bin
+ libdtkcore5-bin
 Standards-Version: 4.1.1
 Homepage: https://github.com/linuxdeepin/dde-qt-dbus-factory
 
