@@ -62,4 +62,5 @@
   <property name="Gid" type="s" access="read"/>
   <property name="HomeDir" type="s" access="read"/>
   <property name="Layout" type="s" access="read"/>
+  <property name="CreatedTime" type="t" access="read"/>
 </interface>
