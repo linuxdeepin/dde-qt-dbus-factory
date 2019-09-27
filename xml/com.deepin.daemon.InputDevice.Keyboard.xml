@@ -27,6 +27,7 @@
           <property name="CursorBlink" type="i" access="readwrite"></property>
           <property name="RepeatInterval" type="u" access="readwrite"></property>
           <property name="RepeatDelay" type="u" access="readwrite"></property>
+          <property name="LayoutScope" type="i" access="readwrite"></property>
           <property name="CurrentLayout" type="s" access="readwrite"></property>
           <property name="UserLayoutList" type="as" access="read"></property>
           <property name="UserOptionList" type="as" access="read"></property>
