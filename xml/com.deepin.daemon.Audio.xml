@@ -12,6 +12,8 @@
       <arg type="i" direction="in"/>
     </method>
     <property name="SinkInputs" type="ao" access="read"/>
+    <property name="Sinks" type="ao" access="read"/>
+    <property name="Sources" type="ao" access="read"/>
     <property name="Cards" type="s" access="read"/>
     <property name="DefaultSink" type="o" access="read"/>
     <property name="DefaultSource" type="o" access="read"/>
