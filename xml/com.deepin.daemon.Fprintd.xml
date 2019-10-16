@@ -5,4 +5,5 @@
   <method name="GetDevices">
     <arg type="ao" direction="out"/>
   </method>
+  <property name="Devices" type="ao" access="read"/>
 </interface>
