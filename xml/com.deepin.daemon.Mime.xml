@@ -1,27 +1,30 @@
-  <interface name="com.deepin.daemon.Mime">
+<interface name="com.deepin.daemon.Mime">
     <method name="AddUserApp">
-      <arg type="as" direction="in"/>
-      <arg type="s" direction="in"/>
+        <arg name="mimeTypes" type="as" direction="in"/>
+        <arg name="desktopId" type="s" direction="in"/>
+    </method>
+    <method name="DeleteApp">
+        <arg name="mimeTypes" type="as" direction="in"/>
+        <arg name="desktopId" type="s" direction="in"/>
     </method>
     <method name="DeleteUserApp">
-      <arg type="s" direction="in"/>
+        <arg name="desktopId" type="s" direction="in"/>
     </method>
     <method name="GetDefaultApp">
-      <arg type="s" direction="in"/>
-      <arg type="s" direction="out"/>
+        <arg name="mimeType" type="s" direction="in"/>
+        <arg name="defaultApp" type="s" direction="out"/>
     </method>
     <method name="ListApps">
-      <arg type="s" direction="in"/>
-      <arg type="s" direction="out"/>
+        <arg name="mimeType" type="s" direction="in"/>
+        <arg name="apps" type="s" direction="out"/>
     </method>
     <method name="ListUserApps">
-      <arg type="s" direction="in"/>
-      <arg type="s" direction="out"/>
+        <arg name="mimeType" type="s" direction="in"/>
+        <arg name="userApps" type="s" direction="out"/>
     </method>
-    <method name="Reset"/>
     <method name="SetDefaultApp">
-      <arg type="as" direction="in"/>
-      <arg type="s" direction="in"/>
+        <arg name="mimeTypes" type="as" direction="in"/>
+        <arg name="desktopId" type="s" direction="in"/>
     </method>
     <signal name="Change"/>
-  </interface>
+</interface>
