@@ -46,7 +46,11 @@ HEADERS += \
     types/dbustooltip.h \
     types/dockrect.h \
     types/intstring.h \
-    types/controlcenterrect.h
+    types/controlcenterrect.h \
+    types/defenderversioninfo.h \
+    types/defenderfileinfo.h \
+    types/defenderupdatestate.h \
+    types/defenderdissection.h
 
 SOURCES += \
     types/zoneinfo.cpp \
@@ -86,7 +90,11 @@ SOURCES += \
     types/dbustooltip.cpp \
     types/dockrect.cpp \
     types/intstring.cpp \
-    types/controlcenterrect.cpp
+    types/controlcenterrect.cpp \
+    types/defenderversioninfo.cpp \
+    types/defenderfileinfo.cpp \
+    types/defenderupdatestate.cpp \
+    types/defenderdissection.cpp
 
 !system(python $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)
