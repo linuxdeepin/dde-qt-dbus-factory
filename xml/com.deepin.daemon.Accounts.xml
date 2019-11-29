@@ -15,6 +15,13 @@
                <arg type="s" direction="in"></arg>
                <arg type="b" direction="in"></arg>
           </method>
+          <method name="GetGroups">
+               <arg type="as" direction="out"></arg>
+          </method>
+          <method name="GetPresetGroups">
+               <arg type="i" direction="in"></arg>
+               <arg type="as" direction="out"></arg>
+          </method>
           <method name="FindUserById">
                <arg type="s" direction="in"></arg>
                <arg type="s" direction="out"></arg>

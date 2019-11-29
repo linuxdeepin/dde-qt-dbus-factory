@@ -2,6 +2,15 @@
   <method name="DeleteIconFile">
     <arg name="iconFile" type="s" direction="in"/>
   </method>
+  <method name="AddGroup">
+    <arg name="group" type="s" direction="in"/>
+  </method>
+  <method name="DeleteGroup">
+    <arg name="group" type="s" direction="in"/>
+  </method>
+  <method name="SetGroups">
+    <arg name="groups" type="as" direction="in"/>
+  </method>
   <method name="EnableNoPasswdLogin">
     <arg name="enabled" type="b" direction="in"/>
   </method>
@@ -41,6 +50,7 @@
   <method name="SetShell">
     <arg name="shell" type="s" direction="in"/>
   </method>
+  <property name="Groups" type="as" access="read"/>
   <property name="IconList" type="as" access="read"/>
   <property name="Shell" type="s" access="read"/>
   <property name="PasswordStatus" type="s" access="read"/>
