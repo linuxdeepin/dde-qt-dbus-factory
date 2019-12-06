@@ -14,6 +14,9 @@
   <method name="EnableNoPasswdLogin">
     <arg name="enabled" type="b" direction="in"/>
   </method>
+  <method name="IsPasswordExpired">
+    <arg type="b" direction="out"/>
+  </method>
   <method name="SetAutomaticLogin">
     <arg name="enabled" type="b" direction="in"/>
   </method>
