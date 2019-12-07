@@ -47,6 +47,9 @@
   <method name="SetLocked">
     <arg name="locked" type="b" direction="in"/>
   </method>
+  <method name="SetMaxPasswordAge">
+    <arg name="nDays" type="i" direction="in"/>
+  </method>
   <method name="SetPassword">
     <arg name="password" type="s" direction="in"/>
   </method>
@@ -65,6 +68,7 @@
   <property name="FullName" type="s" access="read"/>
   <property name="DesktopBackgrounds" type="as" access="read"/>
   <property name="GreeterBackground" type="s" access="read"/>
+  <property name="MaxPasswordAge" type="i" access="read"></property>
   <property name="XSession" type="s" access="read"/>
   <property name="AutomaticLogin" type="b" access="read"/>
   <property name="IconFile" type="s" access="read"/>
