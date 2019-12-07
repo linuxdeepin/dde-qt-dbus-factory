@@ -7,11 +7,13 @@
   <method name="RevokeAccess">
     <arg type="s" direction="in"/>
   </method>
+  <method name="UnlockDevice"></method>
   <method name="SetToken">
     <arg type="a{sv}" direction="in"/>
     <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QVariantMap"/>
   </method>
   <property name="HardwareID" type="s" access="read"/>
+  <property name="DeviceUnlocked" type="b" access="read"></property>
   <property name="MachineName" type="s" access="read"/>
   <property name="UserInfo" type="a{sv}" access="read">
       <annotation name="org.qtproject.QtDBus.QtTypeName" value="QVariantMap"/>
