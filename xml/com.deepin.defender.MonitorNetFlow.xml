@@ -1,0 +1,18 @@
+<node>
+  <interface name="com.deepin.defender.MonitorNetFlow">
+  <!--  <property access="read" type="(sddiss)" name="singleFuncData"/>-->
+  <!--  <property access="read" type="d" name="globalRecv"/>-->
+    <signal name="NotifyDetailData">
+      <arg type="s" name="name"/>
+      <arg type="d" name="recv"/>
+      <arg type="d" name="send"/>
+      <arg type="i" name="pid"/>
+      <arg type="s" name="device"/>
+      <arg type="s" name="type"/>
+    </signal>
+    <signal name="NotifyGlobalData">
+      <arg type="d" name="recv"/>
+      <arg type="d" name="send"/>
+    </signal>
+  </interface>
+</node>
