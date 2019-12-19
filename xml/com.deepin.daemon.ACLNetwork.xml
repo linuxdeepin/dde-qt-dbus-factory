@@ -1,0 +1,10 @@
+<interface name="com.deepin.daemon.ACL.Network">
+        <method name="Enable">
+            <arg name="id" type="s" direction="in"></arg>
+            <arg name="enabled" type="b" direction="in"></arg>
+        </method>
+        <signal name="AccessRequest">
+            <arg name="id" type="s"></arg>
+        </signal>
+</interface>
+
