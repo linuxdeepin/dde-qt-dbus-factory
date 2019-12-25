@@ -2,6 +2,10 @@
   <interface name="com.deepin.defender.MonitorNetFlow">
   <!--  <property access="read" type="(sddiss)" name="singleFuncData"/>-->
   <!--  <property access="read" type="d" name="globalRecv"/>-->
+    <method name="StartApp">
+    </method>
+    <method name="ExitApp">
+    </method>
     <signal name="NotifyDetailData">
       <arg type="s" name="name"/>
       <arg type="d" name="recv"/>
