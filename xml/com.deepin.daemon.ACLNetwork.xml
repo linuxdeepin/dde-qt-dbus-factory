@@ -5,6 +5,8 @@
         </method>
         <method name="Register">
             <arg name="handler" type="s" direction="in"></arg>
+            <arg name="pid" type="i" direction="in"></arg>
+            <arg name="timeout" type="u" direction="in"></arg>
             <arg name="result" type="b" direction="out"></arg>
         </method>
         <signal name="AccessRequest">
