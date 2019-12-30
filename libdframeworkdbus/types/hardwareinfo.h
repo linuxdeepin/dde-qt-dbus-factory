@@ -34,7 +34,7 @@ public:
     friend const QDBusArgument &operator>>(const QDBusArgument &arg, DMIInfo &info);
     friend QDBusArgument &operator<<(QDBusArgument &arg, const DMIInfo &info);
 
-private:
+public:
     QString biosVendor{""};
     QString biosVersion{""};
     QString biosDate{""};
@@ -62,7 +62,7 @@ public:
     friend const QDBusArgument &operator>>(const QDBusArgument &arg, HardwareInfo &info);
     friend QDBusArgument &operator<<(QDBusArgument &arg, const HardwareInfo &info);
 
-private:
+public:
     QString id{""};
     QString hostName{""};
     QString username{""};
