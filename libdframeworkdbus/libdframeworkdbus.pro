@@ -52,7 +52,7 @@ HEADERS += \
     types/defenderupdatestate.h \
     types/defenderdissection.h \
     types/launcheriteminfo.h \
-    types/launcheriteminfolist.h
+    types/launcheriteminfolist.h \
     types/hardwareinfo.h
 
 SOURCES += \
@@ -99,7 +99,7 @@ SOURCES += \
     types/defenderupdatestate.cpp \
     types/defenderdissection.cpp \
     types/launcheriteminfo.cpp \
-    types/launcheriteminfolist.cpp
+    types/launcheriteminfolist.cpp \
     types/hardwareinfo.cpp
 
 !system(python $$PWD/generate_code.py): error("Failed to generate code")
