@@ -8,6 +8,10 @@
     <arg type="s" direction="in"/>
   </method>
   <method name="UnlockDevice"></method>
+  <method name="GetHardware">
+    <arg type="(sssssbxxss(ssssssssssss))))" direction="out"></arg>
+    <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="HardwareInfo"/>
+  </method>
   <method name="SetToken">
     <arg type="a{sv}" direction="in"/>
     <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QVariantMap"/>
