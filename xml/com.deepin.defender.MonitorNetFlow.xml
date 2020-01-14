@@ -18,5 +18,7 @@
       <arg type="d" name="recv"/>
       <arg type="d" name="send"/>
     </signal>
+    <signal name="NotifyHeartbeat">
+    </signal>
   </interface>
 </node>
