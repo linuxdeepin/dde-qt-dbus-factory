@@ -18,4 +18,5 @@
     <property name="DefaultSink" type="o" access="read"/>
     <property name="DefaultSource" type="o" access="read"/>
     <property name="MaxUIVolume" type="d" access="read"/>
+    <property name="IncreaseVolume" type="b" access="readwrite"/>
   </interface>
