@@ -110,7 +110,6 @@
     <signal name="workspaceCountChanged">
         <arg type="i" name="count"/>
     </signal>
-
     
     <method name="ChangeCurrentWorkspaceBackground">
         <arg type="s" name="uri" direction="in"/>
