@@ -1,4 +1,5 @@
 <interface name="com.deepin.wm">
+    <property name="compositingAllowSwitch" type="b" access="read"/>
     <property name="compositingEnabled" type="b" access="readwrite"/>
     <property name="compositingPossible" type="b" access="read"/>
     <property name="zoneEnabled" type="b" access="readwrite"/>
