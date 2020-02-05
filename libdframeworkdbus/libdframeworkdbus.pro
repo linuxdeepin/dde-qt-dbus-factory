@@ -53,7 +53,9 @@ HEADERS += \
     types/defenderdissection.h \
     types/launcheriteminfo.h \
     types/launcheriteminfolist.h \
-    types/hardwareinfo.h
+    types/hardwareinfo.h \
+    types/defenderprocesslist.h \
+    types/defenderprocessinfo.h
 
 SOURCES += \
     types/zoneinfo.cpp \
@@ -100,7 +102,9 @@ SOURCES += \
     types/defenderdissection.cpp \
     types/launcheriteminfo.cpp \
     types/launcheriteminfolist.cpp \
-    types/hardwareinfo.cpp
+    types/hardwareinfo.cpp \
+    types/defenderprocesslist.cpp \
+    types/defenderprocessinfo.cpp
 
 !system(python $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)
