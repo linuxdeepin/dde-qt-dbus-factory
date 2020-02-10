@@ -33,5 +33,7 @@
     </signal>
     <signal name="NotifyHeartbeat">
     </signal>
+    <signal name="notifyUpdateLauncherList">
+    </signal>
   </interface>
 </node>
