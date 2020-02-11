@@ -3,12 +3,35 @@
     <property name="Display" type="(sssssssdddib)" access="read">
         <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderDisplay"/>
     </property>
-    <method name="test">
-    </method>
+    <property name="defenderAppFlow" type="(isssddd)" access="read">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderAppFlow"/>
+    </property>
     <method name="StartApp">
     </method>
     <method name="ExitApp">
     </method>
+    <method name="notifyGetYesterdayFlowData">
+    </method>
+    <method name="notifyGetTodayFlowData">
+    </method>
+    <method name="notifyGetLastMonthFlowData">
+    </method>
+    <method name="notifyGetThisMonthFlowData">
+    </method>
+    <method name="notifyGetAppYesterdayFlowData">
+        <arg name="appname" type="s" direction="in"></arg>
+    </method>
+    <method name="notifyGetAppTodayFlowData">
+        <arg name="appname" type="s" direction="in"></arg>
+    </method>
+    <method name="notifyGetAppLastMonthFlowData">
+        <arg name="appname" type="s" direction="in"></arg>
+    </method>
+    <method name="notifyGetAppThisMonthFlowData">
+        <arg name="appname" type="s" direction="in"></arg>
+    </method>
+    <signal name="NotifyHeartbeat">
+    </signal>
     <signal name="Display">
           <arg type="(sssssssdddib)" direction="out"/>
           <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplay"/>
@@ -22,8 +45,10 @@
           <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplayList"/>
     </signal>
     <signal name="updatedisplay">
-          <arg type="(a(sssssssdddib))" direction="out"/>
-          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplayList"/>
+    </signal>
+    <signal name="sendAppFlowData">
+        <arg type="(a(isssddd))" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderAppFlowList"/>
     </signal>
     </interface>
 </node>
