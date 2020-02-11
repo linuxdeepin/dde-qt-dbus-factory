@@ -1,0 +1,29 @@
+<node>
+    <interface name="com.deepin.defender.trafficdetails">
+    <property name="Display" type="(sssssssdddib)" access="read">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderDisplay"/>
+    </property>
+    <method name="test">
+    </method>
+    <method name="StartApp">
+    </method>
+    <method name="ExitApp">
+    </method>
+    <signal name="Display">
+          <arg type="(sssssssdddib)" direction="out"/>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplay"/>
+    </signal>
+    <signal name="displayflow">
+          <arg type="(a(sssssssdddib))" direction="out"/>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplayList"/>
+    </signal>
+    <signal name="displayspped">
+          <arg type="(a(sssssssdddib))" direction="out"/>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplayList"/>
+    </signal>
+    <signal name="updatedisplay">
+          <arg type="(a(sssssssdddib))" direction="out"/>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplayList"/>
+    </signal>
+    </interface>
+</node>
