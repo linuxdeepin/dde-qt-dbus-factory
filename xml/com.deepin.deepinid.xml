@@ -16,6 +16,10 @@
     <arg type="a{sv}" direction="in"/>
     <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QVariantMap"/>
   </method>
+  <signal name="Error">
+    <arg type="i"/>
+    <arg type="s"/>
+  </signal>
   <property name="IsLogin" type="b" access="read"></property>
   <property name="HardwareID" type="s" access="read"/>
   <property name="DeviceUnlocked" type="b" access="read"></property>
