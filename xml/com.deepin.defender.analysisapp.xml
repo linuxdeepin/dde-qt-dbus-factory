@@ -4,6 +4,11 @@
     </method>
     <method name="ExitApp">
     </method>
+    <method name="getProcessEnvironmentVariable">
+    <arg name="pid" type="i" direction="in"/>
+    <arg name="environmentname" type="s" direction="in"/>
+    <arg type="s" direction="out"/>
+    </method>
     <property name="processInfo" type="(iss)" access="read">
         <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderProcessInfo"/>
     </property>
