@@ -1,0 +1,20 @@
+<interface name="com.deepin.defender.daemonservice">
+  <method name="StartApp">
+  </method>
+  <method name="ExitApp">
+  </method>
+  <method name="ExitAllService">
+  </method>
+  <method name="ExitAnalysisService">
+  </method>
+  <method name="ExitAutoStartService">
+  </method>
+  <method name="ExitNetControlService">
+  </method>
+  <method name="ExitTrafficDetailService">
+  </method>
+  <method name="ExitMonitorNetFloService">
+  </method>
+  <signal name="NotifyHeartbeat">
+  </signal> 
+</interface>

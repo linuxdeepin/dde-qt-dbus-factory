@@ -3,6 +3,7 @@
   <!--  <property access="read" type="(sddiss)" name="singleFuncData"/>-->
   <!--  <property access="read" type="d" name="globalRecv"/>-->
     <property access="read" type="d" name="globalRecv"/>
+    <property access="readwrite" type="b" name="quitDefender"/>
     <signal name="NotifyDetailData">
       <arg type="s" name="name"/>
       <arg type="d" name="recv"/>
