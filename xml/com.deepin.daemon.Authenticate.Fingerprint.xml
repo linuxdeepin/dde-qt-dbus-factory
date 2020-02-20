@@ -1,43 +1,44 @@
-       <interface name="com.deepin.daemon.Authenticate.Fingerprint">
-    <property name="DefaultDevice" type="s" access="read"></property>
-    <property name="Devices" type="s" access="read"></property>	
-
-    <method name="SetDefaultDevice">
-        <arg name="device" type="s" direction="in"/>
-    </method>
-
+<interface name="com.deepin.daemon.Authenticate.Fingerprint">
     <method name="Claim">
-	    <arg type="s" name="id" direction="in"/>
-	    <arg type="b" name="claimed" direction="in"/>
-    </method>
-    <method name="Enroll">
-	    <arg type="s" name="id" direction="in"/>
-	    <arg type="s" name="finger" direction="in"/>
-    </method>
-    <method name="CancelEnroll">
-	    <arg type="s" name="id" direction="in"/>
-    </method>
-    <method name="DeleteFinger">
-	    <arg type="s" name="id" direction="in"/>
-	    <arg type="s" name="finger" direction="in"/>
+        <arg name="username" type="s" direction="in"></arg>
+        <arg name="claimed" type="b" direction="in"></arg>
     </method>
     <method name="DeleteAllFingers">
-	    <arg type="s" name="id" direction="in"/>
+        <arg name="username" type="s" direction="in"></arg>
+    </method>
+    <method name="DeleteFinger">
+        <arg name="username" type="s" direction="in"></arg>
+        <arg name="finger" type="s" direction="in"></arg>
+    </method>
+    <method name="Enroll">
+        <arg name="finger" type="s" direction="in"></arg>
     </method>
     <method name="ListFingers">
-	    <arg type="s" name="id"  direction="in"/>
-	    <arg type="as" name="fingers" direction="out"/>
+        <arg name="username" type="s" direction="in"></arg>
+        <arg name="fingers" type="as" direction="out"></arg>
     </method>
-    <method name="StopEnroll">
+    <method name="SetDefaultDevice">
+        <arg name="device" type="s" direction="in"></arg>
     </method>
-
+    <method name="StopEnroll"></method>
+    <method name="StopVerify"></method>
+    <method name="Verify">
+        <arg name="finger" type="s" direction="in"></arg>
+    </method>
     <signal name="EnrollStatus">
-            <arg type="s" name="id"/>
-	    <arg type="i" name="code"/>
-            <arg type="s" name="msg"/>
+        <arg name="id" type="s"></arg>
+        <arg name="code" type="i"></arg>
+        <arg name="msg" type="s"></arg>
+    </signal>
+    <signal name="VerifyStatus">
+        <arg name="id" type="s"></arg>
+        <arg name="code" type="i"></arg>
+        <arg name="msg" type="s"></arg>
     </signal>
     <signal name="Touch">
-	    <arg type="s" name="id"/>
-	    <arg type="b" name="pressed"/>
+        <arg name="id" type="s"></arg>
+        <arg name="pressed" type="b"></arg>
     </signal>
-  </interface>
+    <property name="DefaultDevice" type="s" access="read"></property>
+    <property name="Devices" type="s" access="read"></property>
+</interface>
