@@ -10,6 +10,7 @@
         <arg name="username" type="s" direction="in"></arg>
         <arg name="finger" type="s" direction="in"></arg>
     </method>
+    <method name="PreAuthEnroll"></method>
     <method name="Enroll">
         <arg name="finger" type="s" direction="in"></arg>
     </method>
