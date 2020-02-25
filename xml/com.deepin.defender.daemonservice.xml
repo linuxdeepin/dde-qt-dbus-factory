@@ -1,4 +1,5 @@
 <interface name="com.deepin.defender.daemonservice">
+  <property name="Safetygrade" type="i" access="readwrite"></property>
   <method name="StartApp">
   </method>
   <method name="ExitApp">
@@ -15,6 +16,13 @@
   </method>
   <method name="ExitMonitorNetFloService">
   </method>
+  <method name="notifySendPassword">
+    <arg name="password" type="s" direction="in"></arg>
+    <arg name="result" type="s" direction="out"></arg>
+  </method>
+  <method name="SetGsetting">
+    <arg name="value" type="i" direction="in"></arg>
+  </method>
   <signal name="NotifyHeartbeat">
-  </signal> 
+  </signal>
 </interface>
