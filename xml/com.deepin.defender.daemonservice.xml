@@ -23,6 +23,10 @@
   <method name="SetGsetting">
     <arg name="value" type="i" direction="in"></arg>
   </method>
+  <method name="PasswordUpdate">
+  </method>
+  <signal name="UpdateUI">
+  </signal>
   <signal name="NotifyHeartbeat">
   </signal>
 </interface>

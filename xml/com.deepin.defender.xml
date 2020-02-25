@@ -27,6 +27,17 @@
   </method>
   <method name="update">
   </method>
+  <method name="Show">
+  </method>
+  <method name="ShowModule">
+    <arg name="module" type="s" direction="in"/>
+  </method>
+  <method name="ShowPage">
+    <arg name="module" type="s" direction="in"/>
+    <arg name="page" type="s" direction="in"/>
+  </method>
+  <method name="ExitApp">
+  </method>
   <property name="versionInfo" type="(sst)" access="read">
     <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderVersionInfo"/>
   </property>
