@@ -1,4 +1,4 @@
-<interface name="com.deepin.defender">
+<interface name="com.deepin.defender.hmiscreen">
   <signal name="requestDissectionId">
     <arg type="i" direction="out"/>
   </signal>
