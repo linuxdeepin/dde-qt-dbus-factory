@@ -33,6 +33,9 @@
     <method name="getConnCunrrentIndex">
         <arg name="value" type="i" direction="out"></arg>
     </method>
+    <method name="setColor">
+        <arg name="sColor" type="s" direction="in"></arg>
+    </method>
     <signal name="NotifyHeartbeat">
     </signal>
   </interface>
