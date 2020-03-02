@@ -36,6 +36,15 @@
     <method name="setColor">
         <arg name="sColor" type="s" direction="in"></arg>
     </method>
+    <method name="showRemConnectRemControlInter">
+        <arg name="appNamePath" type="s" direction="in"></arg>
+    </method>
+    <method name="setRemCunrrentIndex">
+        <arg name="index" type="i" direction="in"></arg>
+    </method>
+    <method name="getRemCunrrentIndex">
+        <arg name="value" type="i" direction="out"></arg>
+    </method>
     <signal name="NotifyHeartbeat">
     </signal>
   </interface>
