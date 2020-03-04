@@ -54,6 +54,11 @@
           <property name="Brightness" type="a{sd}" access="read">
               <annotation name="org.qtproject.QtDBus.QtTypeName" value="BrightnessMap"/>
           </property>
-          <!--property name="TouchMap" type="a{ss}" access="read"></property-->
+          <property name="Touchscreens" type="a(isss)" access="read">
+              <annotation name="org.qtproject.QtDBus.QtTypeName" value="TouchscreenInfoList"/>
+          </property>
+          <property name="TouchMap" type="a{ss}" access="read">
+              <annotation name="org.qtproject.QtDBus.QtTypeName" value="TouchscreenMap"/>
+          </property>
      </interface>
 
