@@ -15,6 +15,8 @@ HEADERS += \
     types/batterypresentinfo.h \
     types/batterystateinfo.h \
     types/brightnessmap.h \
+    types/touchscreenmap.h \
+    types/touchscreeninfolist.h \
     types/screenrect.h \
     types/inputdevicelist.h \
     types/keyboardlayoutlist.h \
@@ -70,6 +72,8 @@ SOURCES += \
     types/arealist.cpp \
     types/qvariantlist.cpp \
     types/brightnessmap.cpp \
+    types/touchscreenmap.cpp \
+    types/touchscreeninfolist.cpp \
     types/batterypresentinfo.cpp \
     types/batterystateinfo.cpp \
     types/batterypercentageinfo.cpp \
