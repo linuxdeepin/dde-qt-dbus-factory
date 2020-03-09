@@ -47,5 +47,9 @@
     </method>
     <signal name="NotifyHeartbeat">
     </signal>
+    <signal name="netChangeAsk">
+    </signal>
+    <signal name="remChangeAsk">
+    </signal>
   </interface>
 </node>
