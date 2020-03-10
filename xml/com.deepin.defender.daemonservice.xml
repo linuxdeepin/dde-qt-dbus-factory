@@ -21,21 +21,29 @@
     <arg name="result" type="s" direction="out"></arg>
   </method>
   <method name="GetPwdLen">
-    <arg name="value" type="i" direction="out"></arg>
-  </method>
-  <method name="GetPwdTypeLen">
-    <arg name="value" type="i" direction="out"></arg>
-  </method>
-  <method name="GetPwdError">
-    <arg name="error" type="s" direction="out"></arg>
-  </method>
+      <arg name="value" type="i" direction="out"></arg>
+    </method>
+    <method name="GetPwdTypeLen">
+      <arg name="value" type="i" direction="out"></arg>
+    </method>
+    <method name="GetPwdError">
+      <arg name="error" type="s" direction="out"></arg>
+    </method>
   <method name="SetGsetting">
     <arg name="value" type="i" direction="in"></arg>
   </method>
   <method name="PasswordUpdate">
   </method>
+  <method name="JumpScreenSecurity">
+  </method>
+  <method name="JumpUpdatePolicy">
+  </method>
   <signal name="UpdateUI">
   </signal>
   <signal name="NotifyHeartbeat">
+  </signal>
+  <signal name="GotoScreenSecurity">
+  </signal>
+  <signal name="GotoUpdatePolicy">
   </signal>
 </interface>
