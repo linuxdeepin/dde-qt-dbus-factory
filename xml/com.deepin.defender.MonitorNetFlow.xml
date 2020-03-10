@@ -6,6 +6,10 @@
     </method>
     <method name="ExitApp">
     </method>
+    <method name="getProExePath">
+        <arg name="sId" type="s" direction="in"></arg>
+        <arg name="value" type="s" direction="out"></arg>
+    </method>
     <signal name="NotifyDetailData">
       <arg type="s" name="name"/>
       <arg type="d" name="recv"/>
