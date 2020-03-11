@@ -38,6 +38,9 @@
   </method>
   <method name="JumpUpdatePolicy">
   </method>
+  <method name="GetSystemUpdate">
+    <arg name="value" type="i" direction="out"></arg>
+  </method>
   <signal name="UpdateUI">
   </signal>
   <signal name="NotifyHeartbeat">
