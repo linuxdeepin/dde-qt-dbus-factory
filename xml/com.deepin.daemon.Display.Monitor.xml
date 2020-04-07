@@ -29,6 +29,8 @@
           <property name="Rotation" type="q" access="read"></property>
           <property name="Reflect" type="q" access="read"></property>
           <property name="RefreshRate" type="d" access="read"></property>
+	  <property name="MmHeight" type="u" access="read"></property>
+	  <property name="MmWidth" type="u" access="read"></property>
           <property name="Rotations" type="aq" access="read">
             <annotation name="org.qtproject.QtDBus.QtTypeName" value="RotationList"/>
           </property>
