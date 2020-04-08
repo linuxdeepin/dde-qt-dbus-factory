@@ -1,0 +1,157 @@
+<node>
+  <interface name="com.deepin.defender.datainterface">
+    <method name="StartApp">
+    </method>
+    <method name="ExitApp">
+    </method>
+    <method name="preInitialize">
+    </method>
+    <signal name="NotifyHeartbeat">
+    </signal>
+    <!-- 联网管控/远程访问 -->
+    <!--  <property access="read" type="(sddiss)" name="singleFuncData"/>-->
+    <!--  <property access="read" type="d" name="globalRecv"/>-->
+    <property access="read" type="d" name="globalRecv"/>
+    <property access="readwrite" type="b" name="quitDefender"/>
+    <signal name="NotifyDetailData">
+    <arg type="s" name="name"/>
+    <arg type="d" name="recv"/>
+    <arg type="d" name="send"/>
+    <arg type="i" name="pid"/>
+    <arg type="s" name="device"/>
+    <arg type="s" name="type"/>
+    </signal>
+    <signal name="NotifyGlobalData">
+    <arg type="d" name="recv"/>
+    <arg type="d" name="send"/>
+    </signal>
+    <method name="showFuncConnectNetControlInter">
+        <arg name="appNamePath" type="s" direction="in"></arg>
+    </method>
+    <method name="setConnCunrrentIndex">
+        <arg name="index" type="i" direction="in"></arg>
+    </method>
+    <method name="getConnCunrrentIndex">
+        <arg name="value" type="i" direction="out"></arg>
+    </method>
+    <method name="setColor">
+        <arg name="sColor" type="s" direction="in"></arg>
+    </method>
+    <method name="showRemConnectRemControlInter">
+        <arg name="appNamePath" type="s" direction="in"></arg>
+    </method>
+    <method name="setRemCunrrentIndex">
+        <arg name="index" type="i" direction="in"></arg>
+    </method>
+    <method name="getRemCunrrentIndex">
+        <arg name="value" type="i" direction="out"></arg>
+    </method>
+    <signal name="netChangeAsk">
+    </signal>
+    <signal name="remChangeAsk">
+    </signal>
+    <!-- 开机自启动 -->
+    <method name="startLauncherManage">
+        <arg name="value" type="b" direction="out"></arg>
+    </method>
+    <method name="getAppsInfoEnable">
+        <arg name="value" type="s" direction="out"></arg>
+    </method>
+    <method name="getAppsInfoDisable">
+        <arg name="value" type="s" direction="out"></arg>
+    </method>
+    <method name="isAutostart">
+        <arg name="sPath" type="s" direction="in"></arg>
+        <arg name="value" type="b" direction="out"></arg>
+    </method>
+    <method name="exeAutostart">
+        <arg name="nStatus" type="i" direction="in"></arg>
+        <arg name="sPath" type="s" direction="in"></arg>
+        <arg name="value" type="b" direction="out"></arg>
+    </method>
+    <signal name="AccessRefreshData">
+      <arg type="b" name="bAdd"/>
+      <arg type="s" name="sID"/>
+    </signal>
+    <!-- 流量详情 -->
+    <property name="Display" type="(sssssssdddib)" access="read">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderDisplay"/>
+    </property>
+    <property name="defenderAppFlow" type="(isssddd)" access="read">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderAppFlow"/>
+    </property>
+    <method name="notifyGetYesterdayFlowData">
+    </method>
+    <method name="notifyGetTodayFlowData">
+    </method>
+    <method name="notifyGetLastMonthFlowData">
+    </method>
+    <method name="notifyGetThisMonthFlowData">
+    </method>
+    <method name="notifyGetAppYesterdayFlowData">
+        <arg name="appname" type="s" direction="in"></arg>
+    </method>
+    <method name="notifyGetAppTodayFlowData">
+        <arg name="appname" type="s" direction="in"></arg>
+    </method>
+    <method name="notifyGetAppLastMonthFlowData">
+        <arg name="appname" type="s" direction="in"></arg>
+    </method>
+    <method name="notifyGetAppThisMonthFlowData">
+        <arg name="appname" type="s" direction="in"></arg>
+    </method>
+    <signal name="updatedisplay">
+    </signal>
+    <signal name="Display">
+          <arg type="(sssssssdddib)" direction="out"/>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplay"/>
+    </signal>
+    <signal name="displayflow">
+          <arg type="(a(sssssssdddib))" direction="out"/>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplayList"/>
+    </signal>
+    <signal name="displayspped">
+          <arg type="(a(sssssssdddib))" direction="out"/>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplayList"/>
+    </signal>
+    <signal name="sendAppFlowData">
+        <arg type="(a(isssddd))" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderAppFlowList"/>
+    </signal>
+    <!-- 流量详情名称解析 -->
+    <method name="getProcessEnvironmentVariable">
+    <arg name="pid" type="i" direction="in"/>
+    <arg name="environmentname" type="s" direction="in"/>
+    <arg type="s" direction="out"/>
+    </method>
+    <property name="processInfo" type="(iss)" access="read">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderProcessInfo"/>
+    </property>
+    <signal name="processInfo">
+          <arg type="(iss)" direction="out"/>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderProcessInfo"/>
+    </signal>
+    <signal name="processInfoList">
+          <arg type="(a(iss))" direction="out"/>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderProcessInfoList"/>
+    </signal>
+    <property name="allProcPidList" type="a(i)" access="read">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderProcessList"/>
+    </property>
+    <signal name="allProcPidList">
+         <arg type="a{i}" direction="out"></arg>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderProcessList"/>
+    </signal>
+    <signal name="guiProcDesktopList">
+        <arg type="(as)" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QStringList"/>
+    </signal>
+    <signal name="singleProcDesktopList">
+        <arg type="(as)" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QStringList"/>
+<!--        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QList&lt;QString&gt;"/>-->
+    </signal>
+    <signal name="notifyUpdateLauncherList">
+    </signal>
+  </interface>
+</node>
