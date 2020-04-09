@@ -50,6 +50,8 @@
     </signal>
     <signal name="remChangeAsk">
     </signal>
+    <method name="setNetRemDialogClose">
+    </method>
     <!-- 开机自启动 -->
     <method name="startLauncherManage">
         <arg name="value" type="b" direction="out"></arg>
