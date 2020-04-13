@@ -1,5 +1,6 @@
 <interface name="com.deepin.defender.daemonservice">
   <property name="Safetygrade" type="i" access="readwrite"></property>
+  <property name="MaturityDay" type="i" access="readwrite"></property>
   <method name="StartApp">
   </method>
   <method name="ExitApp">
@@ -29,6 +30,9 @@
     <method name="GetPwdError">
       <arg name="error" type="s" direction="out"></arg>
     </method>
+  <method name="SetGesttingMaturityDay">
+    <arg name="value" type="i" direction="in"></arg>
+  </method>
   <method name="SetGsetting">
     <arg name="value" type="i" direction="in"></arg>
   </method>
