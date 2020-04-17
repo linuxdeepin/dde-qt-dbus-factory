@@ -108,5 +108,8 @@
     <signal name="RequestPasskey">
         <arg type="o"/>
     </signal>
+    <signal name="PinCancle">
+        <arg type="s"/>
+    </signal>
     <property access="read" name="State" type="u"/>
 </interface>
