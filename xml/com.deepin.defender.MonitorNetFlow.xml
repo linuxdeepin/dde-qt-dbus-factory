@@ -33,5 +33,9 @@
       <arg type="b" name="isbConnected"/>
       <arg type="s" name="infoStr"/>
     </signal>
+    <signal name="requestShowBlockAllSysNotify">
+    </signal>
+    <signal name="requestShowOnlyWhiteListSysNotify">
+    </signal>
   </interface>
 </node>
