@@ -38,7 +38,14 @@
   <method name="RemoveRecord"> 
     <arg direction="in" type="s"/>
   </method> 
-  <method name="ClearRecords"></method>
+  <method name="ClearRecords"/>
+  <method name="getAppSetting"> 
+    <arg direction="in" type="s"/>
+    <arg direction="out" type="s"/>
+  </method>
+  <method name="setAppSetting"> 
+    <arg direction="in" type="s"/>
+  </method>
   <signal name="NotificationClosed">
     <arg type="u"/>
     <arg type="u"/>
@@ -47,7 +54,12 @@
     <arg type="u"/>
     <arg type="s"/>
   </signal>
-    <signal name="RecordAdded"> 
+  <signal name="RecordAdded"> 
     <arg type="s"/>
   </signal>
+  <signal name="appSettingDone"> 
+    <arg type="s"/>
+  </signal>
+  <property name="allSetting" type="s" access="readwrite"/>
+  <property name="systemSetting" type="s" access="readwrite"/>
 </interface>
