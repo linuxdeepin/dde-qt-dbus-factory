@@ -50,5 +50,10 @@
      <property name="DSTOffset" type="i" access="readwrite"></property>
      <property name="UserTimezones" type="as" access="read"></property>
      <property name="NTPServer" type="s" access="read"></property>
+     <property name="weekdayFormat" type="i" access="readwrite"></property>
+     <property name="shortDateFormat" type="i" access="readwrite"></property>
+     <property name="longDateFormat" type="i" access="readwrite"></property>
+     <property name="shortTimeFormat" type="i" access="readwrite"></property>
+     <property name="longTimeFormat" type="i" access="readwrite"></property>
 </interface>
 
