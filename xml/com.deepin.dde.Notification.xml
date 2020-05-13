@@ -43,6 +43,10 @@
     <arg direction="in" type="s"/>
     <arg direction="out" type="s"/>
   </method>
+  <method name="Toggle"/>
+  <method name="recordCount"> 
+    <arg direction="out" type="u"/>
+  </method>
   <method name="setAppSetting"> 
     <arg direction="in" type="s"/>
   </method>
@@ -55,6 +59,18 @@
     <arg type="s"/>
   </signal>
   <signal name="RecordAdded"> 
+    <arg type="s"/>
+  </signal>
+  <signal name="appSettingChanged"> 
+    <arg type="s"/>
+  </signal>
+  <signal name="systemSettingChanged"> 
+    <arg type="s"/>
+  </signal>
+  <signal name="appRemoved"> 
+    <arg type="s"/>
+  </signal>
+  <signal name="appAdded">
     <arg type="s"/>
   </signal>
   <signal name="appSettingDone"> 
