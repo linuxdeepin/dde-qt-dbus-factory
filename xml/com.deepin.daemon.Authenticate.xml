@@ -1,0 +1,6 @@
+<interface name="com.deepin.daemon.Authenticate">
+    <method name="PreOneKeyLogin">
+        <arg name="flag" type="i" direction="in"></arg>
+        <arg name="result" type="s" direction="out"></arg>
+    </method>
+</interface>
