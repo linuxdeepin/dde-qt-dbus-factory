@@ -18,9 +18,17 @@
     <method name="SetMirrorSource">
         <arg direction="in" type="s"/>
     </method>
+    <method name="SetDisableUpdateMetadata">
+        <arg direction="in" type="b"/>
+    </method>
+    <method name="GetCheckIntervalAndTime">
+        <arg direction="out" type="d"/>
+        <arg direction="out" type="s"/>
+    </method>
     <property access="read" name="AutoCheckUpdates" type="b"/>
     <property access="read" name="MirrorSource" type="s"/>
     <property access="read" name="UpdatableApps" type="as"/>
     <property access="read" name="AutoDownloadUpdates" type="b"/>
     <property access="read" name="UpdatablePackages" type="as"/>
+    <property access="read" name="DisableUpdateMetadata" type="b"/>
 </interface>
