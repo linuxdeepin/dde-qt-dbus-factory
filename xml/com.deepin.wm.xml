@@ -1,7 +1,7 @@
 <interface name="com.deepin.wm">
-    <property name="compositingAllowSwitch" type="b" access="read"/>
     <property name="compositingEnabled" type="b" access="readwrite"/>
     <property name="compositingPossible" type="b" access="read"/>
+    <property name="compositingAllowSwitch" type="b" access="read"/>
     <property name="zoneEnabled" type="b" access="readwrite"/>
     <property name="cursorTheme" type="s" access="readwrite"/>
     <property name="cursorSize" type="i" access="readwrite"/>
@@ -55,7 +55,28 @@
     <method name="SetTransientBackground">
         <arg type="s" direction="in"/>
     </method>
-
+    <method name="GetCurrentWorkspaceBackgroundForMonitor">
+    <arg type="s" name="strMonitorName" direction="in"/>
+    <arg type="s" name="result" direction="out"/>
+    </method>
+    <method name="SetCurrentWorkspaceBackgroundForMonitor">
+    <arg type="s" name="uri" direction="in"/>
+    <arg type="s" name="strMonitorName" direction="in"/>
+    </method>
+    <method name="GetWorkspaceBackgroundForMonitor">
+    <arg type="i" name="index" direction="in"/>
+    <arg type="s" name="strMonitorName" direction="in"/>
+    <arg type="s" name="result" direction="out"/>
+    </method>
+    <method name="SetWorkspaceBackgroundForMonitor">
+    <arg type="i" name="index" direction="in"/>
+    <arg type="s" name="strMonitorName" direction="in"/>
+    <arg type="s" name="uri" direction="in"/>
+    </method>
+    <method name="SetTransientBackgroundForMonitor">
+    <arg type="s" name="uri" direction="in"/>
+    <arg type="s" name="strMonitorName" direction="in"/>
+    </method>
     <method name="GetCurrentWorkspace">
         <arg type="i" name="index" direction="out"/>
     </method>
@@ -101,6 +122,12 @@
         <arg type="i" name="index"/>
         <arg type="s" name="newUri"/>
     </signal>
+    <signal name="WorkspaceBackgroundChangedForMonitor">
+        <arg type="i" name="index"/>
+        <arg type="s" name="strMonitorName"/>
+        <arg type="s" name="uri"/>
+    </signal>
+
     <signal name="compositingEnabledChanged">
         <arg type="b" name="enabled"/>
     </signal>
@@ -110,7 +137,7 @@
     <signal name="workspaceCountChanged">
         <arg type="i" name="count"/>
     </signal>
-    
+
     <method name="ChangeCurrentWorkspaceBackground">
         <arg type="s" name="uri" direction="in"/>
     </method>
