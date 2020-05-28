@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             zhaolong <zhaolong@uniontech.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,7 +31,22 @@
 #include <QRect>
 #include <QList>
 
-typedef QList<QRect> AreaList;
+struct MonitRect {
+    int x1;
+    int y1;
+    int x2;
+    int y2;
+
+    bool operator ==(const MonitRect& rect);
+};
+
+typedef QList<MonitRect> AreaList;
+
+Q_DECLARE_METATYPE(MonitRect)
+Q_DECLARE_METATYPE(AreaList)
+
+QDBusArgument &operator<<(QDBusArgument &arg, const MonitRect &rect);
+const QDBusArgument &operator>>(const QDBusArgument &arg, MonitRect &rect);
 
 void registerAreaListMetaType();
 

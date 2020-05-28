@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             zhaolong <zhaolong@uniontech.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,8 +26,34 @@
 
 #include "arealist.h"
 
+bool MonitRect::operator ==(const MonitRect &rect)
+{
+    return x1 == rect.x1 && y1 == rect.y1 && x2 == rect.x2 && y2 == rect.y2;
+}
+
+QDBusArgument &operator<<(QDBusArgument &arg, const MonitRect &rect)
+{
+    arg.beginStructure();
+    arg << rect.x1 << rect.y1 << rect.x2 << rect.y2;
+    arg.endStructure();
+
+    return arg;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &arg, MonitRect &rect)
+{
+    arg.beginStructure();
+    arg >> rect.x1 >> rect.y1 >> rect.x2 >> rect.y2;
+    arg.endStructure();
+
+    return arg;
+}
+
 void registerAreaListMetaType()
 {
+    qRegisterMetaType<MonitRect>("MonitRect");
+    qDBusRegisterMetaType<MonitRect>();
+
     qRegisterMetaType<AreaList>("AreaList");
     qDBusRegisterMetaType<AreaList>();
 }
