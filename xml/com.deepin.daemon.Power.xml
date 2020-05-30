@@ -1,6 +1,6 @@
 <interface name="com.deepin.daemon.Power">
     <method name="Reset"/>
-    <property name="BatteryLidClosedSleep" type="b" access="readwrite"/>
+    <property name="BatteryLidClosedAction" type="i" access="readwrite"/>
     <property name="AmbientLightAdjustBrightness" type="b" access="readwrite"/>
     <property access="read" name="BatteryPercentage" type="a{sd}">
         <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryPercentageInfo"/>
@@ -16,7 +16,7 @@
     <property name="BatteryScreenBlackDelay" type="i" access="readwrite"/>
     <property name="BatterySleepDelay" type="i" access="readwrite"/>
     <property name="ScreenBlackLock" type="b" access="readwrite"/>
-    <property name="LinePowerLidClosedSleep" type="b" access="readwrite"/>
+    <property name="LinePowerLidClosedAction" type="i" access="readwrite"/>
     <property name="OnBattery" type="b" access="read"/>
     <property access="read" name="BatteryState" type="a{su}">
         <annotation name="org.qtproject.QtDBus.QtTypeName" value="BatteryStateInfo"/>
@@ -27,4 +27,9 @@
     <property name="LidClosedSleep" type="b" access="readwrite"/>
     <property name="LinePowerLockDelay" type="i" access="readwrite"/>
     <property name="BatteryLockDelay" type="i" access="readwrite"/>
+    <property name="LinePowerPressPowerBtnAction" type="i" access="readwrite"/>
+    <property name="BatteryPressPowerBtnAction" type="i" access="readwrite"/>
+    <property name="LowPowerNotifyEnable" type="b" access="readwrite"/>
+    <property name="LowPowerNotifyThreshold" type="i" access="readwrite"/>
+    <property name="LowPowerAutoSleepThreshold" type="i" access="readwrite"/>
 </interface>

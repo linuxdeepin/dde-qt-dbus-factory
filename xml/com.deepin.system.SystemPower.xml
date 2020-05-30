@@ -25,4 +25,7 @@
   <property name="BatteryPercentage" type="d" access="read"/>
   <property name="BatteryStatus" type="u" access="read"/>
   <property name="PowerSavingModeAuto" type="b" access="readwrite"/>
+  <property name="PowerSystemAutoToSleepWhenFree" type="b" access="readwrite"/>
+  <property name="PowerSavingModeAutoWhenQuantifyLow" type="b" access="readwrite"/>
+  <property name="PowerSavingModeLowerBrightnessThreshold" type="u" access="readwrite"/>
 </interface>
