@@ -47,6 +47,7 @@
           <property name="Primary" type="s" access="read"></property>
           <property name="CurrentCustomId" type="s" access="read"></property>
           <property name="CustomIdList" type="as" access="read"></property>
+          <property name="MaxBacklightBrightness" type="u" access="read"></property>
           <property name="PrimaryRect" type="(nnqq)" access="read">
               <annotation name="org.qtproject.QtDBus.QtTypeName" value="ScreenRect"/>
           </property>
