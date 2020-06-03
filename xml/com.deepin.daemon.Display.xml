@@ -40,6 +40,12 @@
                <arg type="y" direction="in"></arg>
                <arg type="s" direction="in"></arg>
           </method>
+          <method name="SetMethodAdjustCCT">
+               <arg type="i" direction="in"></arg>
+          </method>
+          <method name="SetColorTemperature">
+               <arg type="i" direction="in"></arg>
+          </method>
           <property name="HasChanged" type="b" access="read"></property>
           <property name="DisplayMode" type="y" access="read"></property>
           <property name="ScreenWidth" type="q" access="read"></property>
@@ -61,5 +67,7 @@
           <property name="TouchMap" type="a{ss}" access="read">
               <annotation name="org.qtproject.QtDBus.QtTypeName" value="TouchscreenMap"/>
           </property>
+          <property name="ColorTemperatureMode" type="i" access="read"></property>
+          <property name="ColorTemperatureManual" type="i" access="read"></property>
      </interface>
 
