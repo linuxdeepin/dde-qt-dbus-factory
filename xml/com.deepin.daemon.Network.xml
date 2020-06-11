@@ -101,7 +101,9 @@
                <arg type="b" direction="out"></arg>
           </method>
           <method name="RegisterSecretReceiver"></method>
-          <method name="RequestWirelessScan"/>
+          <method name="RequestWirelessScan">
+               <arg type="s" direction="out"></arg>
+          </method>
           <method name="SetAutoProxy">
                <arg type="s" direction="in"></arg>
           </method>
@@ -144,6 +146,7 @@
                <arg type="b"></arg>
           </signal>
           <property name="State" type="u" access="read"></property>
+          <property name="WirelessAccessPoints" type="s" access="read"></property>
           <property name="Connectivity" type="u" access="read"></property>
           <property name="NetworkingEnabled" type="b" access="readwrite"></property>
           <property name="VpnEnabled" type="b" access="readwrite"></property>
