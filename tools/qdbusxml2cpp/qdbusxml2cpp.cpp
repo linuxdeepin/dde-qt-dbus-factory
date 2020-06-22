@@ -949,7 +949,7 @@ static void writeProxy(const QString &filename, const QDBusIntrospection::Interf
             hs << ");" << endl; // finished for header
         }
 
-        //propery changed signals
+        //property changed signals
         hs << "    // begin property changed signals" << endl;
         foreach (const QDBusIntrospection::Property &property, interface->properties) {
             hs << "    ";
