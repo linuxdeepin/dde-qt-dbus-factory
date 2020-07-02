@@ -24,5 +24,18 @@
     </signal>
     <signal name="NotifyHeartbeat">
     </signal>
+    <!-- usb connection -->
+    <method name="setUSBModelAndWhiteList">
+        <arg name="model" type="s" direction="in"></arg>
+        <arg name="list" type="s" direction="in"></arg>
+    </method>
+    <signal name="NotifyUsbConnectionInfo">
+      <arg type="b" name="isbConnected"/>
+      <arg type="s" name="infoStr"/>
+    </signal>
+    <signal name="requestShowBlockAllSysNotify">
+    </signal>
+    <signal name="requestShowOnlyWhiteListSysNotify">
+    </signal>
   </interface>
 </node>
