@@ -1,115 +1,143 @@
 <interface name="com.deepin.daemon.Bluetooth">
-    <method name="ClearUnpairedDevice"/>
+    <method name="CancelTransferSession">
+        <arg name="sessionPath" type="o" direction="in"></arg>
+    </method>
+    <method name="ClearUnpairedDevice"></method>
     <method name="Confirm">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="b"/>
+        <arg name="device" type="o" direction="in"></arg>
+        <arg name="accept" type="b" direction="in"></arg>
     </method>
     <method name="ConnectDevice">
-        <arg direction="in" type="o"/>
+        <arg name="device" type="o" direction="in"></arg>
     </method>
     <method name="DebugInfo">
-        <arg direction="out" type="s"/>
+        <arg name="info" type="s" direction="out"></arg>
     </method>
     <method name="DisconnectDevice">
-        <arg direction="in" type="o"/>
+        <arg name="device" type="o" direction="in"></arg>
     </method>
     <method name="FeedPasskey">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="b"/>
-        <arg direction="in" type="u"/>
+        <arg name="device" type="o" direction="in"></arg>
+        <arg name="accept" type="b" direction="in"></arg>
+        <arg name="passkey" type="u" direction="in"></arg>
     </method>
     <method name="FeedPinCode">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="b"/>
-        <arg direction="in" type="s"/>
+        <arg name="device" type="o" direction="in"></arg>
+        <arg name="accept" type="b" direction="in"></arg>
+        <arg name="pinCode" type="s" direction="in"></arg>
     </method>
     <method name="GetAdapters">
-        <arg direction="out" type="s"/>
+        <arg name="adaptersJSON" type="s" direction="out"></arg>
     </method>
     <method name="GetDevices">
-        <arg direction="in" type="o"/>
-        <arg direction="out" type="s"/>
+        <arg name="adapter" type="o" direction="in"></arg>
+        <arg name="devicesJSON" type="s" direction="out"></arg>
     </method>
     <method name="RemoveDevice">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="o"/>
+        <arg name="adapter" type="o" direction="in"></arg>
+        <arg name="device" type="o" direction="in"></arg>
     </method>
     <method name="RequestDiscovery">
-        <arg direction="in" type="o"/>
+        <arg name="adapter" type="o" direction="in"></arg>
+    </method>
+    <method name="SendFiles">
+        <arg name="device" type="s" direction="in"></arg>
+        <arg name="files" type="as" direction="in"></arg>
+        <arg name="sessionPath" type="o" direction="out"></arg>
     </method>
     <method name="SetAdapterAlias">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="s"/>
+        <arg name="adapter" type="o" direction="in"></arg>
+        <arg name="alias" type="s" direction="in"></arg>
     </method>
     <method name="SetAdapterDiscoverable">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="b"/>
+        <arg name="adapter" type="o" direction="in"></arg>
+        <arg name="discoverable" type="b" direction="in"></arg>
     </method>
     <method name="SetAdapterDiscoverableTimeout">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="u"/>
+        <arg name="adapter" type="o" direction="in"></arg>
+        <arg name="timeout" type="u" direction="in"></arg>
     </method>
     <method name="SetAdapterDiscovering">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="b"/>
+        <arg name="adapter" type="o" direction="in"></arg>
+        <arg name="discovering" type="b" direction="in"></arg>
     </method>
     <method name="SetAdapterPowered">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="b"/>
+        <arg name="adapter" type="o" direction="in"></arg>
+        <arg name="powered" type="b" direction="in"></arg>
     </method>
     <method name="SetDeviceAlias">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="s"/>
+        <arg name="device" type="o" direction="in"></arg>
+        <arg name="alias" type="s" direction="in"></arg>
     </method>
     <method name="SetDeviceTrusted">
-        <arg direction="in" type="o"/>
-        <arg direction="in" type="b"/>
+        <arg name="device" type="o" direction="in"></arg>
+        <arg name="trusted" type="b" direction="in"></arg>
     </method>
     <signal name="AdapterAdded">
-        <arg type="s"/>
+        <arg name="adapterJSON" type="s"></arg>
     </signal>
     <signal name="AdapterRemoved">
-        <arg type="s"/>
+        <arg name="adapterJSON" type="s"></arg>
     </signal>
     <signal name="AdapterPropertiesChanged">
-        <arg type="s"/>
+        <arg name="adapterJSON" type="s"></arg>
     </signal>
     <signal name="DeviceAdded">
-        <arg type="s"/>
-    </signal>
-    <signal name="Cancelled">
-      <arg name="device" type="o"/>
+        <arg name="devJSON" type="s"></arg>
     </signal>
     <signal name="DeviceRemoved">
-        <arg type="s"/>
+        <arg name="devJSON" type="s"></arg>
     </signal>
     <signal name="DevicePropertiesChanged">
-        <arg type="s"/>
+        <arg name="devJSON" type="s"></arg>
     </signal>
     <signal name="DisplayPinCode">
-        <arg type="o"/>
-        <arg type="s"/>
+        <arg name="device" type="o"></arg>
+        <arg name="pinCode" type="s"></arg>
     </signal>
     <signal name="DisplayPasskey">
-        <arg type="o"/>
-        <arg type="u"/>
-        <arg type="u"/>
+        <arg name="device" type="o"></arg>
+        <arg name="passkey" type="u"></arg>
+        <arg name="entered" type="u"></arg>
     </signal>
     <signal name="RequestConfirmation">
-        <arg type="o"/>
-        <arg type="s"/>
+        <arg name="device" type="o"></arg>
+        <arg name="passkey" type="s"></arg>
     </signal>
     <signal name="RequestAuthorization">
-        <arg type="o"/>
+        <arg name="device" type="o"></arg>
     </signal>
     <signal name="RequestPinCode">
-        <arg type="o"/>
+        <arg name="device" type="o"></arg>
     </signal>
     <signal name="RequestPasskey">
-        <arg type="o"/>
+        <arg name="device" type="o"></arg>
     </signal>
-    <signal name="PinCancle">
-        <arg type="s"/>
+    <signal name="Cancelled">
+        <arg name="device" type="o"></arg>
     </signal>
-    <property access="read" name="State" type="u"/>
+    <signal name="ObexSessionCreated">
+        <arg name="sessionPath" type="o"></arg>
+    </signal>
+    <signal name="ObexSessionRemoved">
+        <arg name="sessionPath" type="o"></arg>
+    </signal>
+    <signal name="ObexSessionProcess">
+        <arg name="sessionPath" type="o"></arg>
+        <arg name="totalSize" type="t"></arg>
+        <arg name="transferred" type="t"></arg>
+        <arg name="currentIdx" type="i"></arg>
+    </signal>
+    <signal name="TransferCreated">
+        <arg name="file" type="s"></arg>
+        <arg name="transferPath" type="o"></arg>
+        <arg name="sessionPath" type="o"></arg>
+    </signal>
+    <signal name="TransferRemoved">
+        <arg name="file" type="s"></arg>
+        <arg name="transferPath" type="o"></arg>
+        <arg name="sessionPath" type="o"></arg>
+        <arg name="done" type="b"></arg>
+    </signal>
+    <property name="State" type="u" access="read"></property>
 </interface>
