@@ -55,6 +55,6 @@
      <property name="LongDateFormat" type="i" access="readwrite"></property>
      <property name="ShortTimeFormat" type="i" access="readwrite"></property>
      <property name="LongTimeFormat" type="i" access="readwrite"></property>
-     <property name="WeekdayBegins" type="i" access="readwrite"></property>
+     <property name="WeekBegins" type="i" access="readwrite"></property>
 </interface>
 
