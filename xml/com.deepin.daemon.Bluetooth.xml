@@ -122,7 +122,7 @@
     <signal name="ObexSessionRemoved">
         <arg name="sessionPath" type="o"></arg>
     </signal>
-    <signal name="ObexSessionProcess">
+    <signal name="ObexSessionProgress">
         <arg name="sessionPath" type="o"></arg>
         <arg name="totalSize" type="t"></arg>
         <arg name="transferred" type="t"></arg>
