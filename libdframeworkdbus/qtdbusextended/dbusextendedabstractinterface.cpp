@@ -51,7 +51,7 @@ DBusExtendedAbstractInterface::DBusExtendedAbstractInterface(const QString &serv
     , m_getAllPendingCallWatcher(0)
     , m_propertiesChangedConnected(false)
 {
-    QDBusConnection::sessionBus().connect(QString("org.freedesktop.DBus"), QString("/org/freedesktop/DBus"), QString("org.freedesktop.DBus"), QString("NameOwnerChanged"), this, SLOT(onDBusNameOwnerChanged(QString,QString,QString)));
+    const_cast<QDBusConnection&>(connection).connect(QString("org.freedesktop.DBus"), QString("/org/freedesktop/DBus"), QString("org.freedesktop.DBus"), QString("NameOwnerChanged"), this, SLOT(onDBusNameOwnerChanged(QString,QString,QString)));
 }
 
 DBusExtendedAbstractInterface::~DBusExtendedAbstractInterface()
