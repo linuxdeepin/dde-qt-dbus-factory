@@ -140,4 +140,5 @@
         <arg name="done" type="b"></arg>
     </signal>
     <property name="State" type="u" access="read"></property>
+    <property name="DisplaySwitch" type="b" access="readwrite"></property>
 </interface>
