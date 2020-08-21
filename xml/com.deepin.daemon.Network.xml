@@ -101,7 +101,8 @@
                <arg type="b" direction="out"></arg>
           </method>
           <method name="RegisterSecretReceiver"></method>
-          <method name="RequestWirelessScan">
+          <method name="RequestWirelessScan"></method>
+          <method name="RequestWirelessScanHasReturn">
                <arg type="s" direction="out"></arg>
           </method>
           <method name="SetAutoProxy">
