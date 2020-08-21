@@ -64,6 +64,12 @@
   <property name="Use24HourFormat" type="b" access="read"/>
   <property name="AccountType" type="i" access="read"/>
   <property name="LoginTime" type="t" access="read"/>
+  <property name="LongDateFormat" type="i" access="read"/>
+  <property name="LongTimeFormat" type="i" access="read"/>
+  <property name="ShortDateFormat" type="i" access="read"/>
+  <property name="ShortTimeFormat" type="i" access="read"/>
+  <property name="WeekBegins" type="i" access="read"/>
+  <property name="WeekdayFormat" type="i" access="read"/>
   <property name="Locale" type="s" access="read"/>
   <property name="NoPasswdLogin" type="b" access="read"/>
   <property name="FullName" type="s" access="read"/>
