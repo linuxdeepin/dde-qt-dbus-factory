@@ -20,6 +20,8 @@
                <arg type="q" direction="in"></arg>
           </method>
           <property name="Name" type="s" access="read"></property>
+          <property name="Model" type="s" access="read"></property>
+          <property name="Manufacturer" type="s" access="read"></property>
           <property name="Enabled" type="b" access="read"></property>
           <property name="Connected" type="b" access="read"></property>
           <property name="X" type="n" access="read"></property>
