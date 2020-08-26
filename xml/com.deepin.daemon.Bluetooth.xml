@@ -143,6 +143,11 @@
     <signal name="ConnectFailed">
         <arg name="device" type="o"></arg>
     </signal>
+    <signal name="TransferFailed">
+        <arg name="file" type="s"></arg>
+        <arg name="sessionPath" type="o"></arg>
+        <arg name="errInfo" type="s"></arg>
+    </signal>
     <property name="State" type="u" access="read"></property>
     <property name="DisplaySwitch" type="b" access="readwrite"></property>
 </interface>
