@@ -9,7 +9,6 @@
     </method>
     <method name="ConnectDevice">
         <arg name="device" type="o" direction="in"></arg>
-        <arg name="adapter" type="o" direction="in"></arg>
     </method>
     <method name="DebugInfo">
         <arg name="info" type="s" direction="out"></arg>
@@ -139,9 +138,6 @@
         <arg name="transferPath" type="o"></arg>
         <arg name="sessionPath" type="o"></arg>
         <arg name="done" type="b"></arg>
-    </signal>
-    <signal name="ConnectFailed">
-        <arg name="device" type="o"></arg>
     </signal>
     <signal name="TransferFailed">
         <arg name="file" type="s"></arg>
