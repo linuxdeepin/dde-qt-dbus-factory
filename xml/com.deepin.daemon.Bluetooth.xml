@@ -144,6 +144,7 @@
         <arg name="file" type="s"></arg>
         <arg name="sessionPath" type="o"></arg>
         <arg name="errInfo" type="s"></arg>
+    </signal>
     <signal name="ConnectFailed">
         <arg name="device" type="o"></arg>
     </signal>
