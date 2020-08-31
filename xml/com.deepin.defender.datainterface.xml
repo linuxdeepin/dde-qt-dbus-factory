@@ -8,50 +8,108 @@
     </method>
     <signal name="NotifyHeartbeat">
     </signal>
+
+    <!-- 添加异常数据 -->
+    <method name="notifyAppendThreatDataByPath">
+        <arg name="sfilePath" type="s" direction="in"/>
+        <arg name="flag" type="b" direction="out"/>
+    </method>
+
+    <!-- 删除异常数据 -->
+    <method name="notifyDeleteThreatDataByPath">
+        <arg name="sfilePath" type="s" direction="in"/>
+        <arg name="flag" type="b" direction="out"/>
+    </method>
+
+    <!-- 查询异常数据 -->
+    <method name="notifySelectThreatDataByPath">
+        <arg name="sfilePath" type="s" direction="in"/>
+        <arg name="flag" type="b" direction="out"/>
+    </method>
+
+    <!-- 查询总的数据 -->
+    <method name="notifySelectThreatCount">
+        <arg name="spath" type="s" direction="out"/>
+    </method>
+
     <!-- 联网管控/远程访问 -->
-    <!--  <property access="read" type="(sddiss)" name="singleFuncData"/>-->
-    <!--  <property access="read" type="d" name="globalRecv"/>-->
-    <property access="read" type="d" name="globalRecv"/>
-    <property access="readwrite" type="b" name="quitDefender"/>
-    <signal name="NotifyDetailData">
-    <arg type="s" name="name"/>
-    <arg type="d" name="recv"/>
-    <arg type="d" name="send"/>
-    <arg type="i" name="pid"/>
-    <arg type="s" name="device"/>
-    <arg type="s" name="type"/>
-    </signal>
-    <signal name="NotifyGlobalData">
-    <arg type="d" name="recv"/>
-    <arg type="d" name="send"/>
-    </signal>
-    <method name="showFuncConnectNetControlInter">
-        <arg name="appNamePath" type="s" direction="in"></arg>
+    <method name="setFireWallSwitchStatus">
+        <arg name="isbFireWall" type="b" direction="in"></arg>
     </method>
-    <method name="setConnCunrrentIndex">
-        <arg name="index" type="i" direction="in"></arg>
+    <method name="getFireWallSwitchStatus">
+        <arg name="value" type="b" direction="out"></arg>
     </method>
-    <method name="getConnCunrrentIndex">
+
+    <signal name="requestNetAppsChange">
+        <arg type="(a(isbssssssllddddsss))" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderProcInfoList"/>
+    </signal>
+    <method name="getNetAppsInfo">
+    </method>
+    <method name="setNetAppStatusChange">
+        <arg name="sDkgName" type="s" direction="in"></arg>
+        <arg name="nStatus" type="i" direction="in"></arg>
+    </method>
+    <method name="setNetRequestReply">
+    <arg name="sPkgName" type="s" direction="in"></arg>
+        <arg name="sId" type="s" direction="in"></arg>
+        <arg name="nType" type="i" direction="in"></arg>
+    </method>
+    <method name="setNetControlDefaultStatus">
+        <arg name="nDefault" type="i" direction="in"></arg>
+    </method>
+    <method name="getNetControlDefaultStatus">
         <arg name="value" type="i" direction="out"></arg>
     </method>
-    <method name="setColor">
-        <arg name="sColor" type="s" direction="in"></arg>
+
+    <signal name="requestRemAppsChange">
+        <arg type="(a(isbssssssllddddsss))" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderProcInfoList"/>
+    </signal>
+    <method name="getRemAppsInfo">
     </method>
-    <method name="showRemConnectRemControlInter">
-        <arg name="appNamePath" type="s" direction="in"></arg>
+    <method name="setRemAppStatusChange">
+        <arg name="sDkgName" type="s" direction="in"></arg>
+        <arg name="nStatus" type="i" direction="in"></arg>
     </method>
-    <method name="setRemCunrrentIndex">
-        <arg name="index" type="i" direction="in"></arg>
+    <method name="setRemRequestReply">
+        <arg name="sPkgName" type="s" direction="in"></arg>
+        <arg name="sId" type="s" direction="in"></arg>
+        <arg name="nType" type="i" direction="in"></arg>
     </method>
-    <method name="getRemCunrrentIndex">
+    <method name="setRemControlDefaultStatus">
+        <arg name="nDefault" type="i" direction="in"></arg>
+    </method>
+    <method name="getRemControlDefaultStatus">
         <arg name="value" type="i" direction="out"></arg>
     </method>
-    <signal name="netChangeAsk">
+    <signal name="requestRemDefaultAllowStatus">
     </signal>
-    <signal name="remChangeAsk">
-    </signal>
-    <method name="setNetRemDialogClose">
+
+    <!-- 显示联网管控禁止弹框 -->
+    <method name="showNetControlDialog">
+    <arg name="sDkgName" type="s" direction="in"/>
+    <arg name="sAppName" type="s" direction="in"/>
     </method>
+    <!-- 显示联网管控询问弹框 -->
+    <method name="showNetControlAskDialog">
+    <arg name="sDkgName" type="s" direction="in"/>
+    <arg name="sAppName" type="s" direction="in"/>
+    <arg name="sId" type="s" direction="in"/>
+    </method>
+
+    <!-- 显示远程访问禁止弹框 -->
+    <method name="showRemControlDialog">
+      <arg name="sDkgName" type="s" direction="in"/>
+      <arg name="sAppName" type="s" direction="in"/>
+    </method>
+    <!-- 显示远程访问询问弹框 -->
+    <method name="showRemControlAskDialog">
+      <arg name="sDkgName" type="s" direction="in"/>
+      <arg name="sAppName" type="s" direction="in"/>
+      <arg name="sId" type="s" direction="in"/>
+    </method>
+
     <!-- 开机自启动 -->
     <method name="startLauncherManage">
         <arg name="value" type="b" direction="out"></arg>
@@ -76,12 +134,6 @@
       <arg type="s" name="sID"/>
     </signal>
     <!-- 流量详情 -->
-    <property name="Display" type="(sssssssdddib)" access="read">
-        <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderDisplay"/>
-    </property>
-    <property name="defenderAppFlow" type="(isssddd)" access="read">
-        <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderAppFlow"/>
-    </property>
     <method name="notifyGetYesterdayFlowData">
     </method>
     <method name="notifyGetTodayFlowData">
@@ -89,6 +141,8 @@
     <method name="notifyGetLastMonthFlowData">
     </method>
     <method name="notifyGetThisMonthFlowData">
+    </method>
+    <method name="NotifyDontGetFlowData">
     </method>
     <method name="notifyGetAppYesterdayFlowData">
         <arg name="appname" type="s" direction="in"></arg>
@@ -102,30 +156,32 @@
     <method name="notifyGetAppThisMonthFlowData">
         <arg name="appname" type="s" direction="in"></arg>
     </method>
-    <signal name="updatedisplay">
+    <!-- 流量详情test -->
+    <method name="GetAllProcInfos">
+        <arg name="procInfos" type="a(isbssssssllsddddsss)" direction="out"></arg>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="DefenderProcInfoList"/>
+    </method>
+    <signal name="sendProcInfos">
+        <arg type="(a(isbssssssllsddddsss))" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderProcInfoList"/>
     </signal>
-    <signal name="Display">
-          <arg type="(sssssssdddib)" direction="out"/>
-          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplay"/>
+    <signal name="SendAllAppFlowList">
+        <arg type="(a(isbssssssllsddddsss))" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderProcInfoList"/>
+        <arg type="s" name="sTimeRange"/>
     </signal>
-    <signal name="displayflow">
-          <arg type="(a(sssssssdddib))" direction="out"/>
-          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplayList"/>
+    <signal name="SendAppFlowList">
+        <arg type="(a(isbssssssllsddddsss))" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderProcInfoList"/>
     </signal>
-    <signal name="displayspped">
-          <arg type="(a(sssssssdddib))" direction="out"/>
-          <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderDisplayList"/>
-    </signal>
-    <signal name="sendAppFlowData">
-        <arg type="(a(isssddd))" direction="out"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderAppFlowList"/>
-    </signal>
+
     <!-- 流量详情名称解析 -->
     <method name="getProcessEnvironmentVariable">
     <arg name="pid" type="i" direction="in"/>
     <arg name="environmentname" type="s" direction="in"/>
     <arg type="s" direction="out"/>
     </method>
+
     <property name="processInfo" type="(iss)" access="read">
         <annotation name="org.qtproject.QtDBus.QtTypeName" value="DefenderProcessInfo"/>
     </property>
