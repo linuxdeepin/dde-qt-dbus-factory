@@ -31,6 +31,10 @@
     <method name="notifySelectThreatCount">
         <arg name="spath" type="s" direction="out"/>
     </method>
+    <method name="getSelectThreatsCount">
+         <arg name="count" type="i" direction="out"/>
+    </method>
+
 
     <!-- 联网管控/远程访问 -->
     <method name="setFireWallSwitchStatus">
