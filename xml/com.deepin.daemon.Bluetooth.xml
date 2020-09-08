@@ -150,4 +150,5 @@
     </signal>
     <property name="State" type="u" access="read"></property>
     <property name="DisplaySwitch" type="b" access="readwrite"></property>
+    <property name="Transportable" type="b" access="read"></property>
 </interface>
