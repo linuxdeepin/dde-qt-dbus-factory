@@ -21,6 +21,11 @@
       <arg type="s" direction="in"/>
       <arg type="b" direction="out"/>
     </method>
+    <signal name="PortEnabledChanged">
+     <arg type="u"></arg>
+     <arg type="s"></arg>
+     <arg type="b"></arg>
+    </signal>
     <property name="SinkInputs" type="ao" access="read"/>
     <property name="Sinks" type="ao" access="read"/>
     <property name="Sources" type="ao" access="read"/>
