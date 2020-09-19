@@ -7,6 +7,12 @@
     <property name="isProcessing" type="b" access="read"/>
     <property name="isDemandReboot" type="b" access="read"/>
     <property name="errorDetail" type="s" access="read"/>
+    <signal name="enableDomainEnded">
+      <arg name="bSuccess" type="b" direction="out"/>
+    </signal>
+    <signal name="disableDomainEnded">
+      <arg name="bSuccess" type="b" direction="out"/>
+    </signal>
     <signal name="joinDomainEnded">
       <arg name="bSuccess" type="b" direction="out"/>
     </signal>
@@ -31,6 +37,8 @@
     <signal name="serverError">
       <arg name="errorDescription" type="s" direction="out"/>
     </signal>
+    <signal name="demandReboot">
+    </signal>
     <method name="enableDomain">
     </method>
     <method name="disableDomain">
@@ -46,7 +54,7 @@
     </method>
     <method name="checkServer">
       <arg name="strIp" type="s" direction="in"/>
-      <arg name="iPort" type="n" direction="in"/>
+      <arg name="iPort" type="i" direction="in"/>
     </method>
     <method name="queryAreas">
       <arg name="strSearchKey" type="s" direction="in"/>
