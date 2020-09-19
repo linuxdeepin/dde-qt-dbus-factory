@@ -6,20 +6,17 @@
 ut">
       </arg>
     </method-->
-    <!--method name="CheckAuthorization">
-      <arg type="(sa{sv})" name="subject" direction="in">
-      </arg>
-      <arg type="s" name="action_id" direction="in">
-      </arg>
-      <arg type="a{ss}" name="details" direction="in">
-      </arg>
-      <arg type="u" name="flags" direction="in">
-      </arg>
-      <arg type="s" name="cancellation_id" direction="in">
-      </arg>
-      <arg type="(bba{ss})" name="result" direction="out">
-      </arg>
-    </method-->
+    <method name="CheckAuthorization">
+      <arg type="(sa{sv})" name="subject" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="PolicySubject"/>
+      <arg type="s" name="action_id" direction="in"/>
+      <arg type="a{ss}" name="details" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In2" value="PolicyDetails"/>
+      <arg type="u" name="flags" direction="in"/>
+      <arg type="s" name="cancellation_id" direction="in"/>
+      <arg type="(bba{ss})" name="result" direction="out"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="PolicyResult"/>
+    </method>
     <method name="CancelCheckAuthorization">
       <arg type="s" name="cancellation_id" direction="in">
       </arg>

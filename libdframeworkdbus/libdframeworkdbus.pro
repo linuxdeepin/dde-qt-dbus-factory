@@ -61,7 +61,10 @@ HEADERS += \
     types/defenderdisplay.h \
     types/defenderappflow.h \
     types/defenderprocinfo.h \
-    types/defenderprocinfolist.h
+    types/defenderprocinfolist.h \
+    types/policysubject.h \
+    types/policyresult.h \
+    types/policydetails.h
 
 SOURCES += \
     types/zoneinfo.cpp \
@@ -116,7 +119,10 @@ SOURCES += \
     types/defenderdisplay.cpp \
     types/defenderappflow.cpp \
     types/defenderprocinfo.cpp \
-    types/defenderprocinfolist.cpp
+    types/defenderprocinfolist.cpp \
+    types/policysubject.cpp \
+    types/policyresult.cpp \
+    types/policydetails.cpp
 
 !system(python $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)
