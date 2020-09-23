@@ -3,6 +3,9 @@
     <arg name="batteries" type="ao" direction="out"/>
   </method>
   <method name="Refresh"/>
+  <method name="SetMode">
+    <arg name="mode" type="s" direction="in"></arg>
+  </method>
   <method name="RefreshBatteries"/>
   <method name="RefreshMains"/>
   <signal name="BatteryDisplayUpdate">
@@ -28,4 +31,6 @@
   <property name="PowerSystemAutoToSleepWhenFree" type="b" access="readwrite"/>
   <property name="PowerSavingModeAutoWhenBatteryLow" type="b" access="readwrite"/>
   <property name="PowerSavingModeBrightnessDropPercent" type="u" access="readwrite"/>
+  <property name="IsHighPerformanceSupported" type="b" access="read"/>
+  <property name="Mode" type="s" access="read"/>
 </interface>
