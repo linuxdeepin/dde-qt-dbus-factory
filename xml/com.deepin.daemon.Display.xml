@@ -10,6 +10,9 @@
           <method name="DeleteCustomMode">
                <arg type="s" direction="in"></arg>
           </method>
+          <method name="GetRealDisplayMode">
+               <arg type="y" direction="out"></arg>
+          </method>
           <method name="ListOutputNames">
                <arg type="as" direction="out"></arg>
           </method>
