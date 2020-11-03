@@ -177,7 +177,7 @@ QVariant DBusExtendedAbstractInterface::internalPropGet(const char *propname, vo
     if (m_useCache) {
         int propertyIndex = metaObject()->indexOfProperty(propname);
         QMetaProperty metaProperty = metaObject()->property(propertyIndex);
-        return QVariant(metaProperty.type(), propertyPtr);
+        return QVariant(metaProperty.userType(), propertyPtr);
     }
 
     if (m_sync) {
@@ -233,7 +233,7 @@ QVariant DBusExtendedAbstractInterface::internalPropGet(const char *propname, vo
         }
 
         asyncProperty(propname);
-        return QVariant(metaProperty.type(), propertyPtr);
+        return QVariant(metaProperty.userType(), propertyPtr);
     }
 }
 
