@@ -7,7 +7,7 @@ import subprocess
 
 dirname = os.path.dirname
 abspath = os.path.abspath
-project_root = dirname(dirname(abspath(__file__)))
+project_root = "../"
 
 def get_xml_files():
     xml_dir = os.path.join(project_root, "xml")
