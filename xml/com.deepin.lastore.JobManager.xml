@@ -70,5 +70,5 @@
   <property name="UpgradableApps" type="as" access="read"></property>
   <property name="SystemOnChanging" type="b" access="read"></property>
   <property name="AutoClean" type="b" access="read"/>
+  <property name="UpdateMode" type="t" access="readwrite"/>
 </interface>
-
