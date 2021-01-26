@@ -3,4 +3,11 @@
         <arg name="flag" type="i" direction="in"></arg>
         <arg name="result" type="s" direction="out"></arg>
     </method>
+    <method name="GetLimits">
+    	<arg name="username" type="s" direction="in"></arg>
+    	<arg name="limits" type="s" direction="out"></arg>
+    </method>
+    <signal name="LimitUpdated">
+	<arg type="s"></arg>
+    </signal>
 </interface>
