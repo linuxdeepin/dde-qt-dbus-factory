@@ -27,5 +27,8 @@
     <method name="showFuncConnectRemControl">
     <arg name="sDkgName" type="s" direction="in"/>
     </method>
+    <!-- 显示流量详情界面弹框 -->
+    <method name="showFuncConnectDataUsage">
+    </method>
 
 </interface>

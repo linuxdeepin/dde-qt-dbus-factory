@@ -1,5 +1,9 @@
 <node>
   <interface name="com.deepin.defender.datainterface">
+    <!-- 当前正在扫描的u盘路径列表 -->
+    <property name="ScanningUsbPaths" type="as" access="read">
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QStringList"/>
+    </property>
     <method name="StartApp">
     </method>
     <method name="ExitApp">
@@ -34,7 +38,8 @@
     <method name="getSelectThreatsCount">
          <arg name="count" type="i" direction="out"/>
     </method>
-
+    <!-- 展现病毒引擎切换系统提示框 -->
+    <method name="showEnginChangeNotity"></method>
 
     <!-- 联网管控/远程访问 -->
     <method name="setFireWallSwitchStatus">
@@ -42,6 +47,14 @@
     </method>
     <method name="getFireWallSwitchStatus">
         <arg name="value" type="b" direction="out"></arg>
+    </method>
+
+    <!-- 联网管控/远程访问开关状态设置 -->
+    <method name="setNetControlSwitchStatus">
+        <arg name="isbFireWall" type="b" direction="in"></arg>
+    </method>
+    <method name="setRemControlSwitchStatus">
+        <arg name="isbFireWall" type="b" direction="in"></arg>
     </method>
 
     <signal name="requestNetAppsChange">
@@ -113,7 +126,18 @@
       <arg name="sAppName" type="s" direction="in"/>
       <arg name="sId" type="s" direction="in"/>
     </method>
-
+    <!-- 设置ssh远程登陆端口状态 -->
+    <method name="setRemRegisterStatus">
+        <arg name="bStatus" type="b" direction="in"></arg>
+    </method>
+    <!-- 获取ssh远程登陆端口状态 -->
+    <method name="getRemRegisterStatus">
+        <arg name="bStatus" type="b" direction="out"></arg>
+    </method>
+    <!-- 安恒/瑞星应用商店跳转 -->
+    <method name="JumpToAppStore">
+        <arg name="nType" type="i" direction="in"></arg>
+    </method>
     <!-- 开机自启动 -->
     <method name="startLauncherManage">
         <arg name="value" type="b" direction="out"></arg>
@@ -215,5 +239,107 @@
     </signal>
     <signal name="notifyUpdateLauncherList">
     </signal>
+
+    <!-- usb病毒查杀 -->
+    <!-- 隔离u盘病毒 -->
+    <method name="IsolateUsbVirus">
+       <arg name="usbMountPath" type="s" direction="in"></arg>
+    </method>
+    <!-- 通知隔离u盘病毒信号 -->
+    <signal name="NotifyIsolateUsbVirus">
+    <arg name="usbMountPath" type="s" direction="out"/>
+    </signal>
+    <!-- 请求停止U盘扫描 -->
+    <method name="RequestStopUsbScannig">
+      <arg name="path" type="s" direction="in"></arg>
+    </method>
+    <!-- U盘扫描停止完成信号 -->
+    <signal name="UsbScanningStopped">
+      <arg name="path" type="s"></arg>
+    </signal>
+    <!-- 当前正在扫描的u盘路径列表改变信号 -->
+    <signal name="ScanningUsbPathsChanged">
+      <arg name="paths" type="as"></arg>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QStringList"/>
+    </signal>
+
+    <!-- 获得当前病毒引擎 -->
+    <method name="GetCurrentEngine">
+        <arg name="engineType" type="i" direction="out"></arg>
+    </method>
+
+    <!-- 垃圾清理-回收站 -->
+    <method name="GetTrashInfoList">
+       <arg name="cleanerPath" type="as" direction="out"></arg>
+       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QStringList"/>
+    </method>
+    <!-- 垃圾清理-使用痕迹-->
+    <method name="GetHistoryInfoList">
+       <arg name="cleanerPath" type="as" direction="out"></arg>
+       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QStringList"/>
+    </method>
+    <!-- 垃圾清理-系统缓存 -->
+    <method name="GetCacheInfoList">
+       <arg name="cleanerPath" type="as" direction="out"></arg>
+       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QStringList"/>
+    </method>
+    <!-- 垃圾清理-系统日志 -->
+    <method name="GetLogInfoList">
+       <arg name="cleanerPath" type="as" direction="out"></arg>
+       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QStringList"/>
+    </method>
+    <!-- 垃圾清理-应用信息 -->
+    <method name="GetAppTrashInfoList">
+       <arg name="cleanerPath" type="s" direction="out"></arg>
+       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QString"/>
+    </method>
+    <!-- 浏览器-coockies -->
+    <method name="GetBrowserCookiesInfoList">
+       <arg name="cleanerPath" type="s" direction="out"></arg>
+       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QString"/>
+    </method>
+    <!-- 请求开始垃圾文件扫描 -->
+    <method name="RequestStartTrashScan">
+    </method>
+    <!-- 垃圾清理删除指定文件 -->
+    <method name="DeleteSpecifiedFiles">
+      <arg name="path" type="as" direction="in"></arg>
+    </method>
+    <!-- 垃圾文件扫描完成信号 -->
+    <signal name="TrashScanFinished">
+    <arg name="sum" type="d"/>
+    </signal>
+    <!-- 请求清理选中的垃圾文件 -->
+    <method name="RequestCleanSelectTrash">
+    </method>
+    <!-- 清理选中的垃圾文件完成信号 -->
+    <signal name="CleanSelectTrashFinished">
+    </signal>
+
+    <!-- 登录安全 -->
+    <!-- 获取密码限制策略开启/关闭 状态 -->
+    <method name="GetPwdLimitPolicyEnable">
+       <arg name="enable" type="b" direction="out"></arg>
+    </method>
+    <!-- 开启/关闭密码限制策略 -->
+    <method name="SetPwdLimitPolicyEnable">
+       <arg name="enable" type="b" direction="in"></arg>
+    </method>
+    <!-- 开启/关闭密码限制策略完成信号 -->
+    <signal name="SetPwdLimitPolicyEnableFinished">
+    <arg name="enable" type="b" direction="out"/>
+    </signal>setPwdLimitPolicyEnable
+    <!-- 设置密码限制等级 -->
+    <method name="SetPwdLimitedLevel">
+       <arg name="level" type="i" direction="in"></arg>
+    </method>
+    <!-- 设置密码限制等级完成信号 -->
+    <signal name="SetPwdLimitedLevelFinished">
+    <arg name="level" type="i" direction="out"/>
+    </signal>
+    <!-- 获得密码安全错误信息 -->
+    <method name="GetPwdChangeError">
+       <arg name="info" type="s" direction="out"></arg>
+    </method>
   </interface>
 </node>

@@ -1,6 +1,10 @@
 <interface name="com.deepin.defender.daemonservice">
   <property name="Safetygrade" type="i" access="readwrite"></property>
   <property name="MaturityDay" type="i" access="readwrite"></property>
+  <!-- 当前正在扫描的u盘路径 -->
+  <property name="ScanningUsbPaths" type="as" access="read">
+    <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QStringList"/>
+  </property>
   <method name="StartApp">
   </method>
   <method name="ExitApp">
@@ -45,6 +49,21 @@
   <method name="GetSystemUpdate">
     <arg name="value" type="i" direction="out"></arg>
   </method>
+
+  <!-- 停止U盘扫描 -->
+  <method name="RequestStopUsbScannig">
+    <arg name="path" type="s" direction="in"></arg>
+  </method>
+  <!-- U盘扫描停止完成信号 -->
+  <signal name="UsbScanningStopped">
+    <arg name="path" type="s"></arg>
+  </signal>
+  <!-- 当前正在扫描的u盘路径列表改变信号 -->
+  <signal name="ScanningUsbPathsChanged">
+    <arg name="paths" type="as"></arg>
+    <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QStringList"/>
+  </signal>
+
   <signal name="UpdateUI">
   </signal>
   <signal name="NotifyHeartbeat">

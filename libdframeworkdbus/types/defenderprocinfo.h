@@ -54,6 +54,17 @@ struct DefenderProcInfo {
     // 其他参数
     QString sOtherParam;
     bool operator!=(const DefenderProcInfo &procInfo);
+    // 初始化
+    DefenderProcInfo() {
+        nPid = 0;
+        isbSysApp = false;
+        nCategoryID = 0;
+        nTimeInstalled = 0;
+        dDownloadSpeed = 0.0;
+        dUploadSpeed = 0.0;
+        dDownloads = 0.0;
+        dUploads = 0.0;
+    }
 };
 
 Q_DECLARE_METATYPE(DefenderProcInfo);
