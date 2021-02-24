@@ -5,6 +5,9 @@
   <method name="CleanJob">
        <arg type="s" direction="in"></arg>
   </method>
+  <method name="GetArchivesInfo">
+       <arg type="s" direction="out"></arg>
+  </method>
   <method name="DistUpgrade">
        <arg type="o" direction="out"></arg>
   </method>

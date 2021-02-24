@@ -1,5 +1,8 @@
 <interface name="com.deepin.AppStore">
   <method name="Raise"></method>
+  <method name="AppDetails">
+    <arg name="appID" type="s" direction="in"/>
+  </method>
   <method name="ShowAppDetail">
     <arg name="appName" type="s" direction="in"/>
   </method>
