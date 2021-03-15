@@ -44,6 +44,8 @@
     <arg direction="out" type="s"/>
   </method>
   <method name="Toggle"/>
+  <method name="Show"/>
+  <method name="Hide"/>
   <method name="recordCount">
     <arg direction="out" type="u"/>
   </method>
