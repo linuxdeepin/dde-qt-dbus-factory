@@ -10,12 +10,10 @@
         <arg name="sId" type="s" direction="in"></arg>
         <arg name="value" type="s" direction="out"></arg>
     </method>
-
     <!-- 开启/关闭进程流量监控功能 -->
-        <method name="EnableNetFlowMonitor">
-            <arg name="enable" type="b" direction="in"></arg>
-        </method>
-
+    <method name="EnableNetFlowMonitor">
+        <arg name="enable" type="b" direction="in"></arg>
+    </method>
     <signal name="NotifyDetailData">
       <arg type="s" name="name"/>
       <arg type="d" name="recv"/>
@@ -30,18 +28,19 @@
     </signal>
     <signal name="NotifyHeartbeat">
     </signal>
-
     <!-- SendPocNetFlowInfos -->
     <signal name="SendPocNetFlowInfos">
-        <arg name="infos" type="(a(isbssssssllsddddsss))"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="DefenderProcInfoList"/>
+        <arg type="(a(isbssssssllsddddsss))" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="DefenderProcInfoList"/>
     </signal>
-
+    <method name="GetPocNetFlowInfos">
+        <arg name="procInfos" type="a(isbssssssllsddddsss)" direction="out"></arg>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="DefenderProcInfoList"/>
+    </method>
     <!-- 设置右键扫描是否可见 -->
     <method name="SetRightScanVisable">
         <arg name="flag" type="b" direction="in"></arg>
     </method>
-
     <!-- 设置ssh远程登陆端口状态 -->
     <method name="setRemRegisterStatus">
         <arg name="bStatus" type="b" direction="in"></arg>
@@ -54,7 +53,6 @@
     <signal name="SSHStatusChanged">
         <arg name="status" type="b"/>
     </signal>
-
     <!-- usb connection -->
     <!-- 将待发送设备信息整合成字符串 -->
     <method name="MergeDevSavingInfoToStr">
@@ -101,7 +99,6 @@
     <method name="SelectLimitationModel">
         <arg name="sModel" type="s" direction="in"></arg>
     </method>
-
     <method name="GetRecordSaveSwitch">
         <arg name="isbSave" type="b" direction="out"></arg>
     </method>
@@ -114,7 +111,6 @@
     <method name="GetWhiteList">
         <arg name="list" type="s" direction="out"></arg>
     </method>
-
     <signal name="SendUsbConnectionInfo">
       <arg type="s" name="sUsbInfos"/>
     </signal>
