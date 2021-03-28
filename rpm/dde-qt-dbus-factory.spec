@@ -6,7 +6,7 @@ Name:           deepin-qt-dbus-factory
 %else
 Name:           dde-qt-dbus-factory
 %endif
-Version:        5.3.0.20
+Version:        5.4.4
 Release:        1%{?fedora:%dist}
 Summary:        A repository stores auto-generated Qt5 dbus code
 # The entire source code is GPLv3+ except
@@ -29,6 +29,7 @@ BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  qt5-qtbase-private-devel
 %{?_qt5:Requires: %{_qt5}%{?_isa} = %{_qt5_version}}
 %endif
+BuildRequires:  make
 
 %description
 A repository stores auto-generated Qt5 dbus code.
