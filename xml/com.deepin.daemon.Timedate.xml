@@ -58,6 +58,5 @@
      <property name="ShortTimeFormat" type="i" access="readwrite"></property>
      <property name="LongTimeFormat" type="i" access="readwrite"></property>
      <property name="WeekBegins" type="i" access="readwrite"></property>
-     <signal name="TimeUpdate"></signal>
 </interface>
 
