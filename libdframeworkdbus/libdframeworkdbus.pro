@@ -21,6 +21,7 @@ HEADERS += \
     types/inputdevicelist.h \
     types/keyboardlayoutlist.h \
     types/localelist.h \
+    types/mfainfolist.h \
     types/arealist.h \
     types/qvariantlist.h \
     types/wacomdevicelist.h \
@@ -71,6 +72,7 @@ SOURCES += \
     types/screenrect.cpp \
     types/inputdevicelist.cpp \
     types/localelist.cpp \
+    types/mfainfolist.cpp \
     types/audioport.cpp \
     types/audioportlist.cpp \
     types/keyboardlayoutlist.cpp \

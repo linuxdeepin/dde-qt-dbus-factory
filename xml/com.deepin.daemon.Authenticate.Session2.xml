@@ -1,0 +1,36 @@
+<interface name="com.deepin.daemon.Authenticate.Session">
+    <property name="IsFuzzyMFA" type="b" access="read"/>
+    <property name="IsMFA" type="b" access="read"/>
+    <property name="FactorsInfo" type="a(iiib)" access="read">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="MFAInfoList"/>
+    </property>
+    <property name="Prompt" type="s" access="read"/>
+    <property name="Username" type="s" access="read"/>
+    <property name="PINLen" type="i" access="read"/>
+    <signal name="Status">
+        <arg name="flag" type="i" direction="out"/>
+        <arg name="status" type="i" direction="out"/>
+        <arg name="msg" type="s" direction="out"/>
+    </signal>
+    <method name="End">
+        <arg name="flag" type="i" direction="in"/>
+        <arg name="failNum" type="i" direction="out"/>
+    </method>
+    <method name="GetResult">
+        <arg name="result" type="i" direction="out"/>
+    </method>
+    <method name="Quit">
+    </method>
+    <method name="SetQuitFlag">
+        <arg name="flag" type="i" direction="in"/>
+    </method>
+    <method name="SetToken">
+        <arg name="flag" type="i" direction="in"/>
+        <arg name="token" type="s" direction="in"/>
+    </method>
+    <method name="Start">
+        <arg name="flag" type="i" direction="in"/>
+        <arg name="timeout" type="i" direction="in"/>
+        <arg name="state" type="i" direction="out"/>
+    </method>
+</interface>

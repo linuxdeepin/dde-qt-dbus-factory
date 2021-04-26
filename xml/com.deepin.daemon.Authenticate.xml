@@ -1,4 +1,10 @@
 <interface name="com.deepin.daemon.Authenticate">
+    <property name="SupportedFlags" type="i" access="read"/>
+    <property name="FrameworkState" type="i" access="read"/>
+    <property name="SupportEncrypts" type="s" access="read"/>
+    <signal name="LimitUpdated">
+	<arg type="s"></arg>
+    </signal>
     <method name="PreOneKeyLogin">
         <arg name="flag" type="i" direction="in"></arg>
         <arg name="result" type="s" direction="out"></arg>
@@ -7,7 +13,10 @@
     	<arg name="username" type="s" direction="in"></arg>
     	<arg name="limits" type="s" direction="out"></arg>
     </method>
-    <signal name="LimitUpdated">
-	<arg type="s"></arg>
-    </signal>
+    <method name="Authenticate">
+        <arg name="username" type="s" direction="in"/>
+        <arg name="authFlags" type="i" direction="in"/>
+        <arg name="appType" type="i" direction="in"/>
+        <arg name="path" type="s" direction="out"/>
+    </method>
 </interface>
