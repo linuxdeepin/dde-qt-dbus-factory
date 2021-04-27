@@ -6,6 +6,9 @@
     <method name="SetDefaultSource">
       <arg type="s" direction="in"/>
     </method>
+    <method name="SetBluetoothAudioMode">
+      <arg type="s" direction="in"/>
+    </method>
     <method name="SetPort">
       <arg type="u" direction="in"/>
       <arg type="s" direction="in"/>
@@ -29,6 +32,10 @@
     <property name="SinkInputs" type="ao" access="read"/>
     <property name="Sinks" type="ao" access="read"/>
     <property name="Sources" type="ao" access="read"/>
+    <property name="BluetoothAudioModeOpts" type="as" access="read">
+        <annotation name="org.qtproject.QtDBus.QtTypeName" value="QStringList"/>
+    </property>
+    <property name="BluetoothAudioMode" type="s" access="read"/>
     <property name="Cards" type="s" access="read"/>
     <property name="CardsWithoutUnavailable" type="s" access="read"/>
     <property name="DefaultSink" type="o" access="read"/>
