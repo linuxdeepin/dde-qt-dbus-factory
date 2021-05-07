@@ -1,0 +1,30 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="com.deepin.dde.lockFront">
+    <signal name="VisibleChanged">
+      <arg name="visible" type="b" direction="out"/>
+    </signal>
+
+    <signal name="AuthStatusChanged">
+      <arg name="visible" type="b" direction="out"/>
+    </signal>
+
+    <method name="Show">
+    </method>
+
+    <method name="Hide">
+    </method>
+
+    <method name="LockVisible">
+      <arg type="b" direction="out"/>
+    </method>
+
+    <method name="LockAuthenticating">
+      <arg type="b" direction="out"/>
+    </method>
+
+    <method name="IsLocked">
+      <arg type="b" direction="out"/>
+    </method>
+  </interface>
+</node>
