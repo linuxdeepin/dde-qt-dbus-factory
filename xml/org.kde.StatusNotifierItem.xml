@@ -13,23 +13,23 @@
     <property access="read" type="s" name="IconName"/>
     <!--struct containing width, height and image data-->
     <property access="read" type="a(iiay)" name="IconPixmap">
-        <annotation value="DBusImageList" name="com.trolltech.QtDBus.QtTypeName"/>
+        <annotation value="DBusImageList" name="org.qtproject.QtDBus.QtTypeName"/>
     </property>
     <property access="read" type="s" name="OverlayIconName"/>
     <property access="read" type="a(iiay)" name="OverlayIconPixmap">
-        <annotation value="DBusImageList" name="com.trolltech.QtDBus.QtTypeName"/>
+        <annotation value="DBusImageList" name="org.qtproject.QtDBus.QtTypeName"/>
     </property>
     <!-- Requesting attention icon -->
     <property access="read" type="s" name="AttentionIconName"/>
     <!--same definition as image-->
     <property access="read" type="a(iiay)" name="AttentionIconPixmap">
-        <annotation value="DBusImageList" name="com.trolltech.QtDBus.QtTypeName"/>
+        <annotation value="DBusImageList" name="org.qtproject.QtDBus.QtTypeName"/>
     </property>
     <property access="read" type="s" name="AttentionMovieName"/>
     <!-- tooltip data -->
     <!--(iiay) is an image-->
     <property access="read" type="(sa(iiay)ss)" name="ToolTip">
-        <annotation value="DBusToolTip" name="com.trolltech.QtDBus.QtTypeName"/>
+        <annotation value="DBusToolTip" name="org.qtproject.QtDBus.QtTypeName"/>
     </property>
     <!-- interaction: the systemtray wants the application to do something -->
     <method name="ContextMenu">
