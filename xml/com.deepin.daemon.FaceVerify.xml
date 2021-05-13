@@ -1,4 +1,4 @@
-<interface name="com.deepin.daemon.Authenticate.FaceVerify">
+<interface name="com.deepin.daemon.FaceVerify">
     <method name="Enroll">
         <arg name="name" type="s" direction="in"></arg>
     </method>
