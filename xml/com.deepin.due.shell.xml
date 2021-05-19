@@ -8,6 +8,9 @@
     <signal name="visibleChanged">
       <arg name="visible" type="b" direction="out"/>
     </signal>
+    <signal name="rotationLockChanged">
+      <arg name="lock" type="b" direction="out"/>
+    </signal>
     <method name="Toggle">
     </method>
     <method name="Show">
