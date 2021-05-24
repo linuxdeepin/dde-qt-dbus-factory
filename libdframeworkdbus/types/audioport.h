@@ -61,11 +61,11 @@ public:
     }
 
     bool operator==(const AudioPort what) const {
-        return what.name == name;
+        return what.name == name && what.description == description && what.availability == availability;
     }
 
     bool operator!=(const AudioPort what) const {
-        return what.name != name;
+        return what.name != name || what.description != description || what.availability != availability;
     }
 };
 
