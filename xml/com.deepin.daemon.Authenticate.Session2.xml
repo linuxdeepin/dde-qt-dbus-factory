@@ -26,7 +26,7 @@
     </method>
     <method name="SetToken">
         <arg name="flag" type="i" direction="in"/>
-        <arg name="token" type="s" direction="in"/>
+        <arg name="token" type="ay" direction="in"/>
     </method>
     <method name="Start">
         <arg name="flag" type="i" direction="in"/>
