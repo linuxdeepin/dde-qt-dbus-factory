@@ -192,4 +192,6 @@
     <signal name="WakeUpStatusBar">
         <arg type="s" name="currentDate"/>
     </signal>
+    <method name="CloseMenuTips">
+    </method>
 </interface>
