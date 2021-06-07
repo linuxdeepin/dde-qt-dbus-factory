@@ -8,6 +8,7 @@ load(dtk_qmake)
 include(qtdbusextended/qtdbusextended.pri)
 
 HEADERS += \
+    types/arrayint.h \
     types/zoneinfo.h \
     types/audioport.h \
     types/audioportlist.h \
@@ -68,6 +69,7 @@ HEADERS += \
     types/policydetails.h
 
 SOURCES += \
+    types/arrayint.cpp \
     types/zoneinfo.cpp \
     types/screenrect.cpp \
     types/inputdevicelist.cpp \
