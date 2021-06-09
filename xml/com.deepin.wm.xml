@@ -194,4 +194,10 @@
     </signal>
     <method name="CloseMenuTips">
     </method>
+    <method name="SpecialWinToStatusBar">
+        <arg type="i" name="status" direction="in"/>
+    </method>
+    <signal name="NoticeStatusBar">
+        <arg type="i" name="status"/>
+    </signal>
 </interface>
