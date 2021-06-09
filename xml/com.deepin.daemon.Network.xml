@@ -143,6 +143,7 @@
                <arg type="s"></arg>
                <arg type="b"></arg>
           </signal>
+          <signal name="ActiveConnectionInfoChanged"/>
           <property name="State" type="u" access="read"></property>
           <property name="WirelessAccessPoints" type="s" access="read"></property>
           <property name="Connectivity" type="u" access="read"></property>
