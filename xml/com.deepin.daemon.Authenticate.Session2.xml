@@ -19,8 +19,7 @@
     <method name="GetResult">
         <arg name="result" type="i" direction="out"/>
     </method>
-    <method name="Quit">
-    </method>
+    <method name="Quit"/>
     <method name="SetQuitFlag">
         <arg name="flag" type="i" direction="in"/>
     </method>
@@ -42,4 +41,9 @@
         <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="ArrayInt"/>
         <arg name="publicKey" type="s" direction="out"/>
     </method>
+    <method name="PrivilegesEnable">
+        <arg name="path" type="s" direction="in"/>
+        <arg name="enabled" type="b" direction="out"/>
+    </method>
+    <method name="PrivilegesDisable"/>
 </interface>
