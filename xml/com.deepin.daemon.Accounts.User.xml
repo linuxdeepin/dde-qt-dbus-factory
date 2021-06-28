@@ -57,6 +57,9 @@
   <method name="SetPassword">
     <arg name="password" type="s" direction="in"/>
   </method>
+  <method name="SetPasswordHint">
+    <arg name="hint" type="s" direction="in"/>
+  </method>
   <method name="SetShell">
     <arg name="shell" type="s" direction="in"/>
   </method>
