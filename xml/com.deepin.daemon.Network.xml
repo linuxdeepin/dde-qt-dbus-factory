@@ -120,6 +120,11 @@
           <method name="SetProxyMethod">
                <arg type="s" direction="in"></arg>
           </method>
+          <method name="RequestIPConflictCheck">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="out"></arg>
+          </method>
           <signal name="NeedSecrets">
                <arg type="s"></arg>
           </signal>
@@ -142,6 +147,11 @@
           <signal name="DeviceEnabled">
                <arg type="s"></arg>
                <arg type="b"></arg>
+          </signal>
+          <signal name="ActiveConnectionInfoChanged"/>
+          <signal name="IPConflict">
+               <arg type="s"></arg>
+               <arg type="s"></arg>
           </signal>
           <property name="State" type="u" access="read"></property>
           <property name="WirelessAccessPoints" type="s" access="read"></property>
