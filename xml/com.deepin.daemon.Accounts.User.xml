@@ -17,6 +17,10 @@
   <method name="IsPasswordExpired">
     <arg type="b" direction="out"/>
   </method>
+  <method name="PasswordExpiredInfo">
+    <arg name="expiredStatus" type="i" direction="out"/>
+    <arg name="dayLeft" type="i" direction="out"/>
+  </method>
   <method name="SetAutomaticLogin">
     <arg name="enabled" type="b" direction="in"/>
   </method>
