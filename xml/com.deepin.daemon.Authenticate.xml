@@ -3,15 +3,15 @@
     <property name="FrameworkState" type="i" access="read"/>
     <property name="SupportEncrypts" type="s" access="read"/>
     <signal name="LimitUpdated">
-	<arg type="s"></arg>
+        <arg type="s"/>
     </signal>
     <method name="PreOneKeyLogin">
-        <arg name="flag" type="i" direction="in"></arg>
-        <arg name="result" type="s" direction="out"></arg>
+        <arg name="flag" type="i" direction="in"/>
+        <arg name="result" type="s" direction="out"/>
     </method>
     <method name="GetLimits">
-    	<arg name="username" type="s" direction="in"></arg>
-    	<arg name="limits" type="s" direction="out"></arg>
+        <arg name="username" type="s" direction="in"/>
+        <arg name="limits" type="s" direction="out"/>
     </method>
     <method name="Authenticate">
         <arg name="username" type="s" direction="in"/>
