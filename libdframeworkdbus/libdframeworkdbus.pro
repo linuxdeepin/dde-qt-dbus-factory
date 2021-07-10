@@ -128,7 +128,7 @@ SOURCES += \
     types/policyresult.cpp \
     types/policydetails.cpp
 
-!system(python $$PWD/generate_code.py): error("Failed to generate code")
+!system(python3 $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)
 
 isEmpty(LIB_INSTALL_DIR) {
