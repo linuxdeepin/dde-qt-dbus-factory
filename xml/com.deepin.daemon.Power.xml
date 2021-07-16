@@ -1,5 +1,8 @@
 <interface name="com.deepin.daemon.Power">
     <method name="Reset"/>
+    <method name="CanSuspendToHibernate">
+        <arg direction="out" type="b" />
+    </method>
     <property name="BatteryLidClosedAction" type="i" access="readwrite"/>
     <property name="AmbientLightAdjustBrightness" type="b" access="readwrite"/>
     <property access="read" name="BatteryPercentage" type="a{sd}">
@@ -7,6 +10,8 @@
     </property>
     <property name="LinePowerScreensaverDelay" type="i" access="readwrite"/>
     <property name="LinePowerSleepDelay" type="i" access="readwrite"/>
+    <property name="LinePowerHibernateDelay" type="i" access="readwrite"/>
+    <property name="BatteryHibernateDelay" type="i" access="readwrite"/>
     <property name="WarnLevel" type="u" access="read"/>
     <property name="HasAmbientLightSensor" type="b" access="read"/>
     <property access="read" name="BatteryIsPresent" type="a{sb}">
