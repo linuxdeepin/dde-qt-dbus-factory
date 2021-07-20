@@ -23,6 +23,9 @@
     <method name="SetQuitFlag">
         <arg name="flag" type="i" direction="in"/>
     </method>
+    <method name="SetSymmetricKey">
+        <arg name="key" type="ay" direction="in"/>
+    </method>
     <method name="SetToken">
         <arg name="flag" type="i" direction="in"/>
         <arg name="token" type="ay" direction="in"/>
