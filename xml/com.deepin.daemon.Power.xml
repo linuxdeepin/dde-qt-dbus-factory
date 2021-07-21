@@ -32,4 +32,8 @@
     <property name="LowPowerNotifyEnable" type="b" access="readwrite"/>
     <property name="LowPowerNotifyThreshold" type="i" access="readwrite"/>
     <property name="LowPowerAutoSleepThreshold" type="i" access="readwrite"/>
+	<signal name="ScreenFullBlack"/>
+    <signal name="SuspendState">
+			<arg name="state" type="i"></arg>
+    </signal>
 </interface>
