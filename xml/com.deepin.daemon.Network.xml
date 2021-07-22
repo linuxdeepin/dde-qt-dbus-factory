@@ -123,7 +123,6 @@
           <method name="RequestIPConflictCheck">
                <arg type="s" direction="in"></arg>
                <arg type="s" direction="in"></arg>
-               <arg type="s" direction="out"></arg>
           </method>
           <signal name="NeedSecrets">
                <arg type="s"></arg>
