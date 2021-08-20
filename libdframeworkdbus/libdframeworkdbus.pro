@@ -66,7 +66,8 @@ HEADERS += \
     types/defenderprocinfolist.h \
     types/policysubject.h \
     types/policyresult.h \
-    types/policydetails.h
+    types/policydetails.h \
+    types/fillmode.h
 
 SOURCES += \
     types/arrayint.cpp \
@@ -90,6 +91,7 @@ SOURCES += \
     types/searchmap.cpp \
     types/resolutionlist.cpp \
     types/resolution.cpp \
+    types/fillmode.cpp \
     types/rotationlist.cpp \
     types/reflectlist.cpp \
     types/appupdateinfolist.cpp \
