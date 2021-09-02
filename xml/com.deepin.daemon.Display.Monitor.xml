@@ -32,7 +32,7 @@
           <property name="Rotation" type="q" access="read"></property>
           <property name="Reflect" type="q" access="read"></property>
           <property name="RefreshRate" type="d" access="read"></property>
-          <property name="SupportFillMode" type="b" access="read"></property>
+          <property name="CurrentFillMode" type="s" access="readwrite"></property>
 	  <property name="MmHeight" type="u" access="read"></property>
 	  <property name="MmWidth" type="u" access="read"></property>
           <property name="Rotations" type="aq" access="read">
@@ -41,12 +41,9 @@
           <property name="Reflects" type="aq" access="read">
             <annotation name="org.qtproject.QtDBus.QtTypeName" value="ReflectList"/>
           </property>
-          <property name="AvailableFillMode" type="as" access="read"></property>
+          <property name="AvailableFillModes" type="as" access="read"></property>
           <property name="BestMode" type="(uqqd)" access="read">
             <annotation name="org.qtproject.QtDBus.QtTypeName" value="Resolution"/>
-          </property>
-          <property name="CurrentFillMode" type="(qqs)" access="readwrite">
-            <annotation name="org.qtproject.QtDBus.QtTypeName" value="FillMode"/>
           </property>
           <property name="CurrentMode" type="(uqqd)" access="read">
             <annotation name="org.qtproject.QtDBus.QtTypeName" value="Resolution"/>
