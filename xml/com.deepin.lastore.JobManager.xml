@@ -69,6 +69,6 @@
   <property name="SystemArchitectures" type="as" access="read"></property>
   <property name="UpgradableApps" type="as" access="read"></property>
   <property name="SystemOnChanging" type="b" access="read"></property>
-  <property name="AutoClean" type="b" access="read"/>
+  <property name="AutoClean" type="b" access="read"></property>
+  <property name="UpdateMode" type="t" access="readwrite"></property>
 </interface>
-

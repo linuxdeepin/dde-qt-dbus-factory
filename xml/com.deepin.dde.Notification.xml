@@ -44,10 +44,31 @@
     <arg direction="out" type="s"/>
   </method>
   <method name="Toggle"/>
-  <method name="recordCount"> 
+  <method name="recordCount">
     <arg direction="out" type="u"/>
   </method>
-  <method name="setAppSetting"> 
+  <method name="GetAppList">
+    <arg direction="out" type="as"/>
+  </method>
+  <method name="GetAppInfo">
+    <arg direction="in" type="s"/>
+    <arg direction="in" type="u"/>
+    <arg direction="out" type="v"/>
+  </method>
+  <method name="GetSystemInfo">
+    <arg direction="in" type="u"/>
+    <arg direction="out" type="v"/>
+  </method>
+  <method name="SetAppInfo">
+    <arg direction="in" type="s"/>
+    <arg direction="in" type="u"/>
+    <arg direction="in" type="v"/>
+  </method>
+  <method name="SetSystemInfo">
+    <arg direction="in" type="u"/>
+    <arg direction="in" type="v"/>
+  </method>
+  <method name="setAppSetting">
     <arg direction="in" type="s"/>
   </method>
   <signal name="NotificationClosed">
@@ -61,19 +82,31 @@
   <signal name="RecordAdded"> 
     <arg type="s"/>
   </signal>
-  <signal name="appSettingChanged"> 
+  <signal name="AppInfoChanged"> 
+    <arg type="s"/>
+    <arg type="u"/>
+    <arg type="v"/>
+  </signal>
+  <signal name="SystemInfoChanged"> 
+    <arg type="u"/>
+    <arg type="v"/>
+  </signal>
+  <signal name="AppAddedSignal"> 
     <arg type="s"/>
   </signal>
-  <signal name="systemSettingChanged"> 
+  <signal name="AppRemovedSignal"> 
     <arg type="s"/>
   </signal>
   <signal name="appRemoved"> 
     <arg type="s"/>
   </signal>
-  <signal name="appAdded">
+  <signal name="appAdded"> 
     <arg type="s"/>
   </signal>
-  <signal name="appSettingDone"> 
+  <signal name="appSettingChanged"> 
+    <arg type="s"/>
+  </signal>
+  <signal name="systemSettingChanged"> 
     <arg type="s"/>
   </signal>
   <property name="allSetting" type="s" access="readwrite"/>

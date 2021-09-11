@@ -184,4 +184,12 @@
     </method>
     <method name="ClearMoveStatus">
     </method>
+    <signal name="MultitaskingStatusChanged">
+        <arg type="b" name="status"/>
+    </signal>
+    <method name="TouchToActiveStatusBar">
+    </method>
+    <signal name="WakeUpStatusBar">
+        <arg type="s" name="currentDate"/>
+    </signal>
 </interface>

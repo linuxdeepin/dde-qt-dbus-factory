@@ -1,4 +1,6 @@
 <interface name="com.deepin.daemon.Timedate">
+    <signal name="TimeUpdate">
+    </signal>
      <method name="AddUserTimezone">
           <arg type="s" direction="in"></arg>
      </method>
