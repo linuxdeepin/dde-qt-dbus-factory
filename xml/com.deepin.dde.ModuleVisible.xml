@@ -1,0 +1,13 @@
+<interface name="com.deepin.dde.ModuleVisible">
+    <method name="Hide"/>
+    <method name="Show"/>
+
+    <property name="Visible" type="s" access="read" />
+
+    <signal name="ModuleVisbleChanged">
+        <arg type="s" name="appName" />
+        <arg type="s" name="moduleName" />
+        <arg type="s" name="pageName" />
+        <arg type="b" name="enable" />
+    </signal>
+</interface>
