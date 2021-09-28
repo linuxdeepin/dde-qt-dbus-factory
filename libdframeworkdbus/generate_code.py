@@ -1,6 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-from __future__ import print_function
 import os
 import glob
 import subprocess
@@ -52,8 +51,8 @@ def main():
 
         print("generating the pri file...")
         pwdfy = lambda x: "$$PWD/%s" % x
-        sources = map(pwdfy, sorted(glob.glob1(generated_dir, "*.cpp")))
-        headers = map(pwdfy, sorted(glob.glob1(generated_dir, "*.h")))
+        sources = list(map(pwdfy, sorted(glob.glob1(generated_dir, "*.cpp"))))
+        headers = list(map(pwdfy, sorted(glob.glob1(generated_dir, "*.h"))))
         pri.write("HEADERS += %s\n" % " ".join(headers))
         pri.write("SOURCES += %s" % " ".join(sources))
         print("done.")
