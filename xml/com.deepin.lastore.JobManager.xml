@@ -1,4 +1,8 @@
 <interface name="com.deepin.lastore.Manager">
+  <method name="ClassifiedUpgrade">
+      <arg type="t" direction="in"></arg>
+      <arg type="ao" direction="out"/>
+  </method>
   <method name="CleanArchives">
       <arg type="o" direction="out"/>
   </method>

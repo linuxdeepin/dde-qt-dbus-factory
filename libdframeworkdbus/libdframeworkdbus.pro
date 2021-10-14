@@ -67,6 +67,7 @@ HEADERS += \
     types/policysubject.h \
     types/policyresult.h \
     types/policydetails.h \
+    types/lastoreupdatepackagesinfo.h
 
 SOURCES += \
     types/arrayint.cpp \
@@ -126,7 +127,8 @@ SOURCES += \
     types/defenderprocinfolist.cpp \
     types/policysubject.cpp \
     types/policyresult.cpp \
-    types/policydetails.cpp
+    types/policydetails.cpp \
+    types/lastoreupdatepackagesinfo.cpp
 
 !system(python3 $$PWD/generate_code.py): error("Failed to generate code")
 include(generated/generated.pri)

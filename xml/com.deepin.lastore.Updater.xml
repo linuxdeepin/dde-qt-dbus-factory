@@ -31,4 +31,7 @@
     <property access="read" name="AutoDownloadUpdates" type="b"/>
     <property access="read" name="UpdatablePackages" type="as"/>
     <property access="read" name="UpdateNotify" type="b"/>
+    <property access="read" name="ClassifiedUpdatablePackages" type="a{sd}">
+	<annotation name="org.qtproject.QtDBus.QtTypeName" value="LastoreUpdatePackagesInfo"/>
+    </property>
 </interface>

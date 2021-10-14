@@ -11,6 +11,7 @@
   </method>
   <property access="read" type="b" name="BackingUp"/>
   <property access="read" type="b" name="ConfigValid"/>
+  <property access="read" type="b" name="HasBackedUp"/>
   <property access="read" type="b" name="Restoring"/>
   <property access="read" type="x" name="BackupTime"/>
   <property access="read" type="s" name="BackupVersion"/>
