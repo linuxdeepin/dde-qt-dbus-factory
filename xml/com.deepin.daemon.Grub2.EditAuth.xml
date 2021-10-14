@@ -1,0 +1,10 @@
+<interface name="com.deepin.daemon.Grub2.EditAuth">
+  <method name="DisableGrubEditShellAuth">
+    <arg name="user" type="s" direction="in"/>
+  </method>
+  <method name="SetGrubEditShellAuth">
+    <arg name="user" type="s" direction="in"/>
+    <arg name="password" type="s" direction="in"/>
+  </method>
+  <property name="EditShellAuthUsers" type="as" access="read"/>
+</interface>
