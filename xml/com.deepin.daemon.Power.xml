@@ -1,5 +1,8 @@
 <interface name="com.deepin.daemon.Power">
     <method name="Reset"/>
+    <method name="CanSuspendToHibernate">
+        <arg direction="out" type="b" />
+    </method>
     <property name="BatteryLidClosedAction" type="i" access="readwrite"/>
     <property name="AmbientLightAdjustBrightness" type="b" access="readwrite"/>
     <property access="read" name="BatteryPercentage" type="a{sd}">
