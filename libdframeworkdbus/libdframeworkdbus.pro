@@ -4,6 +4,10 @@ VERSION = 2.0
 CONFIG += c++11 create_pc create_prl no_install_prl
 CONFIG += no_keywords
 
+# 增加安全编译参数
+QMAKE_CFLAGS += -fstack-protector-strong -D_FORTITY_SOURCE=1 -z noexecstack -pie -fPIC -z lazy
+QMAKE_CXXFLAGS += -fstack-protector-strong -D_FORTITY_SOURCE=1 -z noexecstack -pie -fPIC -z lazy
+
 load(dtk_qmake)
 include(qtdbusextended/qtdbusextended.pri)
 
