@@ -74,9 +74,6 @@
         <arg name="device" type="o" direction="in"></arg>
         <arg name="trusted" type="b" direction="in"></arg>
     </method>
-    <method name="CanSendFile">
-        <arg type="b" direction="out"></arg>
-    </method>
     <signal name="AdapterAdded">
         <arg name="adapterJSON" type="s"></arg>
     </signal>
@@ -154,4 +151,5 @@
     <property name="State" type="u" access="read"></property>
     <property name="DisplaySwitch" type="b" access="readwrite"></property>
     <property name="Transportable" type="b" access="read"></property>
+    <property name="CanSendFile" type="b" access="read"></property>
 </interface>
