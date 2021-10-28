@@ -12,7 +12,7 @@
        <arg type="b" direction="out"></arg>
   </method>
   <signal name="DeviceEnabled">
-       <arg type="s"></arg>
+       <arg type="o"></arg>
        <arg type="b"></arg>
   </signal>
 </interface>
