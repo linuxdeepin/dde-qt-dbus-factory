@@ -25,6 +25,8 @@
         <arg direction="out" type="d"/>
         <arg direction="out" type="s"/>
     </method>
+    <property access="readwrite" name="AutoInstallUpdates" type="b"/>
+    <property access="read" name="AutoInstallUpdateType" type="t"/>
     <property access="read" name="AutoCheckUpdates" type="b"/>
     <property access="read" name="MirrorSource" type="s"/>
     <property access="read" name="UpdatableApps" type="as"/>
