@@ -30,8 +30,6 @@
     <property name="LidClosedSleep" type="b" access="readwrite"/>
     <property name="LinePowerLockDelay" type="i" access="readwrite"/>
     <property name="BatteryLockDelay" type="i" access="readwrite"/>
-    <property name="LinePowerHibernateDelay" type="i" access="readwrite"/>
-    <property name="BatteryHibernateDelay" type="i" access="readwrite"/>
     <property name="LinePowerPressPowerBtnAction" type="i" access="readwrite"/>
     <property name="BatteryPressPowerBtnAction" type="i" access="readwrite"/>
     <property name="LowPowerNotifyEnable" type="b" access="readwrite"/>
