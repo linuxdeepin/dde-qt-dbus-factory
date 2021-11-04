@@ -21,6 +21,7 @@
         <arg name="oldName" type="s" direction="in"></arg>
         <arg name="newName" type="s" direction="in"></arg>
     </method>
+    <signal name="DriverChanged"></signal>
     <signal name="CharaUpdated">
         <arg name="charaName" type="s"></arg>
         <arg name="CharaType" type="i"></arg>
