@@ -1,4 +1,10 @@
-<a name="1.1.5"></a>
+<a name="5.15.1000.10"></a>
+### 1.1.5 (2019-06-11)
+* Add it to the smart os wayland environment
+
+
+
+a name="1.1.5"></a>
 ### 1.1.5 (2019-06-11)
 
 
