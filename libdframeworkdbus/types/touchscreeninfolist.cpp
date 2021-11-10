@@ -24,7 +24,7 @@
 QDBusArgument &operator<<(QDBusArgument &arg, const TouchscreenInfo &info)
 {
     arg.beginStructure();
-    arg << info.id << info.name << info.deviceNode << info.serialNumber;
+    arg << info.id << info.name << info.deviceNode << info.serialNumber << info.uuid;
     arg.endStructure();
 
     return arg;
@@ -33,7 +33,7 @@ QDBusArgument &operator<<(QDBusArgument &arg, const TouchscreenInfo &info)
 const QDBusArgument &operator>>(const QDBusArgument &arg, TouchscreenInfo &info)
 {
     arg.beginStructure();
-    arg >> info.id >> info.name >> info.deviceNode >> info.serialNumber;
+    arg >> info.id >> info.name >> info.deviceNode >> info.serialNumber >> info.uuid;
     arg.endStructure();
 
     return arg;
@@ -41,7 +41,7 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, TouchscreenInfo &info)
 
 bool TouchscreenInfo::operator==(const TouchscreenInfo &info)
 {
-    return id == info.id && name == info.name && deviceNode == info.deviceNode && serialNumber == info.serialNumber;
+    return id == info.id && name == info.name && deviceNode == info.deviceNode && serialNumber == info.serialNumber && uuid == info.uuid;
 }
 
 void registerTouchscreenInfoMetaType()
