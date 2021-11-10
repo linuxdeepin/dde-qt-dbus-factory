@@ -31,6 +31,7 @@ struct TouchscreenInfo {
     QString name;
     QString deviceNode;
     QString serialNumber;
+    QString uuid;
 
     bool operator ==(const TouchscreenInfo& info);
 };
