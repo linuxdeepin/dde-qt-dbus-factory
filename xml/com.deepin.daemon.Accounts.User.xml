@@ -91,4 +91,5 @@
   <property name="HomeDir" type="s" access="read"/>
   <property name="Layout" type="s" access="read"/>
   <property name="CreatedTime" type="t" access="read"/>
+  <property name="PasswordLastChange" type="i" access="read"/>
 </interface>
