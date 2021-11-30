@@ -7,7 +7,15 @@
     	<arg name="username" type="s" direction="in"></arg>
     	<arg name="limits" type="s" direction="out"></arg>
     </method>
+    <method name="GetUkeyUserData">
+        <arg name="username" type="s" direction="out"/>
+        <arg name="userinfo" type="s" direction="out"/>
+    </method>
     <signal name="LimitUpdated">
+    <signal name="UkeyUserData">
+        <arg name="username" type="s" direction="out"/>
+        <arg name="userinfo" type="s" direction="out"/>
+    </signal>
 	<arg type="s"></arg>
     </signal>
 </interface>
