@@ -12,10 +12,10 @@
         <arg name="userinfo" type="s" direction="out"/>
     </method>
     <signal name="LimitUpdated">
+	    <arg type="s"></arg>
+    </signal>
     <signal name="UkeyUserData">
         <arg name="username" type="s" direction="out"/>
         <arg name="userinfo" type="s" direction="out"/>
-    </signal>
-	<arg type="s"></arg>
     </signal>
 </interface>
