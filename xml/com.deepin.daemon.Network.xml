@@ -47,7 +47,8 @@
                <arg type="b" direction="in"></arg>
           </method>
           <method name="EnableWirelessHotspotMode">
-               <arg type="o" direction="in"></arg>
+              <arg type="o" direction="in"/>
+              <arg type="b" direction="in"/>
           </method>
           <method name="ListDeviceConnections">
                <arg type="ao" direction="out"></arg>
