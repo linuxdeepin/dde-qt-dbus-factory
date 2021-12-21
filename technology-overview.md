@@ -32,3 +32,4 @@
 ## generate_code.py
 
 一个利用编译出来的 `qdbusxml2cpp`，将 xml 描述的 DBus 接口文件转换成 cpp 接口类。
+
