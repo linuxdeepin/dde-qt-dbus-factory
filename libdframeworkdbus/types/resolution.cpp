@@ -40,7 +40,7 @@ Resolution::Resolution()
 
 bool Resolution::operator!=(const Resolution &other) const
 {
-    return m_id != other.m_id;
+    return m_width != other.m_width || m_height != other.m_height || m_rate != other.m_rate;
 }
 
 bool Resolution::operator==(const Resolution &other) const
