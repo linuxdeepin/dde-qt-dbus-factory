@@ -4,7 +4,7 @@
         <arg name="charaName" type="s" direction="in"></arg>
     </method>
     <method name="EnrollStart">
-	<arg name="driverName" type="s" direction="in"></arg>
+        <arg name="driverName" type="s" direction="in"></arg>
         <arg name="charaType" type="i" direction="in"></arg>
         <arg name="charaName" type="s" direction="in"></arg>
         <arg name="fileDescriptor" type="h" direction="out"></arg>
@@ -13,11 +13,11 @@
     </method>
     <method name="List">
         <arg name="driverName" type="s" direction="in"></arg>
-	<arg name="charaType" type="i" direction="in"></arg>
-	<arg name="faces" type="s" direction="out"></arg>
+        <arg name="charaType" type="i" direction="in"></arg>
+        <arg name="faces" type="s" direction="out"></arg>
     </method>
     <method name="Rename">
-	<arg name="charaType" type="i" direction="in"></arg>
+        <arg name="charaType" type="i" direction="in"></arg>
         <arg name="oldName" type="s" direction="in"></arg>
         <arg name="newName" type="s" direction="in"></arg>
     </method>
@@ -27,7 +27,7 @@
         <arg name="CharaType" type="i"></arg>
     </signal>
     <signal name="EnrollStatus">
-	<arg name="Sender" type="s"></arg>
+        <arg name="Sender" type="s"></arg>
         <arg name="Code" type="i"></arg>
         <arg name="Msg" type="s"></arg>
     </signal>
