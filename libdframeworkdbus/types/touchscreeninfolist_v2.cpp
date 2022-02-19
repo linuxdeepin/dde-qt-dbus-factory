@@ -19,41 +19,41 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "touchscreeninfolist.h"
+#include "touchscreeninfolist_v2.h"
 
-QDBusArgument &operator<<(QDBusArgument &arg, const TouchscreenInfo &info)
+QDBusArgument &operator<<(QDBusArgument &arg, const TouchscreenInfo_V2 &info)
 {
     arg.beginStructure();
-    arg << info.id << info.name << info.deviceNode << info.serialNumber;
+    arg << info.id << info.name << info.deviceNode << info.serialNumber << info.UUID;
     arg.endStructure();
 
     return arg;
 }
 
-const QDBusArgument &operator>>(const QDBusArgument &arg, TouchscreenInfo &info)
+const QDBusArgument &operator>>(const QDBusArgument &arg, TouchscreenInfo_V2 &info)
 {
     arg.beginStructure();
-    arg >> info.id >> info.name >> info.deviceNode >> info.serialNumber;
+    arg >> info.id >> info.name >> info.deviceNode >> info.serialNumber >> info.UUID;
     arg.endStructure();
 
     return arg;
 }
 
-bool TouchscreenInfo::operator==(const TouchscreenInfo &info)
+bool TouchscreenInfo_V2::operator==(const TouchscreenInfo_V2 &info)
 {
-    return id == info.id && name == info.name && deviceNode == info.deviceNode && serialNumber == info.serialNumber;
+    return id == info.id && name == info.name && deviceNode == info.deviceNode && serialNumber == info.serialNumber && UUID == info.UUID;
 }
 
-void registerTouchscreenInfoMetaType()
+void registerTouchscreenInfoV2MetaType()
 {
-    qRegisterMetaType<TouchscreenInfo>("TouchscreenInfo");
-    qDBusRegisterMetaType<TouchscreenInfo>();
+    qRegisterMetaType<TouchscreenInfo_V2>("TouchscreenInfo_V2");
+    qDBusRegisterMetaType<TouchscreenInfo_V2>();
 }
 
-void registerTouchscreenInfoListMetaType()
+void registerTouchscreenInfoList_V2MetaType()
 {
-    registerTouchscreenInfoMetaType();
+    registerTouchscreenInfoV2MetaType();
 
-    qRegisterMetaType<TouchscreenInfoList>("TouchscreenInfoList");
-    qDBusRegisterMetaType<TouchscreenInfoList>();
+    qRegisterMetaType<TouchscreenInfoList_V2>("TouchscreenInfoList_V2");
+    qDBusRegisterMetaType<TouchscreenInfoList_V2>();
 }
