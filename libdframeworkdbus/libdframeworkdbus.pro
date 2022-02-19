@@ -22,6 +22,7 @@ HEADERS += \
     types/brightnessmap.h \
     types/touchscreenmap.h \
     types/touchscreeninfolist.h \
+    types/touchscreeninfolist_v2.h \
     types/screenrect.h \
     types/inputdevicelist.h \
     types/keyboardlayoutlist.h \
@@ -88,6 +89,7 @@ SOURCES += \
     types/brightnessmap.cpp \
     types/touchscreenmap.cpp \
     types/touchscreeninfolist.cpp \
+    types/touchscreeninfolist_v2.cpp \
     types/batterypresentinfo.cpp \
     types/batterystateinfo.cpp \
     types/batterypercentageinfo.cpp \

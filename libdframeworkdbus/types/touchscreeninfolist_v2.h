@@ -19,30 +19,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TOUCHSCREENINFOLIST_H
-#define TOUCHSCREENINFOLIST_H
+#ifndef TOUCHSCREENINFOLISTV2_H
+#define TOUCHSCREENINFOLISTV2_H
 
 #include <QString>
 #include <QList>
 #include <QDBusMetaType>
 
-struct TouchscreenInfo {
+struct TouchscreenInfo_V2 {
     qint32 id;
     QString name;
     QString deviceNode;
     QString serialNumber;
+    QString UUID;
 
-    bool operator ==(const TouchscreenInfo& info);
+    bool operator ==(const TouchscreenInfo_V2& info);
 };
 
-typedef QList<TouchscreenInfo> TouchscreenInfoList;
+typedef QList<TouchscreenInfo_V2> TouchscreenInfoList_V2;
 
-Q_DECLARE_METATYPE(TouchscreenInfo)
-Q_DECLARE_METATYPE(TouchscreenInfoList)
+Q_DECLARE_METATYPE(TouchscreenInfo_V2)
+Q_DECLARE_METATYPE(TouchscreenInfoList_V2)
 
-QDBusArgument &operator<<(QDBusArgument &arg, const TouchscreenInfo &info);
-const QDBusArgument &operator>>(const QDBusArgument &arg, TouchscreenInfo &info);
+QDBusArgument &operator<<(QDBusArgument &arg, const TouchscreenInfo_V2 &info);
+const QDBusArgument &operator>>(const QDBusArgument &arg, TouchscreenInfo_V2 &info);
 
-void registerTouchscreenInfoListMetaType();
+void registerTouchscreenInfoList_V2MetaType();
 
-#endif // !TOUCHSCREENINFOLIST_H
+#endif // !TOUCHSCREENINFOLISTV2_H
