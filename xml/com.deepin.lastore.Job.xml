@@ -13,4 +13,5 @@
   <property name="Description" type="s" access="read"></property>
   <property name="ElapsedTime" type="i" access="read"></property>
   <property name="Cancelable" type="b" access="read"></property>
+  <property name="Packages" type="as" access="read"></property>
 </interface>
