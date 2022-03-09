@@ -5,6 +5,9 @@
     <method name="SetConfig">
         <arg type="s" direction="in"/>
     </method>
+    <method name="SupportWayland">
+        <arg type="b" direction="out"/>
+    </method>
     <signal name="ConfigUpdated">
         <arg type="s"/>
     </signal>
