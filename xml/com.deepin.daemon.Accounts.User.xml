@@ -63,20 +63,6 @@
   <method name="SetShell">
     <arg name="shell" type="s" direction="in"/>
   </method>
-  <method name="GetSecretQuestions">
-    <arg name="list" type="ai" direction="out" />
-    <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList &lt;int &gt;"/>
-  </method>
-  <method name="SetSecretQuestions">
-    <arg name="list" type="a{iay}" direction="in" />
-    <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QMap &lt;int, QByteArray &gt;"/>
-  </method>
-  <method name="VerifySecretQuestions">
-    <arg name="answers" type="a{is}" direction="in" />
-    <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QMap &lt;int, QString &gt;"/>
-    <arg name="failed" type="ai" direction="out" />
-    <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList &lt;int &gt;"/>
-  </method>
   <property name="Groups" type="as" access="read"/>
   <property name="IconList" type="as" access="read"/>
   <property name="Shell" type="s" access="read"/>
