@@ -1,8 +1,8 @@
-dde-qt-dbus-factory (6.0.0.0) unstable; urgency=medium
+dde-qt-dbus-factory (6.0.0) unstable; urgency=medium
 
-  * release 6.0.0.0
+  * release 6.0.0
 
- --  <fanpengcheng@uniontech.com>  Tue, 14 June 2022 17:02:13 +0800
+ --  <fanpengcheng@uniontech.com>  Tue, 14 Jun 2022 17:02:13 +0800
 
 dde-qt-dbus-factory (0.4.2-2) unstable; urgency=medium
 
