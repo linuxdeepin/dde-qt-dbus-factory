@@ -83,7 +83,7 @@ LinkInfo LinkInfo::fromJson(const QJsonObject &infoObject)
     info.m_p2pScanning = infoObject.value("P2PScanning").toBool();
     info.m_dbusPath = QDBusObjectPath(infoObject.value("Path").toString());
 
-    return std::move(info);
+    return info;
 }
 
 bool LinkInfo::operator==(const LinkInfo &what)

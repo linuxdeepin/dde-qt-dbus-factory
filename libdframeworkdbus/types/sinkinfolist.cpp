@@ -83,7 +83,7 @@ SinkInfo SinkInfo::fromJson(const QJsonObject &infoObject)
     info.m_sinkPath = QDBusObjectPath(infoObject.value("Path").toString());
     info.m_linkPath = QDBusObjectPath(infoObject.value("LinkPath").toString());
 
-    return std::move(info);
+    return info;
 }
 
 bool SinkInfo::operator==(const SinkInfo &what)
