@@ -1,4 +1,4 @@
-dde-qt-dbus-factory (0.4.2-2) unstable; urgency=medium
+dde-qt-dbus-factory (0.4.2) unstable; urgency=medium
 
   * Refresh symbols using build's buildlog.
 
