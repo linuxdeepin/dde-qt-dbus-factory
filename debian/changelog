@@ -1,3 +1,9 @@
+dde-qt-dbus-factory (5.5.22) UNRELEASED; urgency=medium
+
+  * update changelog.
+
+ -- Heng Liu <liuheng@deepin.org>  Tue, 27 Dec 2022 14:16:35 +0800
+
 dde-qt-dbus-factory (0.4.3) unstable; urgency=medium
 
   * Update changelog.
