@@ -3,6 +3,9 @@
 pkgname=deepin-qt-dbus-factory-git
 pkgver=5.5.22.r4.g1092bfe
 pkgrel=1
+sourcename=deepin-qt-dbus-factory
+sourcetars=("$sourcename"_"$pkgver".tar.xz)
+sourcedir="$sourcename"
 pkgdesc='A repository stores auto-generated Qt5 dbus code (libdframeworkdbus)'
 arch=('x86_64' 'aarch64')
 url="https://github.com/linuxdeepin/dde-qt-dbus-factory"
@@ -12,20 +15,20 @@ makedepends=('git' 'dtkcore-git' 'python')
 conflicts=('deepin-qt-dbus-factory')
 provides=('deepin-qt-dbus-factory')
 groups=('deepin-git')
-source=('source.tar.gz')
+source=("${sourcetars[@]}")
 sha512sums=('SKIP')
 
 prepare() {
-    cd $deepin_source_name
+    cd $sourcedir
 }
 
 build() {
-  cd $deepin_source_name
+  cd $sourcedir
   qmake-qt5 PREFIX=/usr
   make
 }
 
 package() {
-  cd $deepin_source_name
+  cd $sourcedir
   make INSTALL_ROOT="$pkgdir" install
 }
