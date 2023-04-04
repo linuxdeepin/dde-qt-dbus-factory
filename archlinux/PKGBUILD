@@ -3,7 +3,7 @@
 pkgname=deepin-qt-dbus-factory-git
 pkgver=5.5.22.r4.g1092bfe
 pkgrel=1
-sourcename=deepin-qt-dbus-factory
+sourcename=dde-qt-dbus-factory
 sourcetars=("$sourcename"_"$pkgver".tar.xz)
 sourcedir="$sourcename"
 pkgdesc='A repository stores auto-generated Qt5 dbus code (libdframeworkdbus)'
