@@ -52,4 +52,5 @@
     <property name="Opacity" type="d" access="readwrite"/>
     <property name="WallpaperSlideShow" type="s" access="readwrite"/>
     <property name="QtActiveColor" type="s" access="readwrite"/>
+    <property name="GlobalTheme" type="s" access="read"/>
 </interface>
