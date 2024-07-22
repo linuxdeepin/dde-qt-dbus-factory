@@ -1,3 +1,9 @@
+dde-qt-dbus-factory (6.0.1) unstable; urgency=medium
+
+  * release 6.0.1
+
+ -- Yingzhen zhao  <zhaoyingzhen@uniontech.com>  Mon, 22 Jul 2024 21:12:10 +0800
+
 dde-qt-dbus-factory (6.0.0) unstable; urgency=medium
 
   * release 6.0.0
