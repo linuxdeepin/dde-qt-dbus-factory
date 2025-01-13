@@ -42,3 +42,7 @@ License: GPL-3.0-or-later
 Files: libdframeworkdbus/qtdbusextended/*
 Copyright: Jolla Ltd.
 License: LGPL-2.1-or-later
+
+Files: toolGenerate/**/*
+Copyright: None
+License: CC0-1.0
